@@ -31,7 +31,7 @@ $$
 \Theta(n)
 $$
 
-Worst Case: $\Theta(n^2)$
+Worst Case: $$\Theta(n^2)$$
 
 ### Python Implementation
 ```py
