@@ -30,7 +30,9 @@ def bubble_sort(a):
 * Finds the place the element belongs and places within the array.
 
 ### Running Time
+
 Best Case:
+
 $$
 \Theta(n)
 $$
