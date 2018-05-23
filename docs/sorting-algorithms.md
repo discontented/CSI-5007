@@ -1,3 +1,7 @@
+---
+math: true
+---
+
 ## Bubble Sort
 
 Compares each pair of elements in an array and swaps them if they are out of order until the entire array is sorted.
