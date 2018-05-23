@@ -1,3 +1,7 @@
+---
+math: true
+---
+
 ## Bubble Sort
 
 Compares each pair of elements in an array and swaps them if they are out of order until the entire array is sorted.
@@ -26,9 +30,14 @@ def bubble_sort(a):
 * Finds the place the element belongs and places within the array.
 
 ### Running Time
-Best Case: $\Theta(n)$
 
-Worst Case: $\Theta(n^2)$
+Best Case:
+
+$$
+\Theta(n)
+$$
+
+Worst Case: $$\Theta(n^2)$$
 
 ### Python Implementation
 ```py
