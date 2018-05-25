@@ -6,7 +6,9 @@
 Compares each pair of elements in an array and swaps them if they are out of order until the entire array is sorted.
 
 ### Running Time
-$\Theta(n^2)$
+Best Case: $\Theta(n)$
+
+Worst Case: $\Theta(n^2)$ 
 
 ### Loop Invariant
 * Enter the for loop on `i` with value `j`, array `a[0...k-1]` contains the `k` smallest elements of the set in sorted order.
@@ -30,13 +32,9 @@ def bubble_sort(a):
 
 ### Running Time
 
-Best Case:
+Best Case: $\Theta(n)$
 
-$$
-\Theta(n)
-$$
-
-Worst Case: $$\Theta(n^2)$$
+Worst Case: $\Theta(n^2)$
 
 ### Python Implementation
 ```py
