@@ -18,6 +18,8 @@ def indexLogM(array, start, end):
             # start recursion at next possible middle position to end.
             indexLogM(array, middle + 1, end)
         else:
+            # encountered a 1 but not the first one.
+            # start recursion from start of array to the middle.
             indexLogM(array, start, middle)
 
 # Test Code
