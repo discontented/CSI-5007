@@ -1,4 +1,6 @@
-
+---
+mathjax: true
+---
 
 # Sorting
 # Bubble Sort
