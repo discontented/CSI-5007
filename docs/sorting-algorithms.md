@@ -1,5 +1,6 @@
 ---
 mathjax: true
+layout: post
 ---
 
 # Sorting
