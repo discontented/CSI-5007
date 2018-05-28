@@ -3,5 +3,5 @@
 {% endfor %} -->
 
 {% for note in site.notes %}
-[{{ site.baseurl }}{{ note.title }}]({{ note.url }})
+[{{ note.title }}]({{ site.baseurl }}/{{ note.url }})
 {% endfor %}
