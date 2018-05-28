@@ -3,7 +3,17 @@ mathjax: true
 layout: post
 ---
 
-# Bubble Sort
+- [Bubble Sort](#bubble-sort)
+    - [Running Time](#running-time)
+    - [Loop Invariant](#loop-invariant)
+    - [Python Implementation](#python-implementation)
+- [Insertion Sort](#insertion-sort)
+    - [Running Time](#running-time)
+    - [Python Implementation](#python-implementation)
+- [Merge Sort](#merge-sort)
+    - [Running Time](#running-time)
+
+## Bubble Sort
 
 Compares each pair of elements in an array and swaps them if they are out of order until the entire array is sorted.
 
