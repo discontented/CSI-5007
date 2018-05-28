@@ -7,5 +7,5 @@
 {% endfor %}
 
 {% for note in site.notes %}
-    [{{ note.title }}]({{ note.url }})
+    <a href="{{ note.url }}">{{ note.title }}</a>
 {% endfor %}
