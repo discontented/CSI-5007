@@ -8,3 +8,5 @@ permalink: /about/
 [Brilliant Sorting Algorithms](https://brilliant.org/wiki/sorting-algorithms/)
 
 [Big-O Cheatsheet](http://bigocheatsheet.com/)
+
+[Python Quick Reference](http://josh-corneille.com/programming-notes/python.html)
