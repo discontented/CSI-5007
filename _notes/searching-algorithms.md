@@ -3,7 +3,6 @@ mathjax: true
 layout: post
 ---
 
-# Searching
 ## Binary Search
 
 ### Python Implementation
