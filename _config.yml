@@ -31,7 +31,7 @@ plugins:
 collections:
   notes:
     output: true
-    permalink: /notes/:path/
+    permalink: :baseurl/notes/:path/
 
 
 # Exclude from processing.
