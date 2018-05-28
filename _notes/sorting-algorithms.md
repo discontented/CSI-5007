@@ -11,7 +11,12 @@ layout: post
     - [Running Time](#running-time)
     - [Python Implementation](#python-implementation)
 - [Merge Sort](#merge-sort)
+    - [Python Implementation](#python-implementation)
     - [Running Time](#running-time)
+- [Heap Sort](#heap-sort)
+    - [`min-heap` property](#min-heap-property)
+    - [Python Implementation](#python-implementation)
+    - [Runtime](#runtime)
 
 ## Bubble Sort
 
@@ -67,5 +72,37 @@ def insertion_sort(array):
 * Merges two pre-sorted arrays so that the resulting array is sorted.
 * Merges with an outside merge function.
 
+### Python Implementation
+```py
+def merge_sort(array):
+    if len(array) <= 1:
+        return array
+    else:
+        m = floor(len(array) / 2)
+        return merge(array[0:m], merge_sort(array[m:]))
+```
+
 ### Running Time
 $\Theta(nlgn)$
+
+## Heap Sort
+
+### `min-heap` property
+
+$a[\lfloor{i/2}\rfloor]\leq{a[i]}$
+
+### Python Implementation
+
+```py
+def heapsort(x):
+    n = len(x)
+    a = newheap(n)
+    for i in range(n):
+        insert(a, x[i])
+    for i in range(n):
+        x[i] = extractsmallest(a)
+    return x
+```
+
+### Runtime
+$\Theta(nlogn)$
