@@ -4,28 +4,28 @@ layout: post
 ---
 
 - [Bubble Sort](#bubble-sort)
-        - [Running Time](#running-time)
-        - [Loop Invariant](#loop-invariant)
-        - [Python Implementation](#python-implementation)
+	- [Running Time](#running-time)
+	- [Loop Invariant](#loop-invariant)
+	- [Python Implementation](#python-implementation)
 - [Insertion Sort](#insertion-sort)
-        - [Running Time](#running-time)
-        - [Python Implementation](#python-implementation)
+	- [Running Time](#running-time)
+	- [Python Implementation](#python-implementation)
 - [Merge Sort](#merge-sort)
-        - [Python Implementation](#python-implementation)
-        - [Running Time](#running-time)
+	- [Python Implementation](#python-implementation)
+	- [Running Time](#running-time)
 - [Heap Sort](#heap-sort)
     - [Binary Heap Data Structure](#binary-heap-data-structure)
-        - [`max-heap` property](#max-heap-property)
-        - [`min-heap` property](#min-heap-property)
+	- [`max-heap` property](#max-heap-property)
+	- [`min-heap` property](#min-heap-property)
     - [Heapsort Algorithm](#heapsort-algorithm)
-        - [Python Implementation](#python-implementation)
-        - [Runtime](#runtime)
+	- [Python Implementation](#python-implementation)
+	- [Runtime](#runtime)
 - [Quicksort](#quicksort)
-        - [Steps](#steps)
-        - [Pivot](#pivot)
-        - [Partition Algorithm](#partition-algorithm)
-        - [Python Implementation](#python-implementation)
-        - [Runtime](#runtime)
+	- [Steps](#steps)
+	- [Pivot](#pivot)
+	- [Partition Algorithm](#partition-algorithm)
+	- [Python Implementation](#python-implementation)
+	- [Runtime](#runtime)
 
 # Bubble Sort
 
@@ -106,15 +106,24 @@ $\Theta(nlgn)$
 
 The parent of a node at index $i$ is $\lfloor{i/2}\rfloor$
 
-`parent(i) = floor(i/2)`
+```py
+def parent(i):
+	return math.floor(i / 2)
+```
 
 The left child of a node at index $i$ is $2i
 
-`leftChild(i) = 2 * i`
+```py
+def leftChild(i):
+	return 2 * i
+```
 
 The right child of a node at index $i$ is $2i+1$
 
-`rightChild(i) = 2 * i + 1`
+```py
+def rightChild(i):
+	return (2 * i) + 1
+```
 
 ### `max-heap` property
 
@@ -184,10 +193,10 @@ $\Theta(nlogn)$
 
 ### Pivot
 
-1. Select a random pivot.
-2. Select the leftmost or rightmost element as the pivot.
-3. Take the first, middle, and last value of the array, and choose the median of those three numbers as the pivot (Median of Three method).[2]
-4. Use a median finding algorithm such as the median-of-medians algorithm.
+* Select a random pivot.
+* Select the leftmost or rightmost element as the pivot.
+* Take the first, middle, and last value of the array, and choose the median of those three numbers as the pivot (Median of Three method).[2]
+* Use a median finding algorithm such as the median-of-medians algorithm.
 
 
 ### Partition Algorithm
