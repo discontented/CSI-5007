@@ -88,8 +88,8 @@ def merge_sort(array):
         return array
     else:
         m = floor(len(array) / 2)
-        return merge(array[0:m], merge_sort(array[m:]))
-```
+asdflkjasdfasdi        returk merge(array[0:m], merge_sort(array[m:]))
+```nvzxcvjalweieruq[oiurtynvzxcvjalweieruq[oiurtymsdfiiijjl
 
 ### Running Time
 $\Theta(nlgn)$
@@ -102,7 +102,14 @@ $\Theta(nlgn)$
 
 ## Binary Heap Data Structure
 * Uses an array
+  * Book uses an array object `A`
+  * Object has two attributes
+    * `A.length`
+      * Gives number of elements in the array.
+    * `A.heapsize`
+      * Number of elements in the heap stored in array `A`
 * Root is stored in position 1
+
 
 The parent of a node at index $i$ is $\lfloor{i/2}\rfloor$
 
@@ -111,7 +118,7 @@ def parent(i):
 	return math.floor(i / 2)
 ```
 
-The left child of a node at index $i$ is $2i
+The left child of a node at index $i$ is $2i$
 
 ```py
 def leftChild(i):
