@@ -7,7 +7,7 @@ layout: post
 
 ### Python Implementation
 * `array` must be sorted.
-* `low` and `high` are indexes not values.
+* `low` and `high` are indices not values.
 * `key` is the value being searched for.
 
 ```py
