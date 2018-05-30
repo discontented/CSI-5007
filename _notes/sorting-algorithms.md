@@ -4,28 +4,28 @@ layout: post
 ---
 
 - [Bubble Sort](#bubble-sort)
-	- [Running Time](#running-time)
-	- [Loop Invariant](#loop-invariant)
-	- [Python Implementation](#python-implementation)
+        - [Running Time](#running-time)
+        - [Loop Invariant](#loop-invariant)
+        - [Python Implementation](#python-implementation)
 - [Insertion Sort](#insertion-sort)
-	- [Running Time](#running-time)
-	- [Python Implementation](#python-implementation)
+        - [Running Time](#running-time)
+        - [Python Implementation](#python-implementation)
 - [Merge Sort](#merge-sort)
-	- [Python Implementation](#python-implementation)
-	- [Running Time](#running-time)
+        - [Python Implementation](#python-implementation)
+        - [Running Time](#running-time)
 - [Heap Sort](#heap-sort)
     - [Binary Heap Data Structure](#binary-heap-data-structure)
-	- [`max-heap` property](#max-heap-property)
-	- [`min-heap` property](#min-heap-property)
+        - [`max-heap` property](#max-heap-property)
+        - [`min-heap` property](#min-heap-property)
     - [Heapsort Algorithm](#heapsort-algorithm)
-	- [Python Implementation](#python-implementation)
-	- [Runtime](#runtime)
+        - [Python Implementation](#python-implementation)
+        - [Runtime](#runtime)
 - [Quicksort](#quicksort)
-	- [Steps](#steps)
-	- [Pivot](#pivot)
-	- [Partition Algorithm](#partition-algorithm)
-	- [Python Implementation](#python-implementation)
-	- [Runtime](#runtime)
+        - [Steps](#steps)
+        - [Pivot](#pivot)
+        - [Partition Algorithm](#partition-algorithm)
+        - [Python Implementation](#python-implementation)
+        - [Runtime](#runtime)
 
 # Bubble Sort
 
@@ -88,8 +88,8 @@ def merge_sort(array):
         return array
     else:
         m = floor(len(array) / 2)
-asdflkjasdfasdi        returk merge(array[0:m], merge_sort(array[m:]))
-```nvzxcvjalweieruq[oiurtynvzxcvjalweieruq[oiurtymsdfiiijjl
+   return merge(array[0:m], merge_sort(array[m:]))
+```
 
 ### Running Time
 $\Theta(nlgn)$
