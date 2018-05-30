@@ -11,21 +11,21 @@ layout: post
     - [Running Time](#running-time)
     - [Python Implementation](#python-implementation)
 - [Merge Sort](#merge-sort)
-    - [Python Implementation](#python-implementation)
     - [Running Time](#running-time)
+    - [Python Implementation](#python-implementation)
 - [Heap Sort](#heap-sort)
+    - [Runtime](#runtime)
     - [Binary Heap Data Structure](#binary-heap-data-structure)
     - [`max-heap` property](#max-heap-property)
     - [`min-heap` property](#min-heap-property)
     - [Heapsort Algorithm](#heapsort-algorithm)
         - [Python Implementation](#python-implementation)
-    - [Runtime](#runtime)
 - [Quicksort](#quicksort)
+    - [Runtime](#runtime)
     - [Steps](#steps)
     - [Pivot](#pivot)
     - [Partition Algorithm](#partition-algorithm)
     - [Python Implementation](#python-implementation)
-    - [Runtime](#runtime)
 
 ## Bubble Sort
 
@@ -81,6 +81,9 @@ def insertion_sort(array):
 * Merges two pre-sorted arrays so that the resulting array is sorted.
 * Merges with an outside merge function.
 
+### Running Time
+$\Theta(nlgn)$
+
 ### Python Implementation
 ```py
 def merge_sort(array):
@@ -91,14 +94,14 @@ def merge_sort(array):
    return merge(array[0:m], merge_sort(array[m:]))
 ```
 
-### Running Time
-$\Theta(nlgn)$
-
 ## Heap Sort
 
 * A comparison based algorithm
 * Sorts in place
 * Uses a binary heap data structure
+
+### Runtime
+$\Theta(nlogn)$
 
 ### Binary Heap Data Structure
 * Uses an array
@@ -181,13 +184,19 @@ def heapsort(x):
     return x
 ```
 
-### Runtime
-$\Theta(nlogn)$
 
 ## Quicksort
 * Comparison-based
 * Uses divide-and-conquer
 * Picks a pivot point.
+
+### Runtime
+
+Best Case: $O(nlogn)$
+
+Worst Case: $O(n^2)$
+
+Average Case: $O(nlogn)$
 
 ### Steps
 
@@ -225,10 +234,3 @@ def quicksort(a):
 
 ```
 
-### Runtime
-
-Best Case: $O(nlogn)$
-
-Worst Case: $O(n^2)$
-
-Average Case: $O(nlogn)$
