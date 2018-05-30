@@ -4,30 +4,30 @@ layout: post
 ---
 
 - [Bubble Sort](#bubble-sort)
-        - [Running Time](#running-time)
-        - [Loop Invariant](#loop-invariant)
-        - [Python Implementation](#python-implementation)
+    - [Running Time](#running-time)
+    - [Loop Invariant](#loop-invariant)
+    - [Python Implementation](#python-implementation)
 - [Insertion Sort](#insertion-sort)
-        - [Running Time](#running-time)
-        - [Python Implementation](#python-implementation)
+    - [Running Time](#running-time)
+    - [Python Implementation](#python-implementation)
 - [Merge Sort](#merge-sort)
-        - [Python Implementation](#python-implementation)
-        - [Running Time](#running-time)
+    - [Python Implementation](#python-implementation)
+    - [Running Time](#running-time)
 - [Heap Sort](#heap-sort)
     - [Binary Heap Data Structure](#binary-heap-data-structure)
-        - [`max-heap` property](#max-heap-property)
-        - [`min-heap` property](#min-heap-property)
+    - [`max-heap` property](#max-heap-property)
+    - [`min-heap` property](#min-heap-property)
     - [Heapsort Algorithm](#heapsort-algorithm)
         - [Python Implementation](#python-implementation)
-        - [Runtime](#runtime)
+    - [Runtime](#runtime)
 - [Quicksort](#quicksort)
-        - [Steps](#steps)
-        - [Pivot](#pivot)
-        - [Partition Algorithm](#partition-algorithm)
-        - [Python Implementation](#python-implementation)
-        - [Runtime](#runtime)
+    - [Steps](#steps)
+    - [Pivot](#pivot)
+    - [Partition Algorithm](#partition-algorithm)
+    - [Python Implementation](#python-implementation)
+    - [Runtime](#runtime)
 
-# Bubble Sort
+## Bubble Sort
 
 Compares each pair of elements in an array and swaps them if they are out of order until the entire array is sorted.
 
@@ -50,7 +50,7 @@ def bubble_sort(a):
     return a
 ```
 
-# Insertion Sort
+## Insertion Sort
 
 * Builds a final sorted array one element at a time.
 * Iterates through an input array and removes one element per iteration
@@ -75,7 +75,7 @@ def insertion_sort(array):
     return array
 ```
 
-# Merge Sort
+## Merge Sort
 
 * Recursive
 * Merges two pre-sorted arrays so that the resulting array is sorted.
@@ -94,13 +94,13 @@ def merge_sort(array):
 ### Running Time
 $\Theta(nlgn)$
 
-# Heap Sort
+## Heap Sort
 
 * A comparison based algorithm
 * Sorts in place
 * Uses a binary heap data structure
 
-## Binary Heap Data Structure
+### Binary Heap Data Structure
 * Uses an array
   * Book uses an array object `A`
   * Object has two attributes
@@ -147,11 +147,11 @@ def rightChild(i):
 
 `A[parent(i)] <= A[i]`
 
-## Heapsort Algorithm
+### Heapsort Algorithm
 1. Build a maxheap
 2. Sort
 
-### Python Implementation
+#### Python Implementation
 
 ```py
 def newheap(n):
@@ -184,7 +184,7 @@ def heapsort(x):
 ### Runtime
 $\Theta(nlogn)$
 
-# Quicksort
+## Quicksort
 * Comparison-based
 * Uses divide-and-conquer
 * Picks a pivot point.
@@ -203,7 +203,6 @@ $\Theta(nlogn)$
 * Select the leftmost or rightmost element as the pivot.
 * Take the first, middle, and last value of the array, and choose the median of those three numbers as the pivot (Median of Three method).[2]
 * Use a median finding algorithm such as the median-of-medians algorithm.
-
 
 ### Partition Algorithm
 ```py
