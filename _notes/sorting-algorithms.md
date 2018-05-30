@@ -110,7 +110,6 @@ $\Theta(nlgn)$
       * Number of elements in the heap stored in array `A`
 * Root is stored in position 1
 
-
 The parent of a node at index $i$ is $\lfloor{i/2}\rfloor$
 
 ```py
