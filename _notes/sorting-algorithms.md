@@ -93,66 +93,34 @@ def merge_sort(array):
         m = floor(len(array) / 2)
    return merge(array[0:m], merge_sort(array[m:]))
 ```
+## Selection Sort
+* Class uses `abstractSort(a)`
+
+### Python Implementation
+```py
+abstractSort(array):
+	n, na = len(array), []
+	for i in range(n):
+		smallest = extraSmallestAndDelete(array)
+		na.append(smallest)
+	return na
+
+```
 
 ## Heap Sort
 
 * A comparison based algorithm
 * Sorts in place
-* Uses a binary heap data structure
+* Uses a [binary heap data structure](binaryHeap.md)
 
 ### Runtime
 $\Theta(nlogn)$
 
-### Binary Heap Data Structure
-* Uses an array
-  * Book uses an array object `A`
-  * Object has two attributes
-    * `A.length`
-      * Gives number of elements in the array.
-    * `A.heapsize`
-      * Number of elements in the heap stored in array `A`
-* Root is stored in position 1
+### Book Implementation
 
-The parent of a node at index $i$ is $\lfloor{i/2}\rfloor$
 
-```py
-def parent(i):
-	return math.floor(i / 2)
-```
-
-The left child of a node at index $i$ is $2i$
-
-```py
-def leftChild(i):
-	return 2 * i
-```
-
-The right child of a node at index $i$ is $2i+1$
-
-```py
-def rightChild(i):
-	return (2 * i) + 1
-```
-
-### `max-heap` property
-
-* A node cannot have a greater value than its parent.
-* The largest element is the root.
-* The minimum elements are the leaves.
-
-`A[parent(i)] >= A[i]`
-
-### `min-heap` property
-
-* A parent node cannot have a greater value than its children.
-* The minimum element is the root.
-* The max elements are the leaves.
-
-`A[parent(i)] <= A[i]`
-
-### Heapsort Algorithm
-1. Build a maxheap
-2. Sort
+### Class Implementation
+* Uses a **min-heap**
 
 #### Python Implementation
 
@@ -183,7 +151,6 @@ def heapsort(x):
         x[i] = extractsmallest(a)
     return x
 ```
-
 
 ## Quicksort
 * Comparison-based
