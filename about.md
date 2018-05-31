@@ -13,6 +13,8 @@ permalink: /about/
 
 [Big-O Cheatsheet](http://bigocheatsheet.com/)
 
+[Rob Edwards Playlist](https://www.youtube.com/playlist?list=PLpPXw4zFa0uKKhaSz87IowJnOTzh9tiBk)
+
 [Python Quick Reference](http://josh-corneille.com/programming-notes/python.html)
 
 

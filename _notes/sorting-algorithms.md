@@ -167,7 +167,7 @@ def insert(a, e):
 
 def heapfixup(a,i):
     while i > 1:
-        p = floor(i/2)
+        parent = floor(i/2)
         if a[p] > a[i]:
             a[p], a[i] = a[i], a[p]
             i = p
