@@ -1,8 +1,6 @@
 ---
 mathjax: true
-layout: post
 ---
-
 ## Binary Search
 
 ### Python Implementation
