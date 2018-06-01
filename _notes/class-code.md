@@ -328,10 +328,11 @@ def strassen(A, B, n, n0):
         C(v, v) = P1 + P3 - P2 + P6
     return C
 ```
-Runtime: $\Theta(n^2.8)$
+Runtime: $\Theta(n^{2.8})$
 
 # Merge Sort
 * 9 - The Heap and the Quick
+
 ```py
 def merge_sort(array):
     if len(array) <= 1:
