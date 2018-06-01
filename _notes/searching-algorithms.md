@@ -1,4 +1,6 @@
 ---
+layout: post
+mathjax: true
 ---
 
 ## Binary Search
