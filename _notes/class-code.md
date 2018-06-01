@@ -141,7 +141,7 @@ def rbsearch(a, e, l, h):
 # Find in Log M
 I don't understand lisp so it's only partially translated to python.
 
-```lisp
+```
 ( defun find−in−log−m ( v )
     ( let∗ ( (max (1− ( length v ) ) )
         ( symbol−m ( a ref v max) ) )
@@ -159,6 +159,7 @@ I don't understand lisp so it's only partially translated to python.
     min max ) ) ) ) ) ) )
 
 ```
+
 ## Python Interpretation
 ```py
 def findInLogM(v):
