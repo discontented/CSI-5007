@@ -27,7 +27,7 @@ All python code that appears in the slides.
 - [Min-Heap Heapsort](#min-heap-heapsort)
 - [Quicksort](#quicksort)
         - [Runtime](#runtime)
-        - [Faster Quicksort](#faster-quicksort)
+    - [Faster Quicksort](#faster-quicksort)
 - [Bin Sort](#bin-sort)
 - [Radix Sort](#radix-sort)
 - [Min and Max](#min-and-max)
@@ -489,7 +489,7 @@ Worst Case: $O(n^2)$
 
 Average Case: $O(nlogn)$
 
-### Faster Quicksort
+## Faster Quicksort
 
 ```py
 def qsort1(a, l=0, u=None):
