@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Searching Algorithms" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Binary Search" />
-<meta property="og:description" content="Binary Search" />
+<meta name="description" content="CSI 5007 Notes" />
+<meta property="og:description" content="CSI 5007 Notes" />
 <link rel="canonical" href="http://localhost:4000/CSI-5007/notes/searching-algorithms/" />
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/searching-algorithms/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-05-28T13:14:17-04:00" />
+<meta property="article:published_time" content="2018-05-31T21:24:09-04:00" />
 <script type="application/ld+json">
-{"description":"Binary Search","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/searching-algorithms/","headline":"Searching Algorithms","dateModified":"2018-05-28T13:14:17-04:00","datePublished":"2018-05-28T13:14:17-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/searching-algorithms/"},"@context":"http://schema.org"}</script>
+{"description":"CSI 5007 Notes","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/searching-algorithms/","headline":"Searching Algorithms","dateModified":"2018-05-31T21:24:09-04:00","datePublished":"2018-05-31T21:24:09-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/searching-algorithms/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -32,7 +32,6 @@
     }
   });
 </script>
-
 
 <body><header class="site-header" role="banner">
 
@@ -58,34 +57,66 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Searching Algorithms</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-05-28T13:14:17-04:00" itemprop="datePublished">May 28, 2018
+      <time class="dt-published" datetime="2018-05-31T21:24:09-04:00" itemprop="datePublished">May 31, 2018
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="binary-search">Binary Search</h2>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<h2 id="binary-search">Binary Search</h2>
 
 <h3 id="python-implementation">Python Implementation</h3>
+
 <ul>
   <li><code class="highlighter-rouge">array</code> must be sorted.</li>
-  <li><code class="highlighter-rouge">low</code> and <code class="highlighter-rouge">high</code> are indexes not values.</li>
+  <li><code class="highlighter-rouge">low</code> and <code class="highlighter-rouge">high</code> are indices not values.</li>
   <li><code class="highlighter-rouge">key</code> is the value being searched for.</li>
 </ul>
 
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bsearch</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-    <span class="n">low</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-    <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
-        <span class="n">middle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">middle</span>
-        <span class="k">if</span> <span class="n">array</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">key</span><span class="p">:</span>
-            <span class="n">low</span> <span class="o">=</span> <span class="n">middle</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">high</span> <span class="o">=</span> <span class="n">middle</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</code></pre></div></div>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Python</a></li>
+        <li><a href="#tabs-2">Book</a></li>
+    </ul>
+
+    <div id="tabs-1">
+
+        ```py
+        def bsearch(array, key):
+            low, high = 0, len(array)-1
+            while low &lt;= high:
+                middle = math.floor((low + high) / 2)
+                if array[middle] == key:
+                    return middle
+                if array[middle] &lt; key:
+                    low = middle + 1
+                else:
+                    high = middle - 1
+            return -1
+        ```
+
+    </div>
+
+    <div id="tabs-2">
+    
+    ```
+    //book code
+    ```
+
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $("#tabs").tabs();
+    })
+</script>
 
 <h3 id="loop-invariant">Loop Invariant</h3>
+
 <ul>
   <li>If the <code class="highlighter-rouge">key</code> is in the array, it is in <code class="highlighter-rouge">a[1,...,high]</code></li>
   <li>The midpoint is determined by dividing the array in half.
@@ -113,6 +144,7 @@
 </ul>
 
 <h3 id="running-time">Running Time</h3>
+
 <p>$\Theta(lgn)$</p>
 
   </div><a class="u-url" href="/CSI-5007/notes/searching-algorithms/" hidden></a>

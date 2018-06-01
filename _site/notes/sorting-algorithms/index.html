@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Sorting Algorithms" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time" />
-<meta property="og:description" content="Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time" />
+<meta name="description" content="Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time Python Implementation Heap Sort Runtime Binary Heap Data Structure max-heap property min-heap property Heapsort Algorithm Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation" />
+<meta property="og:description" content="Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time Python Implementation Heap Sort Runtime Binary Heap Data Structure max-heap property min-heap property Heapsort Algorithm Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation" />
 <link rel="canonical" href="http://localhost:4000/CSI-5007/notes/sorting-algorithms/" />
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/sorting-algorithms/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-05-28T13:14:17-04:00" />
+<meta property="article:published_time" content="2018-05-31T21:24:09-04:00" />
 <script type="application/ld+json">
-{"description":"Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/sorting-algorithms/","headline":"Sorting Algorithms","dateModified":"2018-05-28T13:14:17-04:00","datePublished":"2018-05-28T13:14:17-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/sorting-algorithms/"},"@context":"http://schema.org"}</script>
+{"description":"Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time Python Implementation Heap Sort Runtime Binary Heap Data Structure max-heap property min-heap property Heapsort Algorithm Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/sorting-algorithms/","headline":"Sorting Algorithms","dateModified":"2018-05-31T21:24:09-04:00","datePublished":"2018-05-31T21:24:09-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/sorting-algorithms/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -32,7 +32,6 @@
     }
   });
 </script>
-
 
 <body><header class="site-header" role="banner">
 
@@ -58,7 +57,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Sorting Algorithms</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-05-28T13:14:17-04:00" itemprop="datePublished">May 28, 2018
+      <time class="dt-published" datetime="2018-05-31T21:24:09-04:00" itemprop="datePublished">May 31, 2018
       </time></p>
   </header>
 
@@ -80,6 +79,29 @@
   <li><a href="#merge-sort">Merge Sort</a>
     <ul>
       <li><a href="#running-time">Running Time</a></li>
+      <li><a href="#python-implementation">Python Implementation</a></li>
+    </ul>
+  </li>
+  <li><a href="#heap-sort">Heap Sort</a>
+    <ul>
+      <li><a href="#runtime">Runtime</a></li>
+      <li><a href="#binary-heap-data-structure">Binary Heap Data Structure</a></li>
+      <li><a href="#max-heap-property"><code class="highlighter-rouge">max-heap</code> property</a></li>
+      <li><a href="#min-heap-property"><code class="highlighter-rouge">min-heap</code> property</a></li>
+      <li><a href="#heapsort-algorithm">Heapsort Algorithm</a>
+        <ul>
+          <li><a href="#python-implementation">Python Implementation</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#quicksort">Quicksort</a>
+    <ul>
+      <li><a href="#runtime">Runtime</a></li>
+      <li><a href="#steps">Steps</a></li>
+      <li><a href="#pivot">Pivot</a></li>
+      <li><a href="#partition-algorithm">Partition Algorithm</a></li>
+      <li><a href="#python-implementation">Python Implementation</a></li>
     </ul>
   </li>
 </ul>
@@ -144,6 +166,130 @@
 
 <h3 id="running-time-2">Running Time</h3>
 <p>$\Theta(nlgn)$</p>
+
+<h3 id="python-implementation-2">Python Implementation</h3>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">array</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="p">],</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">m</span><span class="p">:]))</span>
+</code></pre></div></div>
+<h2 id="selection-sort">Selection Sort</h2>
+<ul>
+  <li>Class uses <code class="highlighter-rouge">abstractSort(a)</code></li>
+</ul>
+
+<h3 id="python-implementation-3">Python Implementation</h3>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">abstractSort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+	<span class="n">n</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">),</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+		<span class="n">smallest</span> <span class="o">=</span> <span class="n">extraSmallestAndDelete</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+		<span class="n">na</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">smallest</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">na</span>
+
+</code></pre></div></div>
+
+<h2 id="heap-sort">Heap Sort</h2>
+
+<ul>
+  <li>A comparison based algorithm</li>
+  <li>Sorts in place</li>
+  <li>Uses a <a href="binaryHeap.md">binary heap data structure</a></li>
+</ul>
+
+<h3 id="runtime">Runtime</h3>
+<p>$\Theta(nlogn)$</p>
+
+<h3 id="book-implementation">Book Implementation</h3>
+
+<h3 id="class-implementation">Class Implementation</h3>
+<ul>
+  <li>Uses a <strong>min-heap</strong></li>
+</ul>
+
+<h4 id="python-implementation-4">Python Implementation</h4>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">newheap</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">a</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">e</span>
+    <span class="n">heapfixup</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">heapfixup</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+
+<span class="k">def</span> <span class="nf">heapsort</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">newheap</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">extractsmallest</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+</code></pre></div></div>
+
+<h2 id="quicksort">Quicksort</h2>
+<ul>
+  <li>Comparison-based</li>
+  <li>Uses divide-and-conquer</li>
+  <li>Picks a pivot point.</li>
+</ul>
+
+<h3 id="runtime-1">Runtime</h3>
+
+<p>Best Case: $O(nlogn)$</p>
+
+<p>Worst Case: $O(n^2)$</p>
+
+<p>Average Case: $O(nlogn)$</p>
+
+<h3 id="steps">Steps</h3>
+
+<ol>
+  <li>If the list is empty, return the list and terminate. (base case)</li>
+  <li>Choose a pivot element in the list.</li>
+  <li>Take all of the elements that are less than or equal to the pivot and use quicksort on them.</li>
+  <li>Take all of the elements that are greater than the pivot and use quicksort on them.</li>
+  <li>Return the concatenation of the quicksorted list of elements that are less than or equal to the pivot, the pivot, and the quicksorted list of elements that are greater than the pivot.</li>
+</ol>
+
+<h3 id="pivot">Pivot</h3>
+
+<ul>
+  <li>Select a random pivot.</li>
+  <li>Select the leftmost or rightmost element as the pivot.</li>
+  <li>Take the first, middle, and last value of the array, and choose the median of those three numbers as the pivot (Median of Three method).[2]</li>
+  <li>Use a median finding algorithm such as the median-of-medians algorithm.</li>
+</ul>
+
+<h3 id="partition-algorithm">Partition Algorithm</h3>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">l</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">u</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+            <span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">m</span>
+</code></pre></div></div>
+
+<h3 id="python-implementation-5">Python Implementation</h3>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+
+</code></pre></div></div>
+
 
   </div><a class="u-url" href="/CSI-5007/notes/sorting-algorithms/" hidden></a>
 </article>
