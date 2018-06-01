@@ -1,6 +1,4 @@
----
-mathjax: true
----
+
 ## Binary Search
 
 ### Python Implementation
