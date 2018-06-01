@@ -196,7 +196,13 @@ def partition(a, l, u):
 
 ### Python Implementation
 ```py
-def quicksort(a):
-
+def quicksort(a, l=0, u=None):
+    if u is None:
+        u = len(a) - 1
+    if l < u:
+        m = partition(a, l, u)
+        quicksort(a, l, m-1)
+        quicksort(a, m+1, u)
+    return a
 ```
 

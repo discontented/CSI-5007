@@ -5,7 +5,7 @@ mathjax: true
 
 ## Binary Search
 
-### Python Implementation
+### Iterative Implementation
 
 * `array` must be sorted.
 * `low` and `high` are indices not values.
@@ -38,6 +38,10 @@ def bsearch(array, key):
 * If the `key` is smaller than `array[middle]`, then the `key` must be in the upper half.
   * `low` is set then to one above the middle index.
   * `low = middle + 1`
+
+### Recursive Implementation
+
+
 
 ### Running Time
 
