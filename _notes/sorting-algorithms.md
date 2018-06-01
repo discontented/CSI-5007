@@ -175,7 +175,7 @@ Average Case: $O(nlogn)$
 
 * Select a random pivot.
 * Select the leftmost or rightmost element as the pivot.
-* Take the first, middle, and last value of the array, and choose the median of those three numbers as the pivot (Median of Three method).[2]
+* Take the first, middle, and last value of the array, and choose the median of those three numbers as the pivot (Median of Three method)
 * Use a median finding algorithm such as the median-of-medians algorithm.
 
 ### Partition Algorithm
