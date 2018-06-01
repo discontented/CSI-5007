@@ -1,12 +1,17 @@
-def bSearchFirst(a, e, l=0, h=(len(a)-1):
-        m = len(a) // 2
-        if(e == a[m] & l == h):
-            return m
-        elif(e == a[m]):
-            bSearchFirst(a, e, m+1, h)
-        else:
-            bSearchFirst(a, e, l, m-1)
+def bSearchFirst(array, key, low=0, high = None):
+    if high is None:
+        high = len(array) - 1
 
-# Test
+    if (low > high):
+        return -1
 
+    middle = (low + high) // 2
 
+    if(key == array[middle] & low == high):
+        return middle
+
+    elif(key > array[middle]):
+        return bSearchFirst(array, key, middle + 1, high)
+
+    else:
+        return bSearchFirst(array, key, low, middle - 1)
