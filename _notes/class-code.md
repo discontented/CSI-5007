@@ -1,3 +1,8 @@
+---
+layout: post
+mathjax: true
+---
+
 All python code that appears in the slides.
 
 - [Bubble Sort](#bubble-sort)
