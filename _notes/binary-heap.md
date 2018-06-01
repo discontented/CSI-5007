@@ -18,7 +18,7 @@ mathjax: true
 * At the deepest level, all the nodes are as far left as possible.
 * A complete binary tree of depth $n$ has a max number of leaves of depth $2^n$
 
-|Symbol|Operation|
+|Operation|What it does|
 |---|---|
 |$d$|depth|
 |$2^d$|Max Number of Leaves|
