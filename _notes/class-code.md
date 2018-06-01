@@ -37,8 +37,6 @@ All python code that appears in the slides.
 - [Squaring without Multiplication](#squaring-without-multiplication)
         - [Iterative](#iterative)
         - [Recursive](#recursive)
-    - [Doubling Formula](#doubling-formula)
-        - [Iterative](#iterative)
         - [Iterative](#iterative)
 
 # Bubble Sort
@@ -55,6 +53,7 @@ def bs(a):
 ```
 
 * 2 - Informal Correctness
+
 ```py
 def bs0(a):
     s, n = True, len(a)
@@ -69,6 +68,7 @@ def bs0(a):
 
 # Insertion Sort
 * 3 - Runtime Computations
+
 ```py
 def isort(a):
     for i in range(1, len(a)):
@@ -185,6 +185,7 @@ def findInLogM(v):
 
 # Contiguous Subarray Sum
 * 6 - Recap
+
 ## Brute Force
 ```py
 def A0(a):
@@ -286,6 +287,7 @@ def A4ix(a):
 
 # Matrix Multiplication
 * 8 - Matrix Multiplication
+
 ```py
 def size(A):
     return len(A), len(A[0])
@@ -375,6 +377,7 @@ Runtime: $\Theta(nlog(n))$
 
 # Shell Sort
 * 9 - The Heap and the Quick
+
 ```py
 def shellSort(gaps):
     for gap in gaps:
@@ -394,6 +397,7 @@ Runtime: $O(n^{3/2})$ to $O(nlog^2(n))$
 
 # Abstract (Selection) Sort
 * 9 - The Heap and the Quick
+
 ```py
 def abstractSort(a):
     n = len(a)
@@ -406,6 +410,7 @@ def abstractSort(a):
 
 # Min-Heap Heapsort
 * 9 - The Heap and the Quick
+
 ```py
 def newheap(n):
     return [0]*(n+1)
@@ -464,6 +469,7 @@ Runtime: $\Theta(nlog(n))$
 
 # Quicksort
 * 9 - The Heap and the Quick
+
 ```py
 def partition(a, l, u):
     t = a[l]
@@ -511,6 +517,7 @@ def qsort1(a, l=0, u=None):
 
 # Bin Sort
 * 10 - Limits of Sorting
+
 ```py
 def binsort(a):
     bins = [a]
@@ -527,6 +534,7 @@ $\Theta(n)$
 
 # Radix Sort
 * 10 - Limits of Sorting
+
 ```py
 def radixSort(a, d):
     for i in range(d):
@@ -535,6 +543,7 @@ def radixSort(a, d):
 
 # Min and Max
 * 10 - Limits of Sorting
+
 ```py
 def minandmax(a):
     min = max = a [0]
@@ -605,12 +614,6 @@ def sq_no_mult_r(n, count = -1, n2 = 0):
         if count == -1:
             count = n
         return sq_no_mult_r(n, count-1, n2 + n)
-```
-
-## Doubling Formula
-### Iterative
-```py
-
 ```
 
 ### Iterative
