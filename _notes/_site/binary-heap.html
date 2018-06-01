@@ -1,0 +1,108 @@
+<h2 id="terms">Terms</h2>
+<p><strong>Height</strong></p>
+<ul>
+  <li>Number of edges on the longest path from the root node to a leaf.</li>
+</ul>
+
+<h2 id="binary-trees">Binary Trees</h2>
+<ul>
+  <li>Each node can have up to two children, a <strong>left child</strong> and a <strong>right child</strong></li>
+  <li>Each node has exactly one <strong>parent node</strong> (except for the root)</li>
+</ul>
+
+<h3 id="full-binary-trees">Full Binary Trees</h3>
+<ul>
+  <li>Every leaf has the same depth and every non-leaf has two children.</li>
+</ul>
+
+<h3 id="complete-binary-trees">Complete Binary Trees</h3>
+<ul>
+  <li>At the deepest level, all the nodes are as far left as possible.</li>
+  <li>A complete binary tree of depth $n$ has a max number of leaves of depth $2^n$</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>What it does</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$d$</td>
+      <td>depth</td>
+    </tr>
+    <tr>
+      <td>$2^d$</td>
+      <td>Max Number of Leaves</td>
+    </tr>
+    <tr>
+      <td>$2^{d+1}-1$</td>
+      <td>Max Number of Nodes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="binary-heap-data-structure">Binary Heap Data Structure</h3>
+<ul>
+  <li>Uses an array
+    <ul>
+      <li>Book uses an array object <code class="highlighter-rouge">A</code></li>
+      <li>Object has two attributes
+        <ul>
+          <li><code class="highlighter-rouge">A.length</code>
+            <ul>
+              <li>Gives number of elements in the array.</li>
+            </ul>
+          </li>
+          <li><code class="highlighter-rouge">A.heapsize</code>
+            <ul>
+              <li>Number of elements in the heap stored in array <code class="highlighter-rouge">A</code></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Root is stored in position 1</li>
+</ul>
+
+<p>The parent of a node at index $i$ is $\lfloor{i/2}\rfloor$</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">parent</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+	<span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The left child of a node at index $i$ is $2i$</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">leftChild</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+	<span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span>
+</code></pre></div></div>
+
+<p>The right child of a node at index $i$ is $2i+1$</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">rightChild</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+	<span class="k">return</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<h3 id="max-heap-property"><code class="highlighter-rouge">max-heap</code> property</h3>
+
+<p>$A[parent(i)] \ge A[i]$</p>
+
+<ul>
+  <li>A node cannot have a greater value than its parent.</li>
+  <li>The largest element is the root.</li>
+  <li>The minimum elements are the leaves.</li>
+</ul>
+
+<h3 id="min-heap-property"><code class="highlighter-rouge">min-heap</code> property</h3>
+
+<p>$A[parent(i)] \le A[i]$</p>
+
+<ul>
+  <li>A parent node cannot have a greater value than its children.</li>
+  <li>The minimum element is the root.</li>
+  <li>The max elements are the leaves.</li>
+</ul>
+

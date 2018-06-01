@@ -25,8 +25,16 @@ def bsearch(array, key):
     return -1
 ```
 
-### Loop Invariant
 
+### Explanation
+*from slides*
+At the start the interval `[l,h]` encompasses the whole array and it is reduced at every step. Therefore, the algorithm terminates.
+
+#### Loop Invariant
+If element `e` is in the array, it is in `a[l,..,h]`. The algorithm considers the mid-point and compares its element with the target `e`. If the element is too large, the target must be in the lower half and reduces `h`. If the element is too small, the element must be in the upper half and increases `l`. It stops when it finds `e` or when the array is exhausted.
+
+### Loop Invariant
+*interpreted explanation*
 * If the `key` is in the array, it is in `a[1,...,high]`
 * The midpoint is determined by dividing the array in half.
   * `middle = math.floor((low + high) / 2)`
@@ -41,6 +49,19 @@ def bsearch(array, key):
 
 ### Recursive Implementation
 
+```py
+def rbsearch(a, e, l, h):
+    if l > h:
+        return -1
+    else:
+        m = (l+h)//2
+        if a[m] == e:
+            return m
+        if a[m] < e:
+            return rbsearch(a, e, m+1, h)
+        else:
+            return rbsearch(a, e, l, m-1)
+```
 
 
 ### Running Time

@@ -10,8 +10,6 @@ All python code that appears in the slides.
 - [Linear Search](#linear-search)
 - [Binary Search](#binary-search)
     - [Iterative](#iterative)
-        - [Explanation](#explanation)
-            - [Loop Invariant](#loop-invariant)
     - [Recursive](#recursive)
 - [Find in Log M](#find-in-log-m)
     - [Python Interpretation](#python-interpretation)
@@ -125,18 +123,6 @@ def bsearch(a, e):
     return -1
 ```
 
-### Explanation
-At the start the interval `[l,h]` encompasses the whole array and it is
-reduced at every step. Therefore, the algorithm terminates.
-#### Loop Invariant
-If element `e` is in the array, it is in `a[l,..,h]`. The algorithm considers
-the mid-point and compares its element with the target `e`. If the element is
-too large, the target must be in the lower half and reduces `h`. If the
-element is too small, the element must be in the upper half and increases
-`l`. It stops when it finds `e` or when the array is exhausted.
-
-* 5 - Divide and Conquer
-
 ## Recursive
 ```py
 def rbsearch(a, e, l, h):
@@ -153,11 +139,12 @@ def rbsearch(a, e, l, h):
 ```
 
 # Find in Log M
+I don't understand lisp so it's only partially translated to python.
 
 ```lisp
 ( defun find−in−log−m ( v )
-    ( let ∗ ( (max (1− ( length v ) ) )
-        ( symbol−m ( a r ef v max) ) )
+    ( let∗ ( (max (1− ( length v ) ) )
+        ( symbol−m ( a ref v max) ) )
     ( labels ( ( bound−in−log−m ( i )
         ( if ( eql symbol−m ( aref v (− max i ) ) )
             ( bound−in−log−m (∗ 2 i ) )
@@ -175,11 +162,11 @@ def rbsearch(a, e, l, h):
 ## Python Interpretation
 ```py
 def findInLogM(v):
-        max = len(v) - 1
-        symbol-m = v[max]      
+        n = len(v) - 1
+        symbol_m = v[n]      
         def boundInLogM(i):  
-                if (symbol-m == v[max-i]:
-                        bound-in-log-m(i*2)
+                if (symbol_m == v[n-i]:
+                        boundInLogM(i*2)
                 else:
                         return i
 ```
