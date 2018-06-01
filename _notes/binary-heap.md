@@ -57,18 +57,18 @@ def rightChild(i):
 
 ### `max-heap` property
 
+$A[parent(i)] \ge A[i]$
+
 * A node cannot have a greater value than its parent.
 * The largest element is the root.
 * The minimum elements are the leaves.
 
-`A[parent(i)] >= A[i]`
-
 ### `min-heap` property
+
+$A[parent(i)] \le A[i]$
 
 * A parent node cannot have a greater value than its children.
 * The minimum element is the root.
 * The max elements are the leaves.
-
-`A[parent(i)] <= A[i]`
 
 

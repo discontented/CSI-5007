@@ -117,7 +117,6 @@ $\Theta(nlogn)$
 
 ### Book Implementation
 
-
 ### Class Implementation
 * Uses a **min-heap**
 
