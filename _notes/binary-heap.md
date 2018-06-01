@@ -8,7 +8,7 @@ mathjax: true
 * Number of edges on the longest path from the root node to a leaf.
 
 ## Binary Trees
-* Each node can has up to two children, a **left child** and a **right child**
+* Each node can have up to two children, a **left child** and a **right child**
 * Each node has exactly one **parent node** (except for the root)
 
 ### Full Binary Trees

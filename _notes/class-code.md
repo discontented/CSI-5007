@@ -153,6 +153,7 @@ def rbsearch(a, e, l, h):
 ```
 
 # Find in Log M
+
 ```lisp
 ( defun find−in−log−m ( v )
     ( let ∗ ( (max (1− ( length v ) ) )
