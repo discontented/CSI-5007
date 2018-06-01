@@ -1,4 +1,6 @@
 ---
+layout: post
+mathjax: true
 ---
 - [Bubble Sort](#bubble-sort)
     - [Running Time](#running-time)

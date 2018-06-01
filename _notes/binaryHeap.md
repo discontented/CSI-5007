@@ -1,3 +1,8 @@
+---
+layout: post
+mathjax: true
+---
+
 ## Terms
 **Height**
 * Number of edges on the longest path from the root node to a leaf.
