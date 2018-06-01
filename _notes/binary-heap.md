@@ -22,7 +22,7 @@ mathjax: true
 |---|---|
 |$d$|depth|
 |$2^d$|Max Number of Leaves|
-|$2^(d+1)-1$|Max Number of Nodes
+|$2^{d+1}-1$|Max Number of Nodes
 
 ### Binary Heap Data Structure
 * Uses an array
