@@ -26,3 +26,34 @@ $|a| =\binom{4}{2}=6$
 
 ## General Solution
 * Use pigeon-hole principle
+
+# Recursion
+
+
+
+## Recursive Algorithms
+
+### Fibonacci Sequence
+```py
+def fibonacci(n):
+    if n == 1 or n == 2:
+        return 1
+    
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+print(fibonacci(10))
+```
+
+## Calculate Total Recursions
+
+```py
+def num_operations_fibonacci(n):
+    if n in [1, 2]:
+        return 0
+
+    else:
+        return 1 + num_operations_fibonacci(n-1) + num_operations_fibonacci(n-2)
+
+print(num_operations_fibonacci(10))
+```
