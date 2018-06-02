@@ -25,7 +25,6 @@ def bsearch(array, key):
     return -1
 ```
 
-
 ### Explanation
 *from slides*
 At the start the interval `[l,h]` encompasses the whole array and it is reduced at every step. Therefore, the algorithm terminates.
@@ -50,19 +49,20 @@ If element `e` is in the array, it is in `a[l,..,h]`. The algorithm considers th
 ### Recursive Implementation
 
 ```py
-def rbsearch(a, e, l, h):
-    if l > h:
+def binary_search(array, key, low=0, high=None):
+    if high is None:
+        high = len(array) - 1
+    if(low > high):
         return -1
+    middle = (low + high)// 2
+    if(array[middle] == key):
+        return middle
+    if(array[middle] > key):
+        return binary_search(array, key, low, middle-1)
     else:
-        m = (l+h)//2
-        if a[m] == e:
-            return m
-        if a[m] < e:
-            return rbsearch(a, e, m+1, h)
-        else:
-            return rbsearch(a, e, l, m-1)
-```
+        return binary_search(array, key, middle+1, high)
 
+```
 
 ### Running Time
 
