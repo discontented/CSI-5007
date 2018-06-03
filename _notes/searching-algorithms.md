@@ -3,9 +3,22 @@ layout: post
 mathjax: true
 ---
 
-## Binary Search
+# Linear Search
 
-### Iterative Implementation
+```py
+def s(a, e):
+    for i in range(len(a)):
+        if a[i] == e:
+            return i
+    return -1
+```
+
+## Running Time
+$\Theta(n)$
+
+# Binary Search
+
+## Iterative Implementation
 
 * `array` must be sorted.
 * `low` and `high` are indices not values.
@@ -46,7 +59,7 @@ If element `e` is in the array, it is in `a[l,..,h]`. The algorithm considers th
   * `low` is set then to one above the middle index.
   * `low = middle + 1`
 
-### Recursive Implementation
+## Recursive Implementation
 
 ```py
 def binary_search(array, key, low=0, high=None):
