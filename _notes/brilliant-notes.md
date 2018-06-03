@@ -14,7 +14,7 @@ for i in range(n-1):
 ```
 
 * Comparisons occur at `if lst[i] > lst[j]`
-* Two loops with the inner loop having a lower bound of 1 above the outer loop's counter (`i + 1`) results in every pair within the list is being compared.
+* Inner loop having a lower bound of 1 above the outer loop's counter (`i + 1`) results in every pair within the list being compared.
 
 $\mid a \mid = \binom{4}{2} = 6$
 
@@ -29,8 +29,6 @@ $\mid a \mid = \binom{4}{2} = 6$
 
 # Recursion
 
-
-
 ## Recursive Algorithms
 
 ### Fibonacci Sequence
@@ -41,8 +39,6 @@ def fibonacci(n):
     
     else:
         return fibonacci(n-1) + fibonacci(n-2)
-
-print(fibonacci(10))
 ```
 
 ## Calculate Total Recursions
@@ -54,6 +50,4 @@ def num_operations_fibonacci(n):
 
     else:
         return 1 + num_operations_fibonacci(n-1) + num_operations_fibonacci(n-2)
-
-print(num_operations_fibonacci(10))
 ```
