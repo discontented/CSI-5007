@@ -16,8 +16,7 @@ def boundSearch(array, key, low=0, high=None):
 
     middle = (low + high) // 2
 
-    if(array[middle] < key):
-        return boundSearch(array, key, middle+1, high)
-        
+    if(array[middle] > key):
+         return boundSearch(array, key, low, middle-1)     
     else:
-        return boundSearch(array, key, low, middle-1)
+         return boundSearch(array, key, middle+1, high)
