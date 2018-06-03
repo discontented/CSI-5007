@@ -10,6 +10,7 @@ mathjax: true
     - [Running Time](#running-time)
     - [Python Implementation](#python-implementation)
 - [Merge Sort](#merge-sort)
+    - [Recurrence](#recurrence)
     - [Running Time](#running-time)
     - [Python Implementation](#python-implementation)
 - [Selection Sort](#selection-sort)
@@ -58,6 +59,7 @@ def bubble_sort(a):
 ### Running Time
 
 Best Case: $\Theta(n)$
+* Numbers are already sorted
 
 Worst Case: $\Theta(n^2)$
 
