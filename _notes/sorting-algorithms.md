@@ -80,6 +80,9 @@ def insertion_sort(array):
 * Merges two pre-sorted arrays so that the resulting array is sorted.
 * Merges with an outside merge function.
 
+### Recurrence
+$T(n)=2T(n/2) + O(n)$
+
 ### Running Time
 $\Theta(nlgn)$
 

@@ -79,4 +79,7 @@ def binary_search(array, key, low=0, high=None):
 
 ### Running Time
 
-$\Theta(lgn)$
+$\Theta(lg(n))$
+
+### Recurrence
+$T(n)=T(n/2)+O(1)$

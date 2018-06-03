@@ -8,7 +8,7 @@ Sorting **in place**
 
 A sort is **stable** if two elements with equivalent keys maintain their relative position after the sort.
 
-# Algorithm Design Morals
+# Algorithm Design Guidelines
 * Always know brute-force approach
     * Will give a baseline runtime analysis
 
