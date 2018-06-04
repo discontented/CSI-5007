@@ -156,15 +156,19 @@ def heapsort(x):
 ```
 
 ## Quicksort
+* Picks a pivot and then sorts to the left of the pivot and then right.
 * Comparison-based
 * Uses divide-and-conquer
-* Picks a pivot point.
+    * Recursive
 
 ### Runtime
+
+Recurrence: $T(n)=2T(\frac{n}{2}+n)$
 
 Best Case: $O(nlogn)$
 
 Worst Case: $O(n^2)$
+* Occurs when array is already sorted
 
 Average Case: $O(nlogn)$
 
@@ -184,6 +188,9 @@ Average Case: $O(nlogn)$
 * Use a median finding algorithm such as the median-of-medians algorithm.
 
 ### Partition Algorithm
+`a` - array to be sorted
+`l` - lower bound
+`u` - upper bound
 ```py
 def partition(a, l, u):
     t = a[l]
@@ -210,3 +217,7 @@ def quicksort(a, l=0, u=None):
     return a
 ```
 
+# Bin/Bucket Sort
+* Not based on comparisons
+* Use knowledge of the data
+* Not in-place sorting
