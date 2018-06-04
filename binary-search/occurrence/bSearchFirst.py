@@ -7,7 +7,7 @@ def bSearchFirst(array, key, low=0, high = None):
 
     middle = (low + high) // 2
 
-    if(key == array[middle] & low == high):
+    if(key == array[middle] & key != array[middle - 1]):
         return middle
 
     elif(key > array[middle]):
