@@ -26,20 +26,21 @@ mathjax: true
     - [Pivot](#pivot)
     - [Partition Algorithm](#partition-algorithm)
     - [Python Implementation](#python-implementation)
+- [Bin/Bucket Sort](#bin-bucket-sort)
 
-## Bubble Sort
+# Bubble Sort
 
 Compares each pair of elements in an array and swaps them if they are out of order until the entire array is sorted.
 
-### Running Time
+## Running Time
 Best Case: $\Theta(n)$
 
 Worst Case: $\Theta(n^2)$ 
 
-### Loop Invariant
+## Loop Invariant
 * Enter the for loop on `i` with value `j`, array `a[0...k-1]` contains the `k` smallest elements of the set in sorted order.
 
-### Python Implementation
+## Python Implementation
 ```py
 def bubble_sort(a):
     n = len(a)
@@ -50,20 +51,20 @@ def bubble_sort(a):
     return a
 ```
 
-## Insertion Sort
+# Insertion Sort
 
 * Builds a final sorted array one element at a time.
 * Iterates through an input array and removes one element per iteration
 * Finds the place the element belongs and places within the array.
 
-### Running Time
+## Running Time
 
 Best Case: $\Theta(n)$
 * Numbers are already sorted
 
 Worst Case: $\Theta(n^2)$
 
-### Python Implementation
+## Python Implementation
 ```py
 def insertion_sort(array):
     for slot in range(1, len(array)): 
@@ -76,19 +77,19 @@ def insertion_sort(array):
     return array
 ```
 
-## Merge Sort
+# Merge Sort
 
 * Recursive
 * Merges two pre-sorted arrays so that the resulting array is sorted.
 * Merges with an outside merge function.
 
-### Recurrence
+## Recurrence
 $T(n)=2T(n/2) + O(n)$
 
-### Running Time
+## Running Time
 $\Theta(nlgn)$
 
-### Python Implementation
+## Python Implementation
 ```py
 def merge_sort(array):
     if len(array) <= 1:
@@ -97,10 +98,11 @@ def merge_sort(array):
         m = floor(len(array) / 2)
    return merge(array[0:m], merge_sort(array[m:]))
 ```
-## Selection Sort
+
+# Selection Sort
 * Class uses `abstractSort(a)`
 
-### Python Implementation
+## Python Implementation
 ```py
 abstractSort(array):
 	n, na = len(array), []
@@ -111,21 +113,21 @@ abstractSort(array):
 
 ```
 
-## Heap Sort
+# Heap Sort
 
 * A comparison based algorithm
 * Sorts in place
 * Uses a [binary heap data structure](binaryHeap.md)
 
-### Runtime
+## Runtime
 $\Theta(nlogn)$
 
-### Book Implementation
+## Book Implementation
 
-### Class Implementation
+## Class Implementation
 * Uses a **min-heap**
 
-#### Python Implementation
+### Python Implementation
 
 ```py
 def newheap(n):
@@ -155,13 +157,13 @@ def heapsort(x):
     return x
 ```
 
-## Quicksort
+# Quicksort
 * Picks a pivot and then sorts to the left of the pivot and then right.
 * Comparison-based
 * Uses divide-and-conquer
     * Recursive
 
-### Runtime
+## Runtime
 
 Recurrence: $T(n)=2T(\frac{n}{2}+n)$
 
@@ -172,7 +174,7 @@ Worst Case: $O(n^2)$
 
 Average Case: $O(nlogn)$
 
-### Steps
+## Steps
 
 1. If the list is empty, return the list and terminate. (base case)
 2. Choose a pivot element in the list.
@@ -180,14 +182,14 @@ Average Case: $O(nlogn)$
 4. Take all of the elements that are greater than the pivot and use quicksort on them.
 5. Return the concatenation of the quicksorted list of elements that are less than or equal to the pivot, the pivot, and the quicksorted list of elements that are greater than the pivot.
 
-### Pivot
+## Pivot
 
 * Select a random pivot.
 * Select the leftmost or rightmost element as the pivot.
 * Take the first, middle, and last value of the array, and choose the median of those three numbers as the pivot (Median of Three method)
 * Use a median finding algorithm such as the median-of-medians algorithm.
 
-### Partition Algorithm
+## Partition Algorithm
 `a` - array to be sorted
 `l` - lower bound
 `u` - upper bound
@@ -205,7 +207,7 @@ def partition(a, l, u):
     return m
 ```
 
-### Python Implementation
+## Python Implementation
 ```py
 def quicksort(a, l=0, u=None):
     if u is None:
