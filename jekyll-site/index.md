@@ -1,9 +1,15 @@
+---
+layout: post
+mathjax: true
+---
+
 # Midterm Corrections
 
 ## Multiple Choice
 
 ### Question 1
 > Consider the following code:
+
 ```py
 def f(n, p):
     for i in range(n):
@@ -201,8 +207,123 @@ def bSearchFirst(array, key, low = 0, high = None):
         return bSearchFirst(array, key, low, middle - 1)
 ```
 
+#### Testing
+```py
+def testCases(n):
+    # empty test case
+    a = []
+    findFirst(a, 0)
+
+    # single element
+    a = [0]
+    findFirst(a, 0)
+
+    # 3 different elements
+    a = [0] * 3
+    for i in range(3):
+        a[i] = i
+    for i in range(3):
+        findFirst(a, i)
+
+    # all same elements
+    a = [0] * n
+    findFirst(a, 0)
+
+    # 1/3 elements the same. 2/3 another integer
+    third = n // 3
+    a[:third] = [0] * third
+    a[third:] = [1] * (2 * (third))
+    findFirst(a, 0)
+    findFirst(a, 1)
+```
+
+##### Output
+
+```sh
+#  :  0 not found
+#  0 :  First occurence of 0 is at 0
+#  0 1 2 :  First occurence of 0 is at 0
+#  0 1 2 :  First occurence of 1 is at 1
+#  0 1 2 :  First occurence of 2 is at 2
+#  0 0 0 0 0 0 :  First occurence of 0 is at 0
+#  0 0 1 1 1 1 :  First occurence of 0 is at 0
+#  0 0 1 1 1 1 :  First occurence of 1 is at 2
+```
+
 ### Question 19
 > Omitted
 
 ### Question 20
+> Write a function (in pseudo-code or your favority language) which, given an array of numbers as input, returns the smallest and largest element of the array.  Argue its correctness and runtime.  You are **not** allowed to call any external routine except **sort**.
 
+```py
+def findHighLow(a):
+    n = len(a)
+    if(n > 0):
+        low = a[0]
+        high = a[0]
+        for i in range(0, len(a)):
+            if(a[i] < low):
+                low = a[i]
+            if(a[i] > high):
+                high = a[i]
+        return high, low
+    else:
+        return -1
+```
+
+#### Testing
+```py
+def testCases(n):
+    # empty test case
+    a = []
+    find(a)
+
+    # single element
+    a = [0]
+    find(a)
+
+    # 3 different elements
+    a = [0] * 3
+    for i in range(3):
+        a[i] = i
+    for i in range(3):
+        find(a)
+
+    # all same elements
+    a = [0] * n
+    find(a)
+
+    # 1/3 elements the same. 2/3 another integer
+    third = n // 3
+    a[:third] = [0] * third
+    a[third:] = [1] * (2 * (third))
+    find(a)
+```
+
+```sh
+#  :  empty array
+#  0 :  largest = 0, smallest = 0
+#  0 1 2 :  largest = 2, smallest = 0
+#  0 1 2 :  largest = 2, smallest = 0
+#  0 1 2 :  largest = 2, smallest = 0
+#  0 0 0 0 0 0 :  largest = 0, smallest = 0
+#  0 0 1 1 1 1 :  largest = 1, smallest = 0
+```
+
+#### Correctness
+* Loop Invariant
+    * The variables `high` and `low` store the highest and lowest values, respectively, in the array from `a[0]` to `a[i]`
+    * Once `i` increments, the values of `low` and `high` are compared with the current elements.
+        * Each variable is replaced if a lower or higher variable is found.
+    * After each exit of the loop, `low` and `high` store the lowest and highest values from `a[0]` to `a[i]`.
+
+#### Runtime Analysis
+
+$$
+T(n) = 2\sum_{i=0}^{n}1 = 2(n-0+1)= 2n + 2
+$$
+
+$$
+T(n) = \Theta(n)
+$$

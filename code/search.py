@@ -12,31 +12,3 @@ def findHighLow(a):
         return high, low
     else:
         return -1
-
-def printArray(array):
-    print("Array Elements:", end=' ')
-    for el in array:
-        print(el, end=' ')
-    print()
-
-def find(array):
-    #array must be sorted
-    printArray(array)
-    try:
-        if(findHighLow(array) != -1):
-            high, low = findHighLow(array)
-            print("The largest value is %d" % high)
-            print("The smallest value is %d" % low)
-        elif(findHighLow(array) == -1):
-            print("empty array")
-    except Exception as e:
-        print(e)
-
-a = []
-find(a)
-a = [0,1]
-find(a)
-a = [0,0,0]
-find(a)
-a = [0,1,2]
-find(a)
