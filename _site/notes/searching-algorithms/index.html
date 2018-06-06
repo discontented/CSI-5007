@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Searching Algorithms" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Binary Search" />
-<meta property="og:description" content="Binary Search" />
+<meta name="description" content="Linear Search" />
+<meta property="og:description" content="Linear Search" />
 <link rel="canonical" href="http://localhost:4000/CSI-5007/notes/searching-algorithms/" />
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/searching-algorithms/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-06-01T15:50:07-04:00" />
+<meta property="article:published_time" content="2018-06-06T14:33:51-04:00" />
 <script type="application/ld+json">
-{"description":"Binary Search","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/searching-algorithms/","headline":"Searching Algorithms","dateModified":"2018-06-01T15:50:07-04:00","datePublished":"2018-06-01T15:50:07-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/searching-algorithms/"},"@context":"http://schema.org"}</script>
+{"description":"Linear Search","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/searching-algorithms/","headline":"Searching Algorithms","dateModified":"2018-06-06T14:33:51-04:00","datePublished":"2018-06-06T14:33:51-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/searching-algorithms/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -57,14 +57,26 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Searching Algorithms</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-06-01T15:50:07-04:00" itemprop="datePublished">Jun 1, 2018
+      <time class="dt-published" datetime="2018-06-06T14:33:51-04:00" itemprop="datePublished">Jun 6, 2018
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="binary-search">Binary Search</h2>
+    <h1 id="linear-search">Linear Search</h1>
 
-<h3 id="iterative-implementation">Iterative Implementation</h3>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div></div>
+
+<h2 id="running-time">Running Time</h2>
+<p>$\Theta(n)$</p>
+
+<h1 id="binary-search">Binary Search</h1>
+
+<h2 id="iterative-implementation">Iterative Implementation</h2>
 
 <ul>
   <li><code class="highlighter-rouge">array</code> must be sorted.</li>
@@ -120,22 +132,24 @@ At the start the interval <code class="highlighter-rouge">[l,h]</code> encompass
   </li>
 </ul>
 
-<h3 id="recursive-implementation">Recursive Implementation</h3>
+<h2 id="recursive-implementation">Recursive Implementation</h2>
 
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">rbsearch</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">l</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">:</span>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">high</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">low</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">):</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span><span class="o">//</span> <span class="mi">2</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">middle</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">middle</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">middle</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
-        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">==</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">m</span>
-        <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">rbsearch</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">rbsearch</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">middle</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span>
+
 </code></pre></div></div>
 
-<h3 id="running-time">Running Time</h3>
+<h3 id="running-time-1">Running Time</h3>
 
 <p>$\Theta(lgn)$</p>
 
