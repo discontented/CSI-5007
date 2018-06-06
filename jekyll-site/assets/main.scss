@@ -3,6 +3,21 @@
 
 @import "minima";
 
+@media print {
+    .print {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        margin-bottom: 10px;
+    }
+    body {
+        padding: 20px;
+    }
+    code, .highlighter-rouge .highlight {
+        word-wrap: break-word;
+    }
+}
+
 .post-content h1 {
     font-size: 32px;
     border-bottom: 1px solid #eaecef;
