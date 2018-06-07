@@ -2,6 +2,17 @@
 
 * graph $G=(V,E)$ contains $n$ vertices and $m$ edges
 
+## Runtime Analysis
+* The runtime of a graph algorithm for a given graph $G=(V,E)$ is measured in terms of the number of vertices ($\lvert V\rvert$) and number of edges ($\lvert E\rvert$)
+* Inside asymptotic notation, the cardinality is ommitted.
+    * $\Theta(\lvert V\rvert, \lvert E\rvert)\equiv \Theta(V, E)$
+
+# Graph Representations
+|Graph|Data Structure|
+|---|---|
+|Sparse Graph $(\lvert E\rvert << {\lvert V\rvert}^2)$|[Adjacency List](#adjacency-list)|
+|Dense Graph $(\lvert E\rvert << {\lvert V\rvert}^2)$|[Adjancency Matrix](#adjacency-matrix)|
+|Dense Graph 
 ## Adjacency Matrix
 * $G$ is represented by a $n \times n$ matrix $M$
 
@@ -19,7 +30,7 @@ $$
 * Cons
     * Uses excessive space for graphs with many vertices and few edges
 
-## Adjacency Lists
+## Adjacency List
 
 * Pros
     * More efficiently stores sparse graphs
@@ -62,32 +73,50 @@ typedef struct {
 
 # Breadth First Search
 * Finding optimal solution out of available options.
-* Branch away from a point by progressively searching every point near the original point and then expanding away from increasing distances from original point.
+* Builds a breadth-first tree with root $s$
+    * $s$ - A distinguished source vertex.
+* Explores edges of $G$ to **discover** every vertex that is reachable from $s$.
+    * Vertex is **discovered** the first time it is encountered in a search.
+* Distance ($d$) is the shortest path from any vertex $v$ to the source vertex $s$
+* Algorithm discovers all vertices at distance $k$ from $s$ before discovering any vertices at $d = k + 1$
+* $u.\pi$ represents the predecessor of $u$ in book psuedocode.
+* Uses a queue
+
+## Steps
+1. Pick source vertex, `s`, from graph.
+    1. `s` becomes the root of the tree.
+2. Look at each neighbor in an order.
+3. Visit each neighbor vertex in that same order.
+4. Repeat breadth-first search for each `k+1` vertex from `s`
 
 ## Psuedocode
 ```
 BFS(G, s)
-	for each vertex $u\in V[G] - {s} do
-		state[u] = "undiscovered"
-		p[u] = nil //no parent is in BFS tree
-	state[s] = "discovered"
-	p[s] = nil
-	Q = {s}
-	while Q != $\emptyset$ do
-		u = dequeue[Q]
-		process vertex u as desired
-		for each $v \in Adj[u]$ do
-			process edge $(u,v)$ as desired
-			if state[v] = "undiscovered" then
-				state[v] = discovered"
-				p[v] = u
-				enqueue[Q, v]
-		state[u] = "processed"
+    for each vertex $u\in V[G] - {s}$ do
+        state[u] = "undiscovered"
+        p[u] = nil //no parent is in BFS tree
+    state[s] = "discovered"
+    p[s] = nil
+    Q = {s}
+    while Q != $\emptyset$ do
+        u = dequeue[Q]
+        process vertex u as desired
+        for each $v \in Adj[u]$ do
+            process edge $(u,v)$ as desired
+            if state[v] = "undiscovered" then
+                state[v] = discovered"
+                p[v] = u
+                enqueue[Q, v]
+        state[u] = "processed"
 ```
 
-* `p[*]` represents parent of vertex
+* `p[*]` represents predecessor of vertex
 * A vertex is **discovered** the first time it is visited.
 * A vertex is **processed** after all outgoing edges from it have been traversed.
 
 ## Runtime
 $O(n + m)$
+
+# Depth First Search (DFS)
+* Finds the longest path of a graph $G$
+* Uses a stack
