@@ -60,4 +60,30 @@ typedef struct {
 |processed|Vertex where all incident edges have been visited.
 
 # Breadth First Search
-    
+
+## Psuedocode
+```
+BFS(G, s)
+	for each vertex $u\in V[G] - {s} do
+		state[u] = "undiscovered"
+		p[u] = nil //no parent is in BFS tree
+	state[s] = "discovered"
+	p[s] = nil
+	Q = {s}
+	while Q != $\emptyset$ do
+		u = dequeue[Q]
+		process vertex u as desired
+		for each $v \in Adj[u]$ do
+			process edge $(u,v)$ as desired
+			if state[v] = "undiscovered" then
+				state[v] = discovered"
+				p[v] = u
+				enqueue[Q, v]
+		state[u] = "processed"
+```
+* `p[*]` represents parent of vertex
+* A vertex is **discovered** the first time it is visited.
+* A vertex is **processed** after all outgoing edges from it have been traversed.
+
+## Runtime
+$O(n + m)$

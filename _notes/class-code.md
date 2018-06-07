@@ -420,7 +420,7 @@ def extractsmallest(a):
 ```py
 def heapfixup(a,i):
     while i > 1:
-        parent = floor(i/2)
+        p = i // 2
         if a[p] > a[i]:
             a[p], a[i] = a[i], a[p]
             i = p
