@@ -27,6 +27,7 @@ $$
 * Cons
     * Slower to find edge as it is necessary to search from head of linked list to find edge.
 
+
 ### Adjacency List Implementation
 ```c
 #define MAXV 1000
@@ -60,6 +61,8 @@ typedef struct {
 |processed|Vertex where all incident edges have been visited.
 
 # Breadth First Search
+* Finding optimal solution out of available options.
+* Branch away from a point by progressively searching every point near the original point and then expanding away from increasing distances from original point.
 
 ## Psuedocode
 ```
