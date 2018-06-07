@@ -84,6 +84,7 @@ BFS(G, s)
 				enqueue[Q, v]
 		state[u] = "processed"
 ```
+
 * `p[*]` represents parent of vertex
 * A vertex is **discovered** the first time it is visited.
 * A vertex is **processed** after all outgoing edges from it have been traversed.
