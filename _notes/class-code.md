@@ -631,3 +631,215 @@ def sq_no_mult_2(n):
         n4 += n3
     return n2 + n4
 ```
+# Unweighted Graph Algorithms
+## Breadth First Search
+```py
+
+def bfs(Graph, node):
+    enqueue(node)
+    visited[r] = True
+    while v = deque():
+        for u in neighbors(Graph, v):
+            if not visited[u]:
+                enqueue(u)
+                visited[u] = True
+```
+* **queue**
+    * Last-In First-Out (LIFO) data structure
+* **enqueue**
+    * Adds an element to the queue
+* **dequeue**
+    * Extract oldest element of the queue.
+
+```py
+def components (G ):
+    count = 0
+    for v in vertices (G):
+    if not visited [v] :
+        count = count + 1
+        BFS(G, v)
+    return count
+```
+
+```py
+def bipartite (G) :
+for v in vertices (G) :
+    if not visited [v] :
+        colour [v] = red
+        BFS(G, v)
+
+def process (x,y) :
+    if colour [x] == colour [y]:
+        abort ("Not␣bipartite")
+    else:
+        colour[y] = complement (colour[x])
+```
+
+```py
+def bsf(Graph, node, process = None):
+    enqueue(r)
+    visited[r] = True
+    while v = dequeue():
+        for u in neighbors(Graph, v):
+            if process = True:
+                process(v, u)
+            if not visited[u]:
+                enqueue(u)
+                visited[u] = True
+```
+
+## Depth First Search (DFS)
+
+### Iterative
+
+#### Pre-order
+```py
+def dfs(Graph, node):
+    push(r)
+    while u = pop():
+        visited[u] = True
+        for v in neighbor(Graph, u):
+            if not visited[v]:
+                push(v)
+```
+
+#### Post-order
+```py
+def dfs(Graph, node):
+    push(r)
+    while u = pop():
+        for v in neighbor(Graph, u):
+            if not visited[v]:
+                push(v)
+        visited[u] = True
+```
+
+## Recursive
+```py
+def dfs(Graph, node):
+    visited[r] = True
+    for v in neighbor(Graph, node):
+        if not visited[v]:
+            dfs(Graph, v)
+```
+
+## Graph Data Structure
+```py
+def neighbors(Graph, v):
+    return Graph[v]
+
+def nodes(Graph):
+    return list(Graph)
+```
+
+## Topsort
+```py
+def topsort(Graph):
+    # initialize empty stack
+    stack = []
+    visited = [0] * (len(nodes(Graph)) + 1)
+    for v in nodes(Graph):
+        if visited [v] == 0:
+            if visit(Graph, v, stack, visited) == False:
+                return None
+    return stack
+
+def visit(Graph, node, stack, visited):
+    if visited[node] == 2:
+        return True
+    elif visited[node] == 1:
+        return False
+    visited[node] = 1
+    for v in neighbors(Graph, node):
+        if visit(Graph, v, stack, visited) == False:
+            return False
+        stack.insert(0, node)
+        visited[r] = 2
+        return True
+```
+
+# Weighted Graph Algorithms
+
+## Union-Find
+```py
+def initialize(n):
+    global p
+    p = [None] * n
+
+def find(u):
+    global p
+    if p[u] == None:
+        return u
+    else:
+        return find(p[u])
+
+def union(u,v):
+    global p
+    pu, pv = find(u), find(v)
+    p[pu] = pv
+```
+
+### Better Implementation
+```py
+def initialize(n):
+    global p, r
+    p, r = [None]*n, [0]*n
+
+def find(u):
+    global p
+    return u if p[u] == None else find(p[u])
+
+def union(u,v):
+    global p, r
+    pu, pv = find(u), find(v)
+    if r[pu] < r[pv]:
+        p[pu] = pv
+    elif r[pv] < r[pu]:
+        p[pv] = pu
+    else:
+        p[pv], r[pu] = pu, r[pu]+1
+```
+Runtime: $\Theta(logn)
+
+### Dijkstra's Algorithm
+```py
+def dijkstra(Graph, node):
+    Tree, d = {node}, [X] * size(Graph)
+    d[node] = 0
+    for v in neighbors(Graph, node):
+        d[v] = weight(Graph, (node, v))
+    while size(Tree) < size(Graph):
+        v = Cheapest(Tree, d)
+        Tree.append(v)
+        for u in neighbors(Graph, v):
+            if d[u] > d[v]+weight(Graph, (v,u)):
+                d[u] = d[v]+weight(Graph, (v,u))
+```
+Runtime: $O(V^2)$
+Using Minheap: $O(E+V)log(V)$
+Fibonaccie heap: $O(E + VlogV)
+
+## Bellman-Ford
+```py
+def bellman_ford(Graph, node):
+    d = ["infinity"] * size(Graph)
+    d[node] = 0
+    for _ in range(size(Graph) - 1):
+        for (u, v) in edges(Graph):
+            if d[v] > d[u] + weight(Graph, (u,v)):
+                d[v] = d[u] + weight(Graph, (u,v)):
+                    p[v] = u
+    return p, d
+```
+
+## Floyd-Warshall
+```py
+def floyd_warshall(Graph):
+    a = [[w(u,v) if (u,v) in edges(Graph) else "infinity"] for u in nodes(Graph)] for v in nodes(Graph)]
+    for k in nodes(Graph):
+        for u in nodes(Graph):
+            for v in nodes(Graph):
+                a[u][v] = min_k(a[u][v], a[u][k] + a[k][v])
+    return a
+```
+Runtime: $\Theta(V^3)$

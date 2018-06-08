@@ -12,6 +12,9 @@ mathjax: true
 * Inside asymptotic notation, the cardinality is ommitted.
     * $\Theta(\lvert V\rvert, \lvert E\rvert)\equiv \Theta(V, E)$
 
+## Principle of Optimality
+> If $v_1,...,v_j,...,v_k$ is a shortest path from $v_1$ to $v_k$ passing through $v_j$, then the subpath $v_1,...,v_j$ is a shortest path from $v_1$ to $v_j$
+
 # Graph Representations
 |Graph|Data Structure|
 |---|---|
@@ -77,7 +80,13 @@ typedef struct {
 # Breadth First Search
 ![bfs brilliant](https://ds055uzetaobb.cloudfront.net/image_optimizer/62cdd0cb92ee8629cb1422e04d76a12da176bd02.gif)
 
+## Application
 * Finding optimal solution out of available options.
+    * Find connected components
+* Find shortest path in unweighted graphs.
+* Test for bipartite property.
+
+## Properties
 * Builds a breadth-first tree with root $s$
     * $s$ - A distinguished source vertex.
 * Explores edges of $G$ to **discover** every vertex that is reachable from $s$.
@@ -124,6 +133,15 @@ $O(n + m)$
 
 # Depth First Search (DFS)
 ![dfs](https://ds055uzetaobb.cloudfront.net/image_optimizer/35a0e3d657f653ec7b3c6113ad4b55264cae5516.gif)
+
+# Applications
+* Connnected components
+* Topological Sorting
+    * **Topological Sort**
+        * Linear ordering of its vertices such that for every directed edge $uv$ from vertex $u$ to vertex $v$, $u$ comes before $v$ in the ordering.
+* Finding cycles in directed graphs
+
+## Properties
 * Finds the longest path of a graph $G$
 * Explores deep into a graph whenever possible.
 * Uses a stack to keep track of vertices.
@@ -214,14 +232,19 @@ If using a adjacency list, $O(V+E)$
 * Starts from one vertex and grows the rest of the tree one edge at a time until all vertices are included.
 * Greedy
 	* Repeatedly selects the smallest weight edge at a vertex.
+1. Start from a given vertex.
+2. With each iteration add a new vertex to the spanning tree.
+    1. Always add the lowest-weight edge linking a vertex in the tree to a vertex outside of the tree.
+        1. A boolean array tracks whether a vertex has already been added to the tree.
 
 ### Pseudocode
 ```
 Prim-MST(G)
-	Select an arbitrary vertex s to start the tree from
-		while (there are still nontree vertices)
-			Select the edge of minimum weight between a tree and nontree vertex
-			Add the selected edge and vertext to the tree T
+  Select an arbitrary vertex s to start the tree from
+    while (there are still nontree vertices)
+	  Select the edge of minimum weight between a tree and nontree vertex
+      Add the selected edge and vertext to the tree T
 ```
 
-
+## Kruskal's Algorithm
+* More efficient than Prim's on sparse graphs.
