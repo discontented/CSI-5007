@@ -12,7 +12,7 @@
 |---|---|
 |Sparse Graph $(\lvert E\rvert << {\lvert V\rvert}^2)$|[Adjacency List](#adjacency-list)|
 |Dense Graph $(\lvert E\rvert << {\lvert V\rvert}^2)$|[Adjancency Matrix](#adjacency-matrix)|
-|Dense Graph 
+
 ## Adjacency Matrix
 * $G$ is represented by a $n \times n$ matrix $M$
 
@@ -119,4 +119,88 @@ $O(n + m)$
 
 # Depth First Search (DFS)
 * Finds the longest path of a graph $G$
-* Uses a stack
+* Explores deep into a graph whenever possible.
+* Uses a stack to keep track of vertices.
+* Explores edges out of the most recently discovered vertex $v$ that still has unexplored edges leaving it.
+* Once $v$'s edges have been explored, the search backtracks to explore edges leaving the vertex from which $v$ was discovered.
+* Continues until all vertices $v$ that are reachable from the original source vertex $s$ have been discovered.
+* Algorithm repeats process until it has discovered very vertex.
+
+## Predecessor Graph
+* Whenever a DFS discoveres a vertex $v$ during a scan of an already discovered vertex $u$, it sets $v$'s predecessor attribute $v.\pi$ to $u$
+* The predecessor subgraph produced by a DFS forms a **predecessor forest** because the search may repeat from multiple source ($s$) vertices
+
+_Predecessor Subgraph Representation_
+$$
+G_{\pi}=(V,E_{\pi}), \text{where } E_{\pi}={(v.\pi,v):v\in V \text{and } v.\pi \neq NIL}
+$$
+
+## Steps
+1. Visit a vertex $s$
+2. Mark $s$ as visited
+3. Recursively visit each unvisited vertex attached to $s$
+
+## DFS Strategies
+### Pre-order
+* Visit source node $s$.
+* Successively move left to visit each node ($v$) until a leaf is reached.
+* When there are no more children to left of $s$ node.
+
+### In-order **INCOMPLETE**
+* Find left-most node in tree and visit.
+* Vist the parent of that node.
+* Visit right child of this parent node.
+    * Find next left-most node.
+
+### Post-Order
+* Visit left-most leaf in tree.
+* Visit parent and then find second left-most leaf.
+* Repeat until the parent is the last node within a branch.
+
+## Pseudocode
+```
+Initialize an empty stack for storage of nodes, S.
+For each vertex u, define u.visited to be false.
+Push the root (first node to be visited) onto S.
+While S is not empty:
+    Pop the first element in S, u.
+    If u.visited = false, then:
+        U.visited = true
+        for each unvisited neighbor w of u:
+            Push w into S.
+End process when all nodes have been visited.
+```
+
+## Python Implementation
+### Iterative
+```py
+def depth_first_search(graph):
+    visited, stack = set(), [root]
+    while stack:
+        vertex = stack.pop()
+        if vertex not in visited:
+            visited.add(vertex)
+            stack.extend(graph[vertex] - visited)
+    return visited
+```
+
+### Recursive
+```py
+def depth_first_search_recursive(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    for next in graph[start] - visited:
+        depth_first_search_recursive(graph, next, visited)
+    return visited
+```
+
+## Runtime
+If using a adjacency list, $O(V+E)$
+
+# Minimum Spanning Trees
+* **Spanning Tree**
+    * An acyclic subset, or tree, $T$ of a graph that connects all vertices from a vertex $u$ to $v$
+* **Minimum Spanning Tree**
+    * A spanning tree that has the least weight.
+* 
