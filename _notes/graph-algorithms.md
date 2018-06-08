@@ -75,6 +75,8 @@ typedef struct {
 |processed|Vertex where all incident edges have been visited.
 
 # Breadth First Search
+![bfs brilliant](https://ds055uzetaobb.cloudfront.net/image_optimizer/62cdd0cb92ee8629cb1422e04d76a12da176bd02.gif)
+
 * Finding optimal solution out of available options.
 * Builds a breadth-first tree with root $s$
     * $s$ - A distinguished source vertex.
@@ -121,6 +123,7 @@ BFS(G, s)
 $O(n + m)$
 
 # Depth First Search (DFS)
+![dfs](https://ds055uzetaobb.cloudfront.net/image_optimizer/35a0e3d657f653ec7b3c6113ad4b55264cae5516.gif)
 * Finds the longest path of a graph $G$
 * Explores deep into a graph whenever possible.
 * Uses a stack to keep track of vertices.
