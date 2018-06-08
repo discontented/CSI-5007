@@ -210,7 +210,18 @@ If using a adjacency list, $O(V+E)$
 * **Minimum Spanning Tree**
     * A spanning tree that has the least weight.
 
-## Generic MST
+## Prim's Algorithm
+* Starts from one vertex and grows the rest of the tree one edge at a time until all vertices are included.
+* Greedy
+	* Repeatedly selects the smallest weight edge at a vertex.
 
 ### Pseudocode
+```
+Prim-MST(G)
+	Select an arbitrary vertex s to start the tree from
+		while (there are still nontree vertices)
+			Select the edge of minimum weight between a tree and nontree vertex
+			Add the selected edge and vertext to the tree T
+```
+
 
