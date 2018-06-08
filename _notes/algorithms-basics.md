@@ -16,3 +16,6 @@ A sort is **stable** if two elements with equivalent keys maintain their relativ
 * Simplify by pre-computing
 * Divide and Conquer
 * Scanning
+
+# Greedy Algorithms
+* At a choice within an algorithm, the algorithm makes the best choice at the moment.

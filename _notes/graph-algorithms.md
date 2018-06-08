@@ -1,4 +1,9 @@
-## Basics
+---
+layout: post
+mathjax: true
+---
+
+# Basics
 
 * graph $G=(V,E)$ contains $n$ vertices and $m$ edges
 
@@ -31,10 +36,8 @@ $$
     * Uses excessive space for graphs with many vertices and few edges
 
 ## Adjacency List
-
 * Pros
     * More efficiently stores sparse graphs
-
 * Cons
     * Slower to find edge as it is necessary to search from head of linked list to find edge.
 
@@ -198,9 +201,13 @@ def depth_first_search_recursive(graph, start, visited=None):
 ## Runtime
 If using a adjacency list, $O(V+E)$
 
-# Minimum Spanning Trees
+# Minimum Spanning Trees (MST)
 * **Spanning Tree**
     * An acyclic subset, or tree, $T$ of a graph that connects all vertices from a vertex $u$ to $v$
 * **Minimum Spanning Tree**
     * A spanning tree that has the least weight.
-* 
+
+## Generic MST
+
+### Pseudocode
+
