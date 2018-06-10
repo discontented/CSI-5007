@@ -16,6 +16,7 @@ mathjax: true
 > If $v_1,...,v_j,...,v_k$ is a shortest path from $v_1$ to $v_k$ passing through $v_j$, then the subpath $v_1,...,v_j$ is a shortest path from $v_1$ to $v_j$
 
 # Graph Representations
+
 |Graph|Data Structure|
 |---|---|
 |Sparse Graph $(\lvert E\rvert << {\lvert V\rvert}^2)$|[Adjacency List](#adjacency-list)|
@@ -71,6 +72,7 @@ typedef struct {
     * There are numerous implementations of this, such as tracking visited nodes by adding to an array, or changing the state on the property of a vertex if it is coded as an object.
 
 ### Vertex States
+
 |State|Description|
 |---|---|
 |undiscovered|Vertex is in its initial state and has not been visited.|
