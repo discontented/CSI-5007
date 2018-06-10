@@ -3,6 +3,17 @@ layout: post
 mathjax: true
 ---
 
+- [Linear Search](#linear-search)
+    - [Running Time](#running-time)
+- [Binary Search](#binary-search)
+    - [Iterative Implementation](#iterative-implementation)
+        - [Explanation](#explanation)
+            - [Loop Invariant](#loop-invariant)
+        - [Loop Invariant](#loop-invariant)
+    - [Recursive Implementation](#recursive-implementation)
+        - [Running Time](#running-time)
+        - [Recurrence](#recurrence)
+
 # Linear Search
 
 ```py

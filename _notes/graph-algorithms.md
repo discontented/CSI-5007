@@ -3,6 +3,41 @@ layout: post
 mathjax: true
 ---
 
+- [Basics](#basics)
+    - [Runtime Analysis](#runtime-analysis)
+    - [Principle of Optimality](#principle-of-optimality)
+- [Graph Representations](#graph-representations)
+    - [Adjacency Matrix](#adjacency-matrix)
+    - [Adjacency List](#adjacency-list)
+        - [Adjacency List Implementation](#adjacency-list-implementation)
+- [Graph Traversal](#graph-traversal)
+    - [Key Ideas](#key-ideas)
+        - [Vertex States](#vertex-states)
+- [Breadth First Search](#breadth-first-search)
+    - [Application](#application)
+    - [Properties](#properties)
+    - [Steps](#steps)
+    - [Psuedocode](#psuedocode)
+    - [Runtime](#runtime)
+- [Depth First Search (DFS)](#depth-first-search-dfs)
+- [Applications](#applications)
+    - [Properties](#properties)
+    - [Predecessor Graph](#predecessor-graph)
+    - [Steps](#steps)
+    - [DFS Strategies](#dfs-strategies)
+        - [Pre-order](#pre-order)
+        - [In-order **INCOMPLETE**](#in-order-incomplete)
+        - [Post-Order](#post-order)
+    - [Pseudocode](#pseudocode)
+    - [Python Implementation](#python-implementation)
+        - [Iterative](#iterative)
+        - [Recursive](#recursive)
+    - [Runtime](#runtime)
+- [Minimum Spanning Trees (MST)](#minimum-spanning-trees-mst)
+    - [Prim's Algorithm](#prims-algorithm)
+        - [Pseudocode](#pseudocode)
+    - [Kruskal's Algorithm](#kruskals-algorithm)
+
 # Basics
 
 * graph $G=(V,E)$ contains $n$ vertices and $m$ edges

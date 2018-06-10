@@ -36,8 +36,24 @@ All python code that appears in the slides.
         - [Iterative](#iterative)
         - [Recursive](#recursive)
         - [Iterative](#iterative)
+- [Unweighted Graph Algorithms](#unweighted-graph-algorithms)
+    - [Breadth First Search](#breadth-first-search)
+    - [Depth First Search (DFS)](#depth-first-search-dfs)
+        - [Iterative](#iterative)
+            - [Pre-order](#pre-order)
+            - [Post-order](#post-order)
+    - [Recursive](#recursive)
+    - [Graph Data Structure](#graph-data-structure)
+    - [Topsort](#topsort)
+- [Weighted Graph Algorithms](#weighted-graph-algorithms)
+    - [Union-Find](#union-find)
+        - [Better Implementation](#better-implementation)
+        - [Dijkstra's Algorithm](#dijkstras-algorithm)
+    - [Bellman-Ford](#bellman-ford)
+    - [Floyd-Warshall](#floyd-warshall)
 
 # Bubble Sort
+
 * 1 - Introduction
 
 ```py
@@ -65,6 +81,7 @@ def bs0(a):
 ```
 
 # Insertion Sort
+
 * 3 - Runtime Computations
 
 ```py

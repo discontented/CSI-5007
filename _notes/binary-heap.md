@@ -3,6 +3,14 @@ layout: post
 mathjax: true
 ---
 
+- [Terms](#terms)
+- [Binary Trees](#binary-trees)
+  - [Full Binary Trees](#full-binary-trees)
+  - [Complete Binary Trees](#complete-binary-trees)
+  - [Binary Heap Data Structure](#binary-heap-data-structure)
+  - [`max-heap` property](#max-heap-property)
+  - [`min-heap` property](#min-heap-property)
+
 ## Terms
 **Height**
 * Number of edges on the longest path from the root node to a leaf.

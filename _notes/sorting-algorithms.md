@@ -26,7 +26,7 @@ mathjax: true
     - [Pivot](#pivot)
     - [Partition Algorithm](#partition-algorithm)
     - [Python Implementation](#python-implementation)
-- [Bin/Bucket Sort](#bin-bucket-sort)
+- [Bin/Bucket Sort](#binbucket-sort)
 
 # Bubble Sort
 

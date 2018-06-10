@@ -3,6 +3,17 @@ layout: post
 mathjax: true
 ---
 
+- [Runtime Analysis](#runtime-analysis)
+    - [Comparisons](#comparisons)
+    - [Swaps](#swaps)
+    - [General Solution](#general-solution)
+- [Recursion](#recursion)
+    - [Recursive Algorithms](#recursive-algorithms)
+        - [Fibonacci Sequence](#fibonacci-sequence)
+    - [Calculate Total Recursions](#calculate-total-recursions)
+
+# Runtime Analysis
+
 ## Comparisons
 * For any size 4 input, there will always be 6 comparisons made with two loops
 
