@@ -816,7 +816,7 @@ def union(u,v):
     else:
         p[pv], r[pu] = pu, r[pu]+1
 ```
-Runtime: $\Theta(logn)
+Runtime: $\Theta(logn)$
 
 ### Dijkstra's Algorithm
 ```py
@@ -834,7 +834,7 @@ def dijkstra(Graph, node):
 ```
 Runtime: $O(V^2)$
 Using Minheap: $O(E+V)log(V)$
-Fibonaccie heap: $O(E + VlogV)
+Fibonaccie heap: $O(E + VlogV)$
 
 ## Bellman-Ford
 ```py
