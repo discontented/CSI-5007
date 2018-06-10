@@ -1,7 +1,11 @@
 """
 Graph uses dictionary with nodes as sequential integers and edges as pairs.
+graph = { vertex: [ edges] }
+Example
+graph = { a: [b, c] }
+    Graph with edges ab and ac
 """
-graph = { 1: [1,2],
-        2: [2, 1],
-        3: [3, 1]
+graph = { 'a' : ['b', 'c'],
+        'b' : ['a']
+        'c' : ['a']
         }  
