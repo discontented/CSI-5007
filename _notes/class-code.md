@@ -832,9 +832,10 @@ def dijkstra(Graph, node):
             if d[u] > d[v]+weight(Graph, (v,u)):
                 d[u] = d[v]+weight(Graph, (v,u))
 ```
+
 Runtime: $O(V^2)$
 Using Minheap: $O(E+V)log(V)$
-Fibonaccie heap: $O(E + VlogV)$
+Fibonacci heap: $O(E + VlogV)$
 
 ## Bellman-Ford
 ```py

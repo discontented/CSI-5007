@@ -11,6 +11,8 @@ mathjax: true
     - [Recursive Algorithms](#recursive-algorithms)
         - [Fibonacci Sequence](#fibonacci-sequence)
     - [Calculate Total Recursions](#calculate-total-recursions)
+- [Dynamic Programming](#dynamic-programming)
+    - [Steps](#steps)
 
 # Runtime Analysis
 
@@ -62,3 +64,14 @@ def num_operations_fibonacci(n):
     else:
         return 1 + num_operations_fibonacci(n-1) + num_operations_fibonacci(n-2)
 ```
+
+# Dynamic Programming
+* Induction
+    * Small smaller case and iterate through larger cases until the original, complex problem is solved.
+
+## Steps
+1. Sort the data (if necessary) so that it lends itself to a dynamic approach. 
+2. Solve for the simplest case (Often $n=0$ and/or $n=1$). 
+3. Recognize patterns for small  to see how they depend on smaller $n$. 
+4. Come up with a recursive way to derive all values based on values that come before them.
+

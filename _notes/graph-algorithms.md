@@ -22,6 +22,7 @@ mathjax: true
 - [Depth First Search (DFS)](#depth-first-search-dfs)
 - [Applications](#applications)
     - [Properties](#properties)
+    - [Stack](#stack)
     - [Predecessor Graph](#predecessor-graph)
     - [Steps](#steps)
     - [DFS Strategies](#dfs-strategies)
@@ -37,10 +38,16 @@ mathjax: true
     - [Prim's Algorithm](#prims-algorithm)
         - [Pseudocode](#pseudocode)
     - [Kruskal's Algorithm](#kruskals-algorithm)
+- [Dijkstra's Algorithm](#dijkstras-algorithm)
+- [Floyd-Warshall Algorithm](#floyd-warshall-algorithm)
 
 # Basics
 
 * graph $G=(V,E)$ contains $n$ vertices and $m$ edges
+    * Vertices are also called **nodes**
+* $(u,v)$ is an edge.
+* Indicates there is an edge from vertex $u$ to $v$
+    * $(u,v)\ne (v,u)$ in a directed graph (di-graph)
 
 ## Runtime Analysis
 * The runtime of a graph algorithm for a given graph $G=(V,E)$ is measured in terms of the number of vertices ($\lvert V\rvert$) and number of edges ($\lvert E\rvert$)
@@ -58,7 +65,13 @@ mathjax: true
 |Dense Graph $(\lvert E\rvert << {\lvert V\rvert}^2)$|[Adjancency Matrix](#adjacency-matrix)|
 
 ## Adjacency Matrix
+![adjacency matrix](https://process.filestackapi.com/cache=expiry:max/dTLEaB3Q3GVvB0buaLp3)
+
 * $G$ is represented by a $n \times n$ matrix $M$
+* $n$ are the number of vertices in the graph.
+* A 1 represents an edge between vertex $i$ and $j$
+    * `adj[i][j] = w`
+        * Weighted graphs represented in an adjacency matrix displays the weight instead of 1 for an edge.
 
 $$
 M[i,j]=
@@ -75,6 +88,8 @@ $$
     * Uses excessive space for graphs with many vertices and few edges
 
 ## Adjacency List
+![adjacency list](https://process.filestackapi.com/cache=expiry:max/Ah1Snl5rTECuaVKfU951)
+
 * Pros
     * More efficiently stores sparse graphs
 * Cons
@@ -132,7 +147,8 @@ typedef struct {
 * Algorithm discovers all vertices at distance $k$ from $s$ before discovering any vertices at $d = k + 1$
 * $u.\pi$ represents the predecessor of $u$ in book psuedocode.
 * Uses a queue
-
+    * Stores discvored by not processed vertices in FIFO order.
+        * Explore the oldest unexplored vertices first.
 ## Steps
 1. Pick source vertex, `s`, from graph.
     1. `s` becomes the root of the tree.
@@ -184,11 +200,17 @@ $O(n + m)$
 * Uses a stack to keep track of vertices.
 * Explores edges out of the most recently discovered vertex $v$ that still has unexplored edges leaving it.
 * Once $v$'s edges have been explored, the search backtracks to explore edges leaving the vertex from which $v$ was discovered.
+    * Backs up when surrounded by previously discovered vertices.
 * Continues until all vertices $v$ that are reachable from the original source vertex $s$ have been discovered.
 * Algorithm repeats process until it has discovered very vertex.
 
+## Stack
+* Stores discovered but not processed vertices.
+* LIFO
+* 
+
 ## Predecessor Graph
-* Whenever a DFS discoveres a vertex $v$ during a scan of an already discovered vertex $u$, it sets $v$'s predecessor attribute $v.\pi$ to $u$
+* Whenever a DFS discovers a vertex $v$ during a scan of an already discovered vertex $u$, it sets $v$'s predecessor attribute $v.\pi$ to $u$
 * The predecessor subgraph produced by a DFS forms a **predecessor forest** because the search may repeat from multiple source ($s$) vertices
 
 _Predecessor Subgraph Representation_
@@ -269,6 +291,7 @@ If using a adjacency list, $O(V+E)$
 * Starts from one vertex and grows the rest of the tree one edge at a time until all vertices are included.
 * Greedy
 	* Repeatedly selects the smallest weight edge at a vertex.
+
 1. Start from a given vertex.
 2. With each iteration add a new vertex to the spanning tree.
     1. Always add the lowest-weight edge linking a vertex in the tree to a vertex outside of the tree.
@@ -285,3 +308,22 @@ Prim-MST(G)
 
 ## Kruskal's Algorithm
 * More efficient than Prim's on sparse graphs.
+
+```
+MST-Kruskal(Graph, weight):
+    A = []
+    for each vertex (v) in Graph.vertices
+        MakeSet(v)
+    sort edges of G.E into non-decreasing order by weight
+        if FindSet(u) != FindSet(v):
+            A = A.append{(u, v)}
+            Union(u,v)
+    return A
+```
+
+# Dijkstra's Algorithm
+* Finds shortest path.
+    * Does not work with negative weights
+
+# Floyd-Warshall Algorithm
+* Shortest path supporting negative weights.
