@@ -693,7 +693,7 @@ def process (x,y) :
 ```
 
 ```py
-def bsf(Graph, node, process = None):
+def bfs(Graph, node, process = None):
     enqueue(r)
     visited[r] = True
     while v = dequeue():
