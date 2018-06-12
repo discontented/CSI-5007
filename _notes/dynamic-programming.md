@@ -27,7 +27,7 @@ fib(n):
 ### Runtime Analysis
 * Only making recursive calls the first time `fib(k)` it's called.
     * The memoized calls are constant time ($\Theta(1)$)
-* The number of non-memoized calls is $n$ since `fib(k)` is done the first time and only done once for each number $<= n$http://josh-corneille.com/CSI-5007/
+* The number of non-memoized calls is $n$ since `fib(k)` is done the first time and only done once for each number $<= n$
 
 Runtime = $\Theta(n)$
 
