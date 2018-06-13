@@ -1,0 +1,33 @@
+---
+---
+
+@import "minima";
+
+@media print {
+    .print {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        margin-bottom: 10px;
+    }
+    body {
+        padding: 20px;
+    }
+    code, .highlighter-rouge .highlight {
+        word-wrap: break-word;
+    }
+}
+
+.post-content h1 {
+    font-size: 32px;
+    border-bottom: 1px solid #eaecef;
+    font-weight: 600
+}
+
+.post-content h2 {
+    font-size: 28px;
+}
+
+code, .highlighter-rouge .highlight {
+    background-color: #f6f8fa;
+}
