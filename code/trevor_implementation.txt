@@ -1,0 +1,35 @@
+"""
+a - input array of n items
+w - max weight of bin
+"""
+def bruteForce(a, w):
+    # sort from max to min
+    MaxToMin(a)
+
+    # Separate all large items that would not fit together.
+    createBins(a, w)
+
+    x = calculateSpace(bin)
+
+    for remaining items in a:
+        optimizeCapacity(item, x)
+
+"""
+Fills bin based on remaining empty space (x).
+"""
+def optimizeCapacity(item, x):
+    if item.weight == x
+        insert item into bin
+        remove item from a
+    elif item.weight < x
+        optimizeCapacity(item, x-1)
+
+"""
+Creates all needed bins for items that are over half the value of the max weight (w)
+"""
+def createBins(a, w)
+    for item in a:
+        if item.weight > w:
+            create new bin
+            insert item into bin
+        
