@@ -1,3 +1,8 @@
+---
+layout: post
+mathjax: true
+---
+
 # Must Know Algorithms
 Prim, Kruskal, Dijkstra
 

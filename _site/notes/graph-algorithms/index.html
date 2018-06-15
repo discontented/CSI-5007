@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang=" en "><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Graph Algorithms | Algorithms</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Graph Algorithms" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basics Runtime Analysis Principle of Optimality Graph Representations Adjacency Matrix Adjacency List Adjacency List Implementation Graph Traversal Key Ideas Vertex States Breadth First Search Application Properties Steps Psuedocode Runtime Depth First Search (DFS) Applications Properties Stack Predecessor Graph Steps DFS Strategies Pre-order In-order INCOMPLETE Post-Order Pseudocode Python Implementation Iterative Recursive Runtime Minimum Spanning Trees (MST) Prim’s Algorithm Pseudocode Kruskal’s Algorithm Dijkstra’s Algorithm Floyd-Warshall Algorithm" />
+<meta property="og:description" content="Basics Runtime Analysis Principle of Optimality Graph Representations Adjacency Matrix Adjacency List Adjacency List Implementation Graph Traversal Key Ideas Vertex States Breadth First Search Application Properties Steps Psuedocode Runtime Depth First Search (DFS) Applications Properties Stack Predecessor Graph Steps DFS Strategies Pre-order In-order INCOMPLETE Post-Order Pseudocode Python Implementation Iterative Recursive Runtime Minimum Spanning Trees (MST) Prim’s Algorithm Pseudocode Kruskal’s Algorithm Dijkstra’s Algorithm Floyd-Warshall Algorithm" />
+<link rel="canonical" href="http://localhost:4000/CSI-5007/notes/graph-algorithms/" />
+<meta property="og:url" content="http://localhost:4000/CSI-5007/notes/graph-algorithms/" />
+<meta property="og:site_name" content="Algorithms" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-15T13:02:58-04:00" />
+<script type="application/ld+json">
+{"description":"Basics Runtime Analysis Principle of Optimality Graph Representations Adjacency Matrix Adjacency List Adjacency List Implementation Graph Traversal Key Ideas Vertex States Breadth First Search Application Properties Steps Psuedocode Runtime Depth First Search (DFS) Applications Properties Stack Predecessor Graph Steps DFS Strategies Pre-order In-order INCOMPLETE Post-Order Pseudocode Python Implementation Iterative Recursive Runtime Minimum Spanning Trees (MST) Prim’s Algorithm Pseudocode Kruskal’s Algorithm Dijkstra’s Algorithm Floyd-Warshall Algorithm","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/graph-algorithms/","headline":"Graph Algorithms","dateModified":"2018-06-15T13:02:58-04:00","datePublished":"2018-06-15T13:02:58-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/graph-algorithms/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/CSI-5007/">Algorithms</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/CSI-5007/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Graph Algorithms</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-06-15T13:02:58-04:00" itemprop="datePublished">Jun 15, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li><a href="#basics">Basics</a>
+    <ul>
+      <li><a href="#runtime-analysis">Runtime Analysis</a></li>
+      <li><a href="#principle-of-optimality">Principle of Optimality</a></li>
+    </ul>
+  </li>
+  <li><a href="#graph-representations">Graph Representations</a>
+    <ul>
+      <li><a href="#adjacency-matrix">Adjacency Matrix</a></li>
+      <li><a href="#adjacency-list">Adjacency List</a>
+        <ul>
+          <li><a href="#adjacency-list-implementation">Adjacency List Implementation</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#graph-traversal">Graph Traversal</a>
+    <ul>
+      <li><a href="#key-ideas">Key Ideas</a>
+        <ul>
+          <li><a href="#vertex-states">Vertex States</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#breadth-first-search">Breadth First Search</a>
+    <ul>
+      <li><a href="#application">Application</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#steps">Steps</a></li>
+      <li><a href="#psuedocode">Psuedocode</a></li>
+      <li><a href="#runtime">Runtime</a></li>
+    </ul>
+  </li>
+  <li><a href="#depth-first-search-dfs">Depth First Search (DFS)</a></li>
+  <li><a href="#applications">Applications</a>
+    <ul>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#predecessor-graph">Predecessor Graph</a></li>
+      <li><a href="#steps">Steps</a></li>
+      <li><a href="#dfs-strategies">DFS Strategies</a>
+        <ul>
+          <li><a href="#pre-order">Pre-order</a></li>
+          <li><a href="#in-order-incomplete">In-order <strong>INCOMPLETE</strong></a></li>
+          <li><a href="#post-order">Post-Order</a></li>
+        </ul>
+      </li>
+      <li><a href="#pseudocode">Pseudocode</a></li>
+      <li><a href="#python-implementation">Python Implementation</a>
+        <ul>
+          <li><a href="#iterative">Iterative</a></li>
+          <li><a href="#recursive">Recursive</a></li>
+        </ul>
+      </li>
+      <li><a href="#runtime">Runtime</a></li>
+    </ul>
+  </li>
+  <li><a href="#minimum-spanning-trees-mst">Minimum Spanning Trees (MST)</a>
+    <ul>
+      <li><a href="#prims-algorithm">Prim’s Algorithm</a>
+        <ul>
+          <li><a href="#pseudocode">Pseudocode</a></li>
+        </ul>
+      </li>
+      <li><a href="#kruskals-algorithm">Kruskal’s Algorithm</a></li>
+    </ul>
+  </li>
+  <li><a href="#dijkstras-algorithm">Dijkstra’s Algorithm</a></li>
+  <li><a href="#floyd-warshall-algorithm">Floyd-Warshall Algorithm</a></li>
+</ul>
+
+<h1 id="basics">Basics</h1>
+
+<ul>
+  <li>graph $G=(V,E)$ contains $n$ vertices and $m$ edges
+    <ul>
+      <li>Vertices are also called <strong>nodes</strong></li>
+    </ul>
+  </li>
+  <li>$(u,v)$ is an edge.</li>
+  <li>Indicates there is an edge from vertex $u$ to $v$
+    <ul>
+      <li>$(u,v)\ne (v,u)$ in a directed graph (di-graph)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="runtime-analysis">Runtime Analysis</h2>
+<ul>
+  <li>The runtime of a graph algorithm for a given graph $G=(V,E)$ is measured in terms of the number of vertices ($\lvert V\rvert$) and number of edges ($\lvert E\rvert$)</li>
+  <li>Inside asymptotic notation, the cardinality is ommitted.
+    <ul>
+      <li>$\Theta(\lvert V\rvert, \lvert E\rvert)\equiv \Theta(V, E)$</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="principle-of-optimality">Principle of Optimality</h2>
+<blockquote>
+  <p>If $v_1,…,v_j,…,v_k$ is a shortest path from $v_1$ to $v_k$ passing through $v_j$, then the subpath $v_1,…,v_j$ is a shortest path from $v_1$ to $v_j$</p>
+</blockquote>
+
+<h1 id="graph-representations">Graph Representations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Graph</th>
+      <th>Data Structure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sparse Graph $(\lvert E\rvert « {\lvert V\rvert}^2)$</td>
+      <td><a href="#adjacency-list">Adjacency List</a></td>
+    </tr>
+    <tr>
+      <td>Dense Graph $(\lvert E\rvert « {\lvert V\rvert}^2)$</td>
+      <td><a href="#adjacency-matrix">Adjancency Matrix</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="adjacency-matrix">Adjacency Matrix</h2>
+<p><img src="https://process.filestackapi.com/cache=expiry:max/dTLEaB3Q3GVvB0buaLp3" alt="adjacency matrix" /></p>
+
+<ul>
+  <li>$G$ is represented by a $n \times n$ matrix $M$</li>
+  <li>$n$ are the number of vertices in the graph.</li>
+  <li>A 1 represents an edge between vertex $i$ and $j$
+    <ul>
+      <li><code class="highlighter-rouge">adj[i][j] = w</code>
+        <ul>
+          <li>Weighted graphs represented in an adjacency matrix displays the weight instead of 1 for an edge.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+M[i,j]=
+\begin{cases}
+1 & \text{if $(i,j)$ is an edge of $G$} \\
+0 & \text{if $(i,j)$ is not an edge of $G$}
+\end{cases} %]]></script>
+
+<ul>
+  <li>Pros
+    <ul>
+      <li>Rapid search for edges in graph</li>
+      <li>Rapid update to edge insertion and deletion</li>
+    </ul>
+  </li>
+  <li>Cons
+    <ul>
+      <li>Uses excessive space for graphs with many vertices and few edges</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="adjacency-list">Adjacency List</h2>
+<p><img src="https://process.filestackapi.com/cache=expiry:max/Ah1Snl5rTECuaVKfU951" alt="adjacency list" /></p>
+
+<ul>
+  <li>Pros
+    <ul>
+      <li>More efficiently stores sparse graphs</li>
+    </ul>
+  </li>
+  <li>Cons
+    <ul>
+      <li>Slower to find edge as it is necessary to search from head of linked list to find edge.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="adjacency-list-implementation">Adjacency List Implementation</h3>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MAXV 1000
+</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">weight</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">edgenode</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">edgenode</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">edgenode</span> <span class="o">*</span><span class="n">edges</span><span class="p">[</span><span class="n">MAXV</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">degree</span><span class="p">[</span><span class="n">MAXV</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">nvertices</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">nedges</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">directed</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">graph</span>
+</code></pre></div></div>
+
+<h1 id="graph-traversal">Graph Traversal</h1>
+
+<h2 id="key-ideas">Key Ideas</h2>
+<ul>
+  <li>Mark every vertex which is visted to keep track of if the graph has been completely explored.
+    <ul>
+      <li>There are numerous implementations of this, such as tracking visited nodes by adding to an array, or changing the state on the property of a vertex if it is coded as an object.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="vertex-states">Vertex States</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>undiscovered</td>
+      <td>Vertex is in its initial state and has not been visited.</td>
+    </tr>
+    <tr>
+      <td>discovered</td>
+      <td>Vertex has been found but incident edges have not been checked.</td>
+    </tr>
+    <tr>
+      <td>processed</td>
+      <td>Vertex where all incident edges have been visited.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="breadth-first-search">Breadth First Search</h1>
+<p><img src="https://ds055uzetaobb.cloudfront.net/image_optimizer/62cdd0cb92ee8629cb1422e04d76a12da176bd02.gif" alt="bfs brilliant" /></p>
+
+<h2 id="application">Application</h2>
+<ul>
+  <li>Finding optimal solution out of available options.
+    <ul>
+      <li>Find connected components</li>
+    </ul>
+  </li>
+  <li>Find shortest path in unweighted graphs.</li>
+  <li>Test for bipartite property.</li>
+</ul>
+
+<h2 id="properties">Properties</h2>
+<ul>
+  <li>Builds a breadth-first tree with root $s$
+    <ul>
+      <li>$s$ - A distinguished source vertex.</li>
+    </ul>
+  </li>
+  <li>Explores edges of $G$ to <strong>discover</strong> every vertex that is reachable from $s$.
+    <ul>
+      <li>Vertex is <strong>discovered</strong> the first time it is encountered in a search.</li>
+    </ul>
+  </li>
+  <li>Distance ($d$) is the shortest path from any vertex $v$ to the source vertex $s$</li>
+  <li>Algorithm discovers all vertices at distance $k$ from $s$ before discovering any vertices at $d = k + 1$</li>
+  <li>$u.\pi$ represents the predecessor of $u$ in book psuedocode.</li>
+  <li>Uses a queue
+    <ul>
+      <li>Stores discvored by not processed vertices in FIFO order.
+        <ul>
+          <li>Explore the oldest unexplored vertices first.
+            <h2 id="steps">Steps</h2>
+            <ol>
+              <li>Pick source vertex, <code class="highlighter-rouge">s</code>, from graph.
+                <ol>
+                  <li><code class="highlighter-rouge">s</code> becomes the root of the tree.</li>
+                </ol>
+              </li>
+              <li>Look at each neighbor in an order.</li>
+              <li>Visit each neighbor vertex in that same order.</li>
+              <li>Repeat breadth-first search for each <code class="highlighter-rouge">k+1</code> vertex from <code class="highlighter-rouge">s</code></li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="psuedocode">Psuedocode</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BFS(G, s)
+    for each vertex $u\in V[G] - {s}$ do
+        state[u] = "undiscovered"
+        p[u] = nil //no parent is in BFS tree
+    state[s] = "discovered"
+    p[s] = nil
+    Q = {s}
+    while Q != $\emptyset$ do
+        u = dequeue[Q]
+        process vertex u as desired
+        for each $v \in Adj[u]$ do
+            process edge $(u,v)$ as desired
+            if state[v] = "undiscovered" then
+                state[v] = discovered"
+                p[v] = u
+                enqueue[Q, v]
+        state[u] = "processed"
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">p[*]</code> represents predecessor of vertex</li>
+  <li>A vertex is <strong>discovered</strong> the first time it is visited.</li>
+  <li>A vertex is <strong>processed</strong> after all outgoing edges from it have been traversed.</li>
+</ul>
+
+<h2 id="runtime">Runtime</h2>
+<p>$O(n + m)$</p>
+
+<h1 id="depth-first-search-dfs">Depth First Search (DFS)</h1>
+<p><img src="https://ds055uzetaobb.cloudfront.net/image_optimizer/35a0e3d657f653ec7b3c6113ad4b55264cae5516.gif" alt="dfs" /></p>
+
+<h1 id="applications">Applications</h1>
+<ul>
+  <li>Connnected components</li>
+  <li>Topological Sorting
+    <ul>
+      <li><strong>Topological Sort</strong>
+        <ul>
+          <li>Linear ordering of its vertices such that for every directed edge $uv$ from vertex $u$ to vertex $v$, $u$ comes before $v$ in the ordering.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Finding cycles in directed graphs</li>
+</ul>
+
+<h2 id="properties-1">Properties</h2>
+<ul>
+  <li>Finds the longest path of a graph $G$</li>
+  <li>Explores deep into a graph whenever possible.</li>
+  <li>Uses a stack to keep track of vertices.</li>
+  <li>Explores edges out of the most recently discovered vertex $v$ that still has unexplored edges leaving it.</li>
+  <li>Once $v$’s edges have been explored, the search backtracks to explore edges leaving the vertex from which $v$ was discovered.
+    <ul>
+      <li>Backs up when surrounded by previously discovered vertices.</li>
+    </ul>
+  </li>
+  <li>Continues until all vertices $v$ that are reachable from the original source vertex $s$ have been discovered.</li>
+  <li>Algorithm repeats process until it has discovered very vertex.</li>
+</ul>
+
+<h2 id="stack">Stack</h2>
+<ul>
+  <li>Stores discovered but not processed vertices.</li>
+  <li>LIFO</li>
+  <li></li>
+</ul>
+
+<h2 id="predecessor-graph">Predecessor Graph</h2>
+<ul>
+  <li>Whenever a DFS discovers a vertex $v$ during a scan of an already discovered vertex $u$, it sets $v$’s predecessor attribute $v.\pi$ to $u$</li>
+  <li>The predecessor subgraph produced by a DFS forms a <strong>predecessor forest</strong> because the search may repeat from multiple source ($s$) vertices</li>
+</ul>
+
+<p><em>Predecessor Subgraph Representation</em>
+<script type="math/tex">G_{\pi}=(V,E_{\pi}), \text{where } E_{\pi}={(v.\pi,v):v\in V \text{and } v.\pi \neq NIL}</script></p>
+
+<h2 id="steps-1">Steps</h2>
+<ol>
+  <li>Visit a vertex $s$</li>
+  <li>Mark $s$ as visited</li>
+  <li>Recursively visit each unvisited vertex attached to $s$</li>
+</ol>
+
+<h2 id="dfs-strategies">DFS Strategies</h2>
+<h3 id="pre-order">Pre-order</h3>
+<ul>
+  <li>Visit source node $s$.</li>
+  <li>Successively move left to visit each node ($v$) until a leaf is reached.</li>
+  <li>When there are no more children to left of $s$ node.</li>
+</ul>
+
+<h3 id="in-order-incomplete">In-order <strong>INCOMPLETE</strong></h3>
+<ul>
+  <li>Find left-most node in tree and visit.</li>
+  <li>Vist the parent of that node.</li>
+  <li>Visit right child of this parent node.
+    <ul>
+      <li>Find next left-most node.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="post-order">Post-Order</h3>
+<ul>
+  <li>Visit left-most leaf in tree.</li>
+  <li>Visit parent and then find second left-most leaf.</li>
+  <li>Repeat until the parent is the last node within a branch.</li>
+</ul>
+
+<h2 id="pseudocode">Pseudocode</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Initialize an empty stack for storage of nodes, S.
+For each vertex u, define u.visited to be false.
+Push the root (first node to be visited) onto S.
+While S is not empty:
+    Pop the first element in S, u.
+    If u.visited = false, then:
+        U.visited = true
+        for each unvisited neighbor w of u:
+            Push w into S.
+End process when all nodes have been visited.
+</code></pre></div></div>
+
+<h2 id="python-implementation">Python Implementation</h2>
+<h3 id="iterative">Iterative</h3>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">depth_first_search</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+    <span class="n">visited</span><span class="p">,</span> <span class="n">stack</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(),</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">vertex</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">vertex</span><span class="p">]</span> <span class="o">-</span> <span class="n">visited</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">visited</span>
+</code></pre></div></div>
+
+<h3 id="recursive">Recursive</h3>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">depth_first_search_recursive</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">visited</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">visited</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nb">next</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">-</span> <span class="n">visited</span><span class="p">:</span>
+        <span class="n">depth_first_search_recursive</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="nb">next</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">visited</span>
+</code></pre></div></div>
+
+<h2 id="runtime-1">Runtime</h2>
+<p>If using a adjacency list, $O(V+E)$</p>
+
+<h1 id="minimum-spanning-trees-mst">Minimum Spanning Trees (MST)</h1>
+<ul>
+  <li><strong>Spanning Tree</strong>
+    <ul>
+      <li>An acyclic subset, or tree, $T$ of a graph that connects all vertices from a vertex $u$ to $v$</li>
+    </ul>
+  </li>
+  <li><strong>Minimum Spanning Tree</strong>
+    <ul>
+      <li>A spanning tree that has the least weight.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="prims-algorithm">Prim’s Algorithm</h2>
+<ul>
+  <li>Starts from one vertex and grows the rest of the tree one edge at a time until all vertices are included.</li>
+  <li>Greedy
+    <ul>
+      <li>Repeatedly selects the smallest weight edge at a vertex.</li>
+    </ul>
+  </li>
+</ul>
+
+<ol>
+  <li>Start from a given vertex.</li>
+  <li>With each iteration add a new vertex to the spanning tree.
+    <ol>
+      <li>Always add the lowest-weight edge linking a vertex in the tree to a vertex outside of the tree.
+        <ol>
+          <li>A boolean array tracks whether a vertex has already been added to the tree.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="pseudocode-1">Pseudocode</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Prim-MST(G)
+  Select an arbitrary vertex s to start the tree from
+    while (there are still nontree vertices)
+	  Select the edge of minimum weight between a tree and nontree vertex
+      Add the selected edge and vertext to the tree T
+</code></pre></div></div>
+
+<h2 id="kruskals-algorithm">Kruskal’s Algorithm</h2>
+<ul>
+  <li>More efficient than Prim’s on sparse graphs.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MST-Kruskal(Graph, weight):
+    A = []
+    for each vertex (v) in Graph.vertices
+        MakeSet(v)
+    sort edges of G.E into non-decreasing order by weight
+        if FindSet(u) != FindSet(v):
+            A = A.append{(u, v)}
+            Union(u,v)
+    return A
+</code></pre></div></div>
+
+<h1 id="dijkstras-algorithm">Dijkstra’s Algorithm</h1>
+<ul>
+  <li>Finds shortest path.
+    <ul>
+      <li>Does not work with negative weights</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="floyd-warshall-algorithm">Floyd-Warshall Algorithm</h1>
+<ul>
+  <li>Shortest path supporting negative weights.</li>
+</ul>
+
+  </div><a class="u-url" href="/CSI-5007/notes/graph-algorithms/" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/CSI-5007/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Algorithms</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Algorithms</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/josh-corneille"><svg class="svg-icon"><use xlink:href="/CSI-5007/assets/minima-social-icons.svg#github"></use></svg> <span class="username">josh-corneille</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>CSI 5007 Notes</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

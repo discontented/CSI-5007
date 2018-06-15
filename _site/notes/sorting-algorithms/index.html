@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Sorting Algorithms" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time Python Implementation Selection Sort Python Implementation Heap Sort Runtime Book Implementation Class Implementation Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation" />
-<meta property="og:description" content="Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time Python Implementation Selection Sort Python Implementation Heap Sort Runtime Book Implementation Class Implementation Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation" />
+<meta name="description" content="Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Recurrence Running Time Python Implementation Selection Sort Python Implementation Heap Sort Runtime Book Implementation Class Implementation Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation Bin/Bucket Sort" />
+<meta property="og:description" content="Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Recurrence Running Time Python Implementation Selection Sort Python Implementation Heap Sort Runtime Book Implementation Class Implementation Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation Bin/Bucket Sort" />
 <link rel="canonical" href="http://localhost:4000/CSI-5007/notes/sorting-algorithms/" />
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/sorting-algorithms/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-06-06T14:33:51-04:00" />
+<meta property="article:published_time" content="2018-06-15T13:02:58-04:00" />
 <script type="application/ld+json">
-{"description":"Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Running Time Python Implementation Selection Sort Python Implementation Heap Sort Runtime Book Implementation Class Implementation Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/sorting-algorithms/","headline":"Sorting Algorithms","dateModified":"2018-06-06T14:33:51-04:00","datePublished":"2018-06-06T14:33:51-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/sorting-algorithms/"},"@context":"http://schema.org"}</script>
+{"description":"Bubble Sort Running Time Loop Invariant Python Implementation Insertion Sort Running Time Python Implementation Merge Sort Recurrence Running Time Python Implementation Selection Sort Python Implementation Heap Sort Runtime Book Implementation Class Implementation Python Implementation Quicksort Runtime Steps Pivot Partition Algorithm Python Implementation Bin/Bucket Sort","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/sorting-algorithms/","headline":"Sorting Algorithms","dateModified":"2018-06-15T13:02:58-04:00","datePublished":"2018-06-15T13:02:58-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/sorting-algorithms/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -57,7 +57,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Sorting Algorithms</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-06-06T14:33:51-04:00" itemprop="datePublished">Jun 6, 2018
+      <time class="dt-published" datetime="2018-06-15T13:02:58-04:00" itemprop="datePublished">Jun 15, 2018
       </time></p>
   </header>
 
@@ -78,6 +78,7 @@
   </li>
   <li><a href="#merge-sort">Merge Sort</a>
     <ul>
+      <li><a href="#recurrence">Recurrence</a></li>
       <li><a href="#running-time">Running Time</a></li>
       <li><a href="#python-implementation">Python Implementation</a></li>
     </ul>
@@ -107,23 +108,24 @@
       <li><a href="#python-implementation">Python Implementation</a></li>
     </ul>
   </li>
+  <li><a href="#binbucket-sort">Bin/Bucket Sort</a></li>
 </ul>
 
-<h2 id="bubble-sort">Bubble Sort</h2>
+<h1 id="bubble-sort">Bubble Sort</h1>
 
 <p>Compares each pair of elements in an array and swaps them if they are out of order until the entire array is sorted.</p>
 
-<h3 id="running-time">Running Time</h3>
+<h2 id="running-time">Running Time</h2>
 <p>Best Case: $\Theta(n)$</p>
 
 <p>Worst Case: $\Theta(n^2)$</p>
 
-<h3 id="loop-invariant">Loop Invariant</h3>
+<h2 id="loop-invariant">Loop Invariant</h2>
 <ul>
   <li>Enter the for loop on <code class="highlighter-rouge">i</code> with value <code class="highlighter-rouge">j</code>, array <code class="highlighter-rouge">a[0...k-1]</code> contains the <code class="highlighter-rouge">k</code> smallest elements of the set in sorted order.</li>
 </ul>
 
-<h3 id="python-implementation">Python Implementation</h3>
+<h2 id="python-implementation">Python Implementation</h2>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
@@ -133,7 +135,7 @@
     <span class="k">return</span> <span class="n">a</span>
 </code></pre></div></div>
 
-<h2 id="insertion-sort">Insertion Sort</h2>
+<h1 id="insertion-sort">Insertion Sort</h1>
 
 <ul>
   <li>Builds a final sorted array one element at a time.</li>
@@ -141,13 +143,16 @@
   <li>Finds the place the element belongs and places within the array.</li>
 </ul>
 
-<h3 id="running-time-1">Running Time</h3>
+<h2 id="running-time-1">Running Time</h2>
 
 <p>Best Case: $\Theta(n)$</p>
+<ul>
+  <li>Numbers are already sorted</li>
+</ul>
 
 <p>Worst Case: $\Theta(n^2)$</p>
 
-<h3 id="python-implementation-1">Python Implementation</h3>
+<h2 id="python-implementation-1">Python Implementation</h2>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">slot</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)):</span> 
         <span class="n">value</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">slot</span><span class="p">]</span>
@@ -159,7 +164,7 @@
     <span class="k">return</span> <span class="n">array</span>
 </code></pre></div></div>
 
-<h2 id="merge-sort">Merge Sort</h2>
+<h1 id="merge-sort">Merge Sort</h1>
 
 <ul>
   <li>Recursive</li>
@@ -167,10 +172,13 @@
   <li>Merges with an outside merge function.</li>
 </ul>
 
-<h3 id="running-time-2">Running Time</h3>
+<h2 id="recurrence">Recurrence</h2>
+<p>$T(n)=2T(n/2) + O(n)$</p>
+
+<h2 id="running-time-2">Running Time</h2>
 <p>$\Theta(nlgn)$</p>
 
-<h3 id="python-implementation-2">Python Implementation</h3>
+<h2 id="python-implementation-2">Python Implementation</h2>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">array</span>
@@ -178,12 +186,13 @@
         <span class="n">m</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
    <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="p">],</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">m</span><span class="p">:]))</span>
 </code></pre></div></div>
-<h2 id="selection-sort">Selection Sort</h2>
+
+<h1 id="selection-sort">Selection Sort</h1>
 <ul>
   <li>Class uses <code class="highlighter-rouge">abstractSort(a)</code></li>
 </ul>
 
-<h3 id="python-implementation-3">Python Implementation</h3>
+<h2 id="python-implementation-3">Python Implementation</h2>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">abstractSort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
 	<span class="n">n</span><span class="p">,</span> <span class="n">na</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">),</span> <span class="p">[]</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -193,7 +202,7 @@
 
 </code></pre></div></div>
 
-<h2 id="heap-sort">Heap Sort</h2>
+<h1 id="heap-sort">Heap Sort</h1>
 
 <ul>
   <li>A comparison based algorithm</li>
@@ -201,17 +210,17 @@
   <li>Uses a <a href="binaryHeap.md">binary heap data structure</a></li>
 </ul>
 
-<h3 id="runtime">Runtime</h3>
+<h2 id="runtime">Runtime</h2>
 <p>$\Theta(nlogn)$</p>
 
-<h3 id="book-implementation">Book Implementation</h3>
+<h2 id="book-implementation">Book Implementation</h2>
 
-<h3 id="class-implementation">Class Implementation</h3>
+<h2 id="class-implementation">Class Implementation</h2>
 <ul>
   <li>Uses a <strong>min-heap</strong></li>
 </ul>
 
-<h4 id="python-implementation-4">Python Implementation</h4>
+<h3 id="python-implementation-4">Python Implementation</h3>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">newheap</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -240,22 +249,31 @@
     <span class="k">return</span> <span class="n">x</span>
 </code></pre></div></div>
 
-<h2 id="quicksort">Quicksort</h2>
+<h1 id="quicksort">Quicksort</h1>
 <ul>
+  <li>Picks a pivot and then sorts to the left of the pivot and then right.</li>
   <li>Comparison-based</li>
-  <li>Uses divide-and-conquer</li>
-  <li>Picks a pivot point.</li>
+  <li>Uses divide-and-conquer
+    <ul>
+      <li>Recursive</li>
+    </ul>
+  </li>
 </ul>
 
-<h3 id="runtime-1">Runtime</h3>
+<h2 id="runtime-1">Runtime</h2>
+
+<p>Recurrence: $T(n)=2T(\frac{n}{2}+n)$</p>
 
 <p>Best Case: $O(nlogn)$</p>
 
 <p>Worst Case: $O(n^2)$</p>
+<ul>
+  <li>Occurs when array is already sorted</li>
+</ul>
 
 <p>Average Case: $O(nlogn)$</p>
 
-<h3 id="steps">Steps</h3>
+<h2 id="steps">Steps</h2>
 
 <ol>
   <li>If the list is empty, return the list and terminate. (base case)</li>
@@ -265,7 +283,7 @@
   <li>Return the concatenation of the quicksorted list of elements that are less than or equal to the pivot, the pivot, and the quicksorted list of elements that are greater than the pivot.</li>
 </ol>
 
-<h3 id="pivot">Pivot</h3>
+<h2 id="pivot">Pivot</h2>
 
 <ul>
   <li>Select a random pivot.</li>
@@ -274,7 +292,10 @@
   <li>Use a median finding algorithm such as the median-of-medians algorithm.</li>
 </ul>
 
-<h3 id="partition-algorithm">Partition Algorithm</h3>
+<h2 id="partition-algorithm">Partition Algorithm</h2>
+<p><code class="highlighter-rouge">a</code> - array to be sorted
+<code class="highlighter-rouge">l</code> - lower bound
+<code class="highlighter-rouge">u</code> - upper bound</p>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">partition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">l</span>
@@ -288,7 +309,7 @@
     <span class="k">return</span> <span class="n">m</span>
 </code></pre></div></div>
 
-<h3 id="python-implementation-5">Python Implementation</h3>
+<h2 id="python-implementation-5">Python Implementation</h2>
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">u</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">u</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -299,6 +320,12 @@
     <span class="k">return</span> <span class="n">a</span>
 </code></pre></div></div>
 
+<h1 id="binbucket-sort">Bin/Bucket Sort</h1>
+<ul>
+  <li>Not based on comparisons</li>
+  <li>Use knowledge of the data</li>
+  <li>Not in-place sorting</li>
+</ul>
 
   </div><a class="u-url" href="/CSI-5007/notes/sorting-algorithms/" hidden></a>
 </article>
