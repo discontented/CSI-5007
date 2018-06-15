@@ -124,7 +124,7 @@ def calc_cost(p, D):
 * `p` is a permutation
 * `D` is distance matrix
 	* Throughout all TSP implementations in this course, it is using a matrix.
-	* If the existing graph is not complete, it is "made complete" by setting each nonexisting edge to $\infinity$
+	* If the existing graph is not complete, it is "made complete" by setting each nonexisting edge to $\infty$
 
 ### Tree Walking
 ```
