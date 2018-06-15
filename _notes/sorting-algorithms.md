@@ -113,7 +113,7 @@ abstractSort(array):
 
 ```
 
-# Heap Sort
+# Heapsort
 
 * A comparison based algorithm
 * Sorts in place

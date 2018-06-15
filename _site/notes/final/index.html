@@ -3,19 +3,36 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>Algorithms | CSI 5007 Notes</title>
+<title>Final | Algorithms</title>
 <meta name="generator" content="Jekyll v3.7.3" />
-<meta property="og:title" content="Algorithms" />
+<meta property="og:title" content="Final" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="CSI 5007 Notes" />
-<meta property="og:description" content="CSI 5007 Notes" />
-<link rel="canonical" href="http://localhost:4000/CSI-5007/" />
-<meta property="og:url" content="http://localhost:4000/CSI-5007/" />
+<meta name="description" content="Greedy Algorithms Prim Dijkstra Floyd-Warshall Bellman-Ford" />
+<meta property="og:description" content="Greedy Algorithms Prim Dijkstra Floyd-Warshall Bellman-Ford" />
+<link rel="canonical" href="http://localhost:4000/CSI-5007/notes/final/" />
+<meta property="og:url" content="http://localhost:4000/CSI-5007/notes/final/" />
 <meta property="og:site_name" content="Algorithms" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-15T13:25:50-04:00" />
 <script type="application/ld+json">
-{"name":"Algorithms","description":"CSI 5007 Notes","@type":"WebSite","url":"http://localhost:4000/CSI-5007/","headline":"Algorithms","@context":"http://schema.org"}</script>
+{"description":"Greedy Algorithms Prim Dijkstra Floyd-Warshall Bellman-Ford","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/final/","headline":"Final","dateModified":"2018-06-15T13:25:50-04:00","datePublished":"2018-06-15T13:25:50-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/final/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/CSI-5007/">Algorithms</a><nav class="site-nav">
@@ -35,48 +52,34 @@
 </header>
 <main class="page-content" aria-label="Content">
         <div class="wrapper">
-            <div class="home"><!-- 
-    <a href="/notes/algorithms-basics/">Algorithms Basics</a>
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-    <a href="/notes/binary-heap/">Binary Heap</a>
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Final</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-06-15T13:25:50-04:00" itemprop="datePublished">Jun 15, 2018
+      </time></p>
+  </header>
 
-    <a href="/notes/brilliant-notes/">Brilliant Notes</a>
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="greedy-algorithms">Greedy Algorithms</h1>
+<ul>
+  <li><a href="graph-algorithms.md#prims-algorithm">Prim</a></li>
+  <li><a href="graph-algorithms.md#dijkstras-algorithm">Dijkstra</a></li>
+  <li><a href="graph-algorithms.md#floyd-warshall-algorithm">Floyd-Warshall</a></li>
+  <li><a href="graph-algorithms.md#bellman-ford">Bellman-Ford</a></li>
+</ul>
 
-    <a href="/notes/class-code/">Class Code</a>
+<h1 id="divide-and-conquer">Divide and Conquer</h1>
+<ul>
+  <li><a href="sorting-algorithms.md#merge-sort">Merge Sort</a></li>
+  <li><a href="sorting-algorithms.md#quicksort">Quicksort</a></li>
+  <li><a href="searching-algorithms.md#binary-search">Binary Search</a></li>
+  <li><a href="sorting-algorithms.md#heapsort">Heapsort</a></li>
+</ul>
 
-    <a href="/notes/class_notes/june_11/">June_11</a>
-
-    <a href="/notes/final/">Final</a>
-
-    <a href="/notes/graph-algorithms/">Graph Algorithms</a>
-
-    <a href="/notes/hashing/">Hashing</a>
-
-    <a href="/notes/searching-algorithms/">Searching Algorithms</a>
-
-    <a href="/notes/sorting-algorithms/">Sorting Algorithms</a>
- -->
-
-<p><a href="/CSI-5007/notes/algorithms-basics/">Algorithms Basics</a></p>
-
-<p><a href="/CSI-5007/notes/binary-heap/">Binary Heap</a></p>
-
-<p><a href="/CSI-5007/notes/brilliant-notes/">Brilliant Notes</a></p>
-
-<p><a href="/CSI-5007/notes/class-code/">Class Code</a></p>
-
-<p><a href="/CSI-5007/notes/class_notes/june_11/">June_11</a></p>
-
-<p><a href="/CSI-5007/notes/final/">Final</a></p>
-
-<p><a href="/CSI-5007/notes/graph-algorithms/">Graph Algorithms</a></p>
-
-<p><a href="/CSI-5007/notes/hashing/">Hashing</a></p>
-
-<p><a href="/CSI-5007/notes/searching-algorithms/">Searching Algorithms</a></p>
-
-<p><a href="/CSI-5007/notes/sorting-algorithms/">Sorting Algorithms</a></p>
-</div>
+  </div><a class="u-url" href="/CSI-5007/notes/final/" hidden></a>
+</article>
 
         </div>
     </main><footer class="site-footer h-card">
