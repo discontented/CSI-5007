@@ -16,5 +16,5 @@ def randomizedTest(a, w):
     print(t.timer(firstFit, a, w))
 
 a = [1, 2, 3]
-simpleTest(a, 4)
+# simpleTest(a, 4)
 randomizedTest(a, 4)
