@@ -11,10 +11,11 @@ class Bin():
             contents {list} -- Contents of bin. (default: {[]})
         """
         self.weight = weight
-        if(np.sum(contents) <= weight):
-            self.contents = contents
-        else:
-            raise ValueError("Contents are larger than max capacity.")
+        if(len(contents) > 0):
+            if(np.sum(contents) <= weight):
+                self.contents = [contents]
+            else:
+                raise ValueError("Contents are larger than max capacity.")
             
     def capacity(self):
         """Returns capacity left in bin.
