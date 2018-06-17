@@ -1,6 +1,3 @@
-"""
-Time tests
-"""
 import timeit as t
 
 def timer(methodToRun, *args):

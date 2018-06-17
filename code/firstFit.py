@@ -1,4 +1,4 @@
-from heuristic import Bin
+from Bin import Bin
 
 def firstFit(a, w):
     """First-Fit Decreasing Implementation
@@ -18,15 +18,19 @@ def firstFit(a, w):
     # iterate through all items in original array
     for i in range(len(a)):
         # Iterate through all bins
-        for bin in bins:
-            if (a[i] <= bin.capacity()):
-                bin.insert(a[i])
+        for j in range(len(bins)):
+            if (a[i] <= bins[j].capacity()):
+                bins[j].insert(a[i])
                 break
-            elif(a[i] > bin.capacity()):
+            else:
                 bins.append(Bin(w, a[i]))
                 break
     
     return bins
 
+def printBins(bins):
+    for bin in bins:
+        print('Weight: %d' % bin.weight)
+        print('Contents: %s' % bin.contents)
 
-            
+printBins(firstFit([1,2,3,4,1,2], 4))
