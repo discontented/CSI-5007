@@ -19,11 +19,17 @@ def randomizedTest(w):
         w {int} -- Max weight of bin.
     """
     array = np.random.randint(50, 100, size=20).tolist()
-    print(str(array) + "\n")
-    print(t.timer(bruteForce.fillBins, array, w))
-    array = np.random.randint(50, 100, size=20).tolist()
-    print(str(array) + "\n")
-    ff.printBins(ff.firstFit(array, w))
+    print('Items %s' % str(array) + "\n")
+   
+    print("Heuristic: ")
+    results = t.timer(ff.firstFit, array, w)
+    print("Time: %f" % results[1])
+    for b in results[0]:
+        print(b.contents)
+    
+    print("Brute Force: ")
+    results = t.timer(bruteForce.fillBins, array, w)
+    print("Time: %f" % results[1])
 
 # a = [1,2,3]
 # simpleTest(a, 4)
