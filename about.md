@@ -15,6 +15,8 @@ permalink: /about/
 
 [Rob Edwards Playlist](https://www.youtube.com/playlist?list=PLpPXw4zFa0uKKhaSz87IowJnOTzh9tiBk)
 
+[Dijkstra's Algorithm](https://www.youtube.com/watch?v=GazC3A4OQTE)
+
 [Python Quick Reference](http://josh-corneille.com/programming-notes/python.html)
 
 
