@@ -1,4 +1,4 @@
-from Bin import Bin
+import Bin
 
 def firstFit(a, w):
     """First-Fit Decreasing Implementation
