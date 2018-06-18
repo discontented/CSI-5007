@@ -2,6 +2,7 @@
 layout: post
 mathjax: true
 ---
+- [The Sorting Problem](#the-sorting-problem)
 - [Bubble Sort](#bubble-sort)
     - [Running Time](#running-time)
     - [Loop Invariant](#loop-invariant)
@@ -15,7 +16,7 @@ mathjax: true
     - [Python Implementation](#python-implementation)
 - [Selection Sort](#selection-sort)
     - [Python Implementation](#python-implementation)
-- [Heap Sort](#heap-sort)
+- [Heapsort](#heapsort)
     - [Runtime](#runtime)
     - [Book Implementation](#book-implementation)
     - [Class Implementation](#class-implementation)
@@ -27,6 +28,17 @@ mathjax: true
     - [Partition Algorithm](#partition-algorithm)
     - [Python Implementation](#python-implementation)
 - [Bin/Bucket Sort](#binbucket-sort)
+
+# The Sorting Problem
+**Input**: A sequence of $n$ numbers $\langle{a_1,a_2,...,a_n}\rangle$
+
+**Output**: A permutation of the sequence in increasing or decreasing order.
+    
+* **Ascending**
+    * $a_i \le a_{i+1}$ for all $1\le i<n$
+* **Descending**
+    * $a_i \ge a_{i+1}$ for all $1\le i<n$
+
 
 # Bubble Sort
 
