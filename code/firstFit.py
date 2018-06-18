@@ -33,4 +33,4 @@ def printBins(bins):
         print('Weight: %d' % bin.weight)
         print('Contents: %s' % bin.contents)
 
-printBins(firstFit([1,2,3,4,1,2], 4))
+printBins(firstFit([1,1,1,1,1,1,1], 4))
