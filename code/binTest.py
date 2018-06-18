@@ -1,7 +1,9 @@
-import timer as t
+import numpy as np
+
+# local modules
 import bruteForce
 import firstFit as ff
-import numpy as np
+import timer as t
 
 def simpleTest(a, w):
     print("Brute Force:")

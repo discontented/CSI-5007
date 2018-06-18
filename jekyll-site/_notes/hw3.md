@@ -4,6 +4,9 @@ mathjax: true
 ---
 - [Problem](#problem)
     - [Objectives](#objectives)
+- [Integer Partition Problem](#integer-partition-problem)
+    - [Problem](#problem)
+        - [Dynamic Programming Solution](#dynamic-programming-solution)
 - [The Bin Packing Problem](#the-bin-packing-problem)
     - [One-Dimensional Bin Packing](#one-dimensional-bin-packing)
     - [Online](#online)
@@ -12,6 +15,7 @@ mathjax: true
     - [Optimal Heuristic](#optimal-heuristic)
         - [Runtime](#runtime)
 - [Brute Force Methods](#brute-force-methods)
+    - [Pseudocode](#pseudocode)
     - [Insert as Encountered](#insert-as-encountered)
     - [Largest Items in Separate Bins](#largest-items-in-separate-bins)
     - [Recursion](#recursion)
@@ -41,15 +45,14 @@ A set of items $S$
 * $C$ - Capacity of knapsack
 
 ### Dynamic Programming Solution
-$S'$ is a set of items
-$C[i, S'] is true if and only if there is a subset of $S'$ whose size adds up to exactly $i$
+* $S'$ is a set of items
+* $C[i, S']$ is true if and only if there is a subset of $S'$ whose size adds up to exactly $i$
 * $C[i, \emptyset]$ is false for all $1\le i\le C$
 * $C[i, S'\cup s_j]$ is true if $C[i, S']$ or $C[i-s_j,S']$ is true.
 * All sums are identified by performing $n$ sweeps through all $C$ elements
 
 1. Add a new item $s_j$ to $S'$.
 	1. Update the affected values of $C[i, S']$
-
 
 # The Bin Packing Problem
 ## One-Dimensional Bin Packing

@@ -1,4 +1,4 @@
-from Bin import Bin
+import Bin
 
 def firstFit(a, w):
     """First-Fit Decreasing Implementation
@@ -16,15 +16,15 @@ def firstFit(a, w):
     bins = [Bin(w)]
 
     # iterate through all items in original array
-    for i in range(len(a)):
+    for item in a:
         # Iterate through all bins
-        for j in range(len(bins)):
-            if (a[i] <= bins[j].capacity()):
-                bins[j].insert(a[i])
+        for bin in bins:
+            if (item <= bin.capacity()):
+                bin.insert(item)
                 break
-            else:
-                bins.append(Bin(w, a[i]))
-                break
+        # Iterates through all bins and cannot find a fit.  Create new bin.
+        else:
+            bins.append(Bin(w, item))
     
     return bins
 
@@ -33,4 +33,8 @@ def printBins(bins):
         print('Weight: %d' % bin.weight)
         print('Contents: %s' % bin.contents)
 
+<<<<<<< HEAD
 printBins(firstFit([1,1,1,1,1,1,1], 4))
+=======
+printBins(firstFit([1,2,3,4,1,2], 5))
+>>>>>>> a310b970c5cb24827533ad69470970478966ddbc

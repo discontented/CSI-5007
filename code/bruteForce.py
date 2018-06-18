@@ -1,5 +1,7 @@
 from itertools import combinations
 import numpy as np
+
+# local modules
 import timer as t
 
 def optimalSubset(a, w):
