@@ -8,7 +8,7 @@ mathjax: true
 - [Divide and Conquer](#divide-and-conquer)
 - [Sorting Problem](#sorting-problem)
 - [Final Answers](#final-answers)
-    - [9](#9)
+    - [Number 9](#number-9)
 
 # TODO
 
@@ -33,5 +33,5 @@ mathjax: true
 # Sorting Problem
 
 # Final Answers
-## 9
-![heapsort]({{ site.url }}/assets/heapsort.PNG)
+## Number 9
+![heapsort]({{ site.baseurl }}/assets/heapsort.PNG)

@@ -289,13 +289,13 @@ If using a adjacency list, $O(V+E)$
 
 ## Prim's Algorithm
 * Starts from one vertex and grows the rest of the tree one edge at a time until all vertices are included.
-* Greedy
+* [Greedy](algorithms-basics.md#greedy-algorithms)
 	* Repeatedly selects the smallest weight edge at a vertex.
 
-1. Start from a given vertex.
-2. With each iteration add a new vertex to the spanning tree.
+1. Start from a given vertex $s$
+    1. This is root of a spanning tree $T$
+2. With each iteration add a new vertex to the spanning tree $T$.
     1. Always add the lowest-weight edge linking a vertex in the tree to a vertex outside of the tree.
-        1. A boolean array tracks whether a vertex has already been added to the tree.
 
 ### Pseudocode
 ```

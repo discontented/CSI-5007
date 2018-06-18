@@ -33,9 +33,9 @@ All python code that appears in the slides.
 - [Min and Max](#min-and-max)
 - [Dutch Flag](#dutch-flag)
 - [Squaring without Multiplication](#squaring-without-multiplication)
-        - [Iterative](#iterative)
-        - [Recursive](#recursive)
-        - [Iterative](#iterative)
+    - [Iterative](#iterative)
+    - [Recursive](#recursive)
+    - [Iterative](#iterative)
 - [Unweighted Graph Algorithms](#unweighted-graph-algorithms)
     - [Breadth First Search](#breadth-first-search)
     - [Depth First Search (DFS)](#depth-first-search-dfs)
@@ -602,7 +602,7 @@ def dutch_flag(a, red = 0, white = 1, blue = 2):
 ```
 
 # Squaring without Multiplication
-### Iterative
+## Iterative
 ```py
 def sq_no_mult_0(n):
     n2 = 0
@@ -611,7 +611,7 @@ def sq_no_mult_0(n):
     return n2
 ```
 
-### Recursive
+## Recursive
 ```py
 def sq_no_mult_r(n, count = -1, n2 = 0):
     if count == 0:
@@ -622,7 +622,7 @@ def sq_no_mult_r(n, count = -1, n2 = 0):
         return sq_no_mult_r(n, count-1, n2 + n)
 ```
 
-### Iterative
+## Iterative
 ```py
 def sq_no_mult_1(n):
     #Assumes n = 2^k
@@ -648,6 +648,7 @@ def sq_no_mult_2(n):
         n4 += n3
     return n2 + n4
 ```
+
 # Unweighted Graph Algorithms
 ## Breadth First Search
 ```py
