@@ -1,2 +1,0 @@
-
-    brute = results[1]
