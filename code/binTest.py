@@ -1,36 +1,51 @@
 import numpy as np
+from copy import deepcopy
 
 # local modules
 import bruteForce
 import firstFit as ff
 import timer as t
 
-def simpleTest(a, w):
-    print("Brute Force:")
-    print(t.timer(bruteForce.fillBins, a, w))
-    print("Heuristic:")
-    ff.printBins(ff.firstFit(a, w))
-
-
-def randomizedTest(w):
-    """Generates random array for you.
+def tester(funcName, array, w):
+    """Array of time test results.
+    results[0] - Return of function
+    results[1] - Runtime of function
     
     Arguments:
-        w {int} -- Max weight of bin.
-    """
-    array = np.random.randint(50, 100, size=20).tolist()
-    print('Items %s' % str(array) + "\n")
-   
-    print("Heuristic: ")
-    results = t.timer(ff.firstFit, array, w)
-    print("Time: %f" % results[1])
-    for b in results[0]:
-        print(b.contents)
+        funcName {function} -- function to be tested.
+        array {list} -- items to pass to the function to test.
+        w {int} -- max weight
     
-    print("Brute Force: ")
-    results = t.timer(bruteForce.fillBins, array, w)
-    print("Time: %f" % results[1])
+    Returns:
+        [type] -- [description]
+    """
 
-# a = [1,2,3]
-# simpleTest(a, 4)
-randomizedTest(200)
+    return t.timer(funcName, array, w)
+
+def randomizedTest(n, w, *funcName):
+    array = np.random.randint(50, 100, size= n).tolist()
+    # store base array for future comparison
+    results = [array]
+
+    for func in funcName:
+        # copy array for case of destructive function
+        array_cp = deepcopy(array)
+        results.append(tester(func, array_cp, w))
+
+    return results
+
+def printTest(n, w):
+    results = randomizedTest(n, w, bruteForce.fillBins, ff.firstFit)
+
+    array = results[0]
+    brute = results[1]
+    heuristic = results[2]
+
+    print("%d | %d bins in %f s| %d bins in %f s" % (len(array), len(brute[0]), brute[1], len(heuristic[0]), heuristic[1]))
+
+def printHeader():
+    print("n | Brute Force | Heuristic")
+
+printHeader()
+for i in range(10):
+    printTest(i, 200)

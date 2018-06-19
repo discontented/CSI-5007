@@ -35,5 +35,5 @@ def fillBins(a, w):
     bins = []
     while len(a)-1 > 0:
         newBin = optimalSubset(a, w)
-        print(newBin)
         bins.append(newBin)
+    return bins

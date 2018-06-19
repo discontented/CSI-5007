@@ -6,7 +6,7 @@ def firstFit(a, w):
     2. Insert each object into first bin which has room for it.
         a. If no room in bin, create a new one.
     Arguments:
-        a {array[int]} -- Element values are the item's weight.
+        a {list[int]} -- Element values are the item's weight.
         w {int} -- The max weight of all bins.
     """
 
