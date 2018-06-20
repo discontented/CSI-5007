@@ -1,3 +1,8 @@
+---
+layout: post
+mathjax: true
+---
+
 $x_{1,j}=1$ - Demand
 $x_{i,n}=1$ - Supply
 

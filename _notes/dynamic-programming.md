@@ -2,7 +2,10 @@
 layout: post
 mathjax: true
 ---
+- [Why Dynamic Programming?](#why-dynamic-programming)
 - [Elements of Dynamic Programming](#elements-of-dynamic-programming)
+- [Developing a Dynamic Program](#developing-a-dynamic-program)
+    - [Recursion vs. a Dynamic Program](#recursion-vs-a-dynamic-program)
     - [Optimal Substructure](#optimal-substructure)
         - [Finding the Optimal Substructure](#finding-the-optimal-substructure)
 - [Running Time](#running-time)
@@ -14,10 +17,29 @@ mathjax: true
         - [Runtime Analysis](#runtime-analysis)
         - [Pseudocode](#pseudocode)
 
+# Why Dynamic Programming?
+* Greedy algorithms make best local decision but typically not optimal.
+* Exhaustive algorithms produce optimal result but at the cost of efficiency.
+* Dynamic programming:
+    * Guarantees correctness by systematically searching all possibilities.
+    * Provides efficiency by storing results to avoid recomputing.
+
 # Elements of Dynamic Programming
 * For dynamic programming to apply, an optimization problem must have:
-    * Optimal substructure
+    * [Optimal substructure](#optimal-substructure)
     * Overlapping subproblems
+* Recursion
+* Storing partial results
+
+# Developing a Dynamic Program
+1. Find a recursive definition to a problem.
+    * The recursive algorithm must solve the same subproblems over and over again.
+        * If it does, store the answer for each and return it to the next recursive call.
+2. Show that the number of different parameter values taken on by your recurrence is bounded by a small polynomial.
+3. Specify the order of evaluation for the recurrence so the partial results you need are always available when you need them.
+
+## Recursion vs. a Dynamic Program
+* Dynamic programming uses recursion but they are not synonymous because in other recursive calls, storing values of subproblems are useless.
 
 ## Optimal Substructure
 * Characterizing the structure of an optimal solution.
