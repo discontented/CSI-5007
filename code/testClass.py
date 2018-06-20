@@ -67,7 +67,8 @@ class Tester():
 
 	def printTests(self):
 		
-		for i in range(n):
+		for i in range(self.n):
+			self.randomizedTest()
 			print("%d | %d bins in %d s | %d bins in %d s" % (len(self.items), len(self.results[0][0]), len(self.results[0][1]), len(self.results[1][0], len(self.results[1][1]))))
 
 	def printHeader():
