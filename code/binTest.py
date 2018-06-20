@@ -5,6 +5,7 @@ from copy import deepcopy
 import bruteForce
 import firstFit as ff
 import timer as t
+import knapsack as ks
 
 def tester(funcName, array, w):
     """Array of time test results.
@@ -20,7 +21,7 @@ def tester(funcName, array, w):
         [type] -- [description]
     """
 
-    return t.timer(funcName, array, w)
+    return t.timer(funcName,     array, w)
 
 def randomizedTest(n, w, *funcName):
     array = np.random.randint(50, 100, size= n).tolist()
@@ -35,16 +36,17 @@ def randomizedTest(n, w, *funcName):
     return results
 
 def printTest(n, w):
-    results = randomizedTest(n, w, bruteForce.fillBins, ff.firstFit)
+    results = randomizedTest(n, w, bruteForce.fillBins, ff.firstFit, ks.ksBin)
 
     array = results[0]
     brute = results[1]
     heuristic = results[2]
+    ksVar = results[3]
 
-    print("%d | %d bins in %f s| %d bins in %f s" % (len(array), len(brute[0]), brute[1], len(heuristic[0]), heuristic[1]))
+    print("%d | %d bins in %f s| %d bins in %f s | %d bins in %f s" % (len(array), len(brute[0]), brute[1], len(heuristic[0]), heuristic[1], len(ksVar[0]), ksVar[1]))
 
 def printHeader():
-    print("n | Brute Force | Heuristic")
+    print("n | Brute Force | Heuristic | Knapsack Variant")
 
 def runTest(n, w, inc=None):
     printHeader()
@@ -55,4 +57,6 @@ def runTest(n, w, inc=None):
         for i in range(n+1):
             printTest(i, w)
 
-runTest(25, 200, 5)
+
+# print(randomizedTest(10, 200, bruteForce.fillBins, ff.firstFit, ks.ksBin))
+runTest(20, 200, 5)
