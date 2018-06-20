@@ -8,7 +8,7 @@ def optimalSubset(a, w):
     bestSet = []
     bestSum = 0
 
-    for i in range(len(a)):
+    for i in range(1, len(a)+1):
         # Generate all subsets and store in combos
         combos = list(combinations(a, i))
 
@@ -33,7 +33,7 @@ def optimalSubset(a, w):
 # Fill bins until the array is empty
 def fillBins(a, w):
     bins = []
-    while len(a)-1 > 0:
+    while len(a) > 0:
         newBin = optimalSubset(a, w)
         bins.append(newBin)
     return bins

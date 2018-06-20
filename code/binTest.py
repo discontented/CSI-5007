@@ -46,9 +46,13 @@ def printTest(n, w):
 def printHeader():
     print("n | Brute Force | Heuristic")
 
-def runTest(n, w):
+def runTest(n, w, inc=None):
     printHeader()
-    for i in range(n):
-        printTest(i, w)
+    if inc:
+        for i in range(0, n+1, inc):
+                printTest(i, w)
+    else:
+        for i in range(n+1):
+            printTest(i, w)
 
-runTest(10, 200)
+runTest(25, 200, 5)

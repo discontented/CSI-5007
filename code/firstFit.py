@@ -12,8 +12,8 @@ def firstFit(a, w):
 
     a.sort(reverse = True)
 
-    # Contains all bins.  Initializes first empty bin in first position.
-    bins = [Bin(w)]
+    # Contains all bins.  Initializes empty bin of bins.
+    bins = []
 
     # iterate through all items in original array
     for item in a:
