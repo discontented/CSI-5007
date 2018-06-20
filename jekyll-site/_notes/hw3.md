@@ -4,8 +4,10 @@ mathjax: true
 ---
 - [Problem](#problem)
     - [Objectives](#objectives)
-- [Integer Partition Problem](#integer-partition-problem)
+- [Knapsack Problem](#knapsack-problem)
     - [Problem](#problem)
+    - [0/1 Knapsack](#01-knapsack)
+    - [Integer Partition Problem](#integer-partition-problem)
         - [Dynamic Programming Solution](#dynamic-programming-solution)
 - [The Bin Packing Problem](#the-bin-packing-problem)
     - [One-Dimensional Bin Packing](#one-dimensional-bin-packing)
@@ -37,12 +39,20 @@ Consider a (large) set of size $n$ of items. Each item has a weight $(0 \le w_i 
 * Finally, write a dynamic programming solution (either exact or approximate).
 * Test your various algorithms on random data of various sizes and plot the runtimes.
 
-# Integer Partition Problem
-## Problem
+# Knapsack Problem
 A set of items $S$
-* $S={1,...,n}$
+* $S=\{1,...,n\}$
 * item $i$ has size $s_i$ and value $v_i$
 * $C$ - Capacity of knapsack
+
+## Problem
+Find the subset $S'\subset{S}$ that maximizes the value of $\sum_{i\in{S'}}v_i$ given that all the items fit in the knapsack of size $C$
+
+## 0/1 Knapsack
+* Each item must be put in the knapsack entirely or not included at all.
+* Objects in a 'set' cannot be broken up i.e. a 6-pack
+
+## Integer Partition Problem
 
 ### Dynamic Programming Solution
 * $S'$ is a set of items

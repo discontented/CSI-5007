@@ -1,3 +1,8 @@
+---
+layout: post
+mathjax: true
+---
+
 # Problem Statement
 Consider a (large) set of size $n$ of items. Each item has a weight $(0 \le w_i \le W)$. Your job is to fit all these items in containers. All containers are identical and can hold up to weight $(W)$.
 
@@ -11,6 +16,7 @@ Consider a (large) set of size $n$ of items. Each item has a weight $(0 \le w_i 
 1. Sorts objects from max to min
 2. Insert each object into first bin which has room for it.
     1. If no room in bin, create a new one.
+
 ```py
 def firstFit(a, w):
     """
@@ -19,6 +25,7 @@ def firstFit(a, w):
         w {int} -- The max weight of all bins.
     """
 
+    # Sort items from largest to smallest.
     a.sort(reverse = True)
 
     # Contains all bins. Initializes empty bin of bins.
@@ -31,7 +38,7 @@ def firstFit(a, w):
             if (item <= bin.capacity()):
                 bin.insert(item)
                 break
-        # Iterates through all bins and cannot find a fit. Create new bin.
+        # Iterated through all bins and couldn't find a fit. Create new bin.
         else:
             bins.append(Bin(w, item))
     
@@ -43,6 +50,7 @@ def firstFit(a, w):
 * The number of bins is dependent on $W$, or the max capacity of each bin, and the weights ($w_i$) of each individual item.
 
 # Test Results
+
 n | Brute Force | Heuristic
 ---|---|---
 0 | 0 bins in 0.000002 s| 0 bins in 0.000004 s
