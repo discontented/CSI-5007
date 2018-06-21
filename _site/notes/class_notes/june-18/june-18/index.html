@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang=" en "><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>June 18 | Algorithms</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="June 18" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="$x_{1,j}=1$ - Demand $x_{i,n}=1$ - Supply" />
+<meta property="og:description" content="$x_{1,j}=1$ - Demand $x_{i,n}=1$ - Supply" />
+<link rel="canonical" href="http://localhost:4000/CSI-5007/notes/class_notes/june-18/june-18/" />
+<meta property="og:url" content="http://localhost:4000/CSI-5007/notes/class_notes/june-18/june-18/" />
+<meta property="og:site_name" content="Algorithms" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-21T14:09:29-04:00" />
+<script type="application/ld+json">
+{"description":"$x_{1,j}=1$ - Demand $x_{i,n}=1$ - Supply","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/class_notes/june-18/june-18/","headline":"June 18","dateModified":"2018-06-21T14:09:29-04:00","datePublished":"2018-06-21T14:09:29-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/class_notes/june-18/june-18/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/CSI-5007/">Algorithms</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/CSI-5007/about/">About</a></div>
+      </nav></div>
+</header>
+<!-- Search -->
+    <input type="text" id="search-input" placeholder="search posts..">
+    <br/>
+    <div id="results-container"></div>
+
+    <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+
+    <script type='text/javascript'>
+        SimpleJekyllSearch({
+            searchInput: document.querySelector('.search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/CSI-5007/search.json',
+            searchResultTemplate: '<li><a href="http://localhost:4000{url}">{title}</a></li>'
+        })
+    </script>
+    <!-- End Search -->
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">June 18</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-06-21T14:09:29-04:00" itemprop="datePublished">Jun 21, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>$x_{1,j}=1$ - Demand
+$x_{i,n}=1$ - Supply</p>
+
+<p>Two families of methods: simplex methods or interior-point methods</p>
+<h1 id="simplex-methods">Simplex Methods</h1>
+<p>“Standard Form”</p>
+<ul>
+  <li>Decide to always maximize
+To convert an equality into an inequality:
+<script type="math/tex">ax_1+bx_2=5\equiv {ax_1+bx+2\le 5, ax_1+bx_2\ge 5}</script>
+Then convert $ax_1+bx+2\ge 5$ to $-ax_1-bx_2\le -5$</li>
+</ul>
+
+<h1 id="p-vs-np">P vs NP</h1>
+<h2 id="runtime">Runtime</h2>
+<ul>
+  <li>Before $n$ was defined loosely as the size of the input (number of elements in array)</li>
+  <li>An algorithm running in polytime, $n$ is the number of bits of input.</li>
+  <li>Need to be polynomial in size of the input.</li>
+</ul>
+
+<h3 id="example">Example</h3>
+<ul>
+  <li>Knapsack Problem</li>
+  <li>Runtime: $O(nW)$</li>
+  <li>Size of the input:
+    <ul>
+      <li>In bits: $O(128\bullet n\bullet logW)$
+        <ul>
+          <li>The size of the input = $128\bullet n$</li>
+          <li>The number of bits for an integer is $log(integer)$</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="deterministic-turing-machine">Deterministic Turing Machine</h2>
+<ul>
+  <li>A Turing machine is a tape with R/W head.
+    <ul>
+      <li>Reads from the tape then moves a step ahead and writes.</li>
+    </ul>
+  </li>
+  <li>“Deterministic”
+    <ul>
+      <li>There are no parallel threads.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="the-class-p">The class $P$</h1>
+<ul>
+  <li>A problem P is in the class $P$ if there is an algorithm running in time $P$</li>
+  <li>Sorting</li>
+  <li>Searching</li>
+  <li>Matrix Multiplication</li>
+</ul>
+
+<h1 id="the-class-np">The class $NP$</h1>
+<ul>
+  <li>Does not mean “not polynomial”</li>
+  <li>If you take an instance of some problem and some additional data, you can answer Yes or No.
+    <ul>
+      <li>“Is there <strong>__</strong> that would equal <strong>__</strong>”</li>
+      <li>Must provide data that would equal that condition so it can be answered as Yes or No</li>
+    </ul>
+  </li>
+  <li>Problem:
+    <ul>
+      <li>Problem to be solved.</li>
+    </ul>
+  </li>
+  <li>Certificate:</li>
+</ul>
+
+<p>$P\subset NP$</p>
+<ul>
+  <li>Proves “not polynomial” as that would read “polynomial is a subset of not polynomial”
+$P\subsetall NP$</li>
+  <li>To disprove find one problem that is P and prove that it is not in NP
+    <ul>
+      <li>Proving that it is not in NP is not possible to show.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>$P=NP$</p>
+<ul>
+  <li>Need to show that all problems in $P$ are in $NP$</li>
+</ul>
+
+<h1 id="the-class-co-np">The class Co-$NP$</h1>
+<ul>
+  <li>Give me a problem, give me an instance, you can answer “No in polytime”</li>
+</ul>
+
+<h1 id="problems-in-co-npcap-np">Problems in Co-$NP\cap NP$</h1>
+<ul>
+  <li>$\all P$</li>
+</ul>
+
+<p>Every problem instance with this type of certificate.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="sat-problem">SAT Problem</h3>
+<ul>
+  <li>Given a Boolean is there a true solution?</li>
+  <li>Certificate to verify Yes: the solution itself.
+    <ul>
+      <li>The certificate is a solution.</li>
+    </ul>
+  </li>
+  <li>The problem class of SAT is therefore in $NP$</li>
+</ul>
+
+<h3 id="tautology">Tautology</h3>
+<ul>
+  <li>Given a boolean is it always true?</li>
+  <li>You cannot give a certificate to verify yes.</li>
+  <li>You can give a certificate to verify no.</li>
+  <li>This problem class is in Co-$NP$</li>
+  <li>You don’t care about solving the problem, you are verifying a solution that is given.
+    <ul>
+      <li>If you can verify the solution in polytime, then it is in $NP$</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="reducability">Reducability</h1>
+<ul>
+  <li>A problem instance can be reduced to another problem instance.</li>
+  <li>If it was possible to reduce the original problem instance to another problem instance, the answer can be extracted to the original problem instance.</li>
+</ul>
+
+<h1 id="the-class-np-complete">The Class $NP$-Complete</h1>
+<ul>
+  <li>A problem $P$ is in class $NP$-complete if it is in $NP$ and if all other problems in $NP$ can be reduced to $P$</li>
+</ul>
+
+
+  </div><a class="u-url" href="/CSI-5007/notes/class_notes/june-18/june-18/" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/CSI-5007/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Algorithms</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Algorithms</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/josh-corneille"><svg class="svg-icon"><use xlink:href="/CSI-5007/assets/minima-social-icons.svg#github"></use></svg> <span class="username">josh-corneille</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>CSI 5007 Notes</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

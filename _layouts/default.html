@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: " en " }}">
 
-{%- include head.html -%}
-{%- include mathjax.html -%}
+{%- include head.html -%} {%- include mathjax.html -%}
 
 <body>
 
     {%- include header.html -%}
 
+    <!-- Search -->
+    <input type="text" id="search-input" placeholder="search posts..">
+    <br/>
+    <div id="results-container"></div>
+
+    <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+
+    <script type='text/javascript'>
+        SimpleJekyllSearch({
+            searchInput: document.querySelector('.search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '{{site.baseurl}}/search.json',
+            searchResultTemplate: '<li><a href="{{ site.url }}{url}">{title}</a></li>'
+        })
+    </script>
+    <!-- End Search -->
     <main class="page-content" aria-label="Content">
         <div class="wrapper">
             {{ content }}

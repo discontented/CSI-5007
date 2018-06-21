@@ -13,9 +13,9 @@
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/searching-algorithms/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-06-18T11:29:27-04:00" />
+<meta property="article:published_time" content="2018-06-21T14:09:29-04:00" />
 <script type="application/ld+json">
-{"description":"Linear Search Running Time Binary Search Iterative Implementation Explanation Loop Invariant Loop Invariant Recursive Implementation Running Time Recurrence","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/searching-algorithms/","headline":"Searching Algorithms","dateModified":"2018-06-18T11:29:27-04:00","datePublished":"2018-06-18T11:29:27-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/searching-algorithms/"},"@context":"http://schema.org"}</script>
+{"description":"Linear Search Running Time Binary Search Iterative Implementation Explanation Loop Invariant Loop Invariant Recursive Implementation Running Time Recurrence","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/searching-algorithms/","headline":"Searching Algorithms","dateModified":"2018-06-21T14:09:29-04:00","datePublished":"2018-06-21T14:09:29-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/searching-algorithms/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -50,14 +50,30 @@
         <div class="trigger"><a class="page-link" href="/CSI-5007/about/">About</a></div>
       </nav></div>
 </header>
-<main class="page-content" aria-label="Content">
+<!-- Search -->
+    <input type="text" id="search-input" placeholder="search posts..">
+    <br/>
+    <div id="results-container"></div>
+
+    <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+
+    <script type='text/javascript'>
+        SimpleJekyllSearch({
+            searchInput: document.querySelector('.search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/CSI-5007/search.json',
+            searchResultTemplate: '<li><a href="http://localhost:4000{url}">{title}</a></li>'
+        })
+    </script>
+    <!-- End Search -->
+    <main class="page-content" aria-label="Content">
         <div class="wrapper">
             <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Searching Algorithms</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-06-18T11:29:27-04:00" itemprop="datePublished">Jun 18, 2018
+      <time class="dt-published" datetime="2018-06-21T14:09:29-04:00" itemprop="datePublished">Jun 21, 2018
       </time></p>
   </header>
 

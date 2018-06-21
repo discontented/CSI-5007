@@ -33,7 +33,23 @@
         <div class="trigger"><a class="page-link" href="/CSI-5007/about/">About</a></div>
       </nav></div>
 </header>
-<main class="page-content" aria-label="Content">
+<!-- Search -->
+    <input type="text" id="search-input" placeholder="search posts..">
+    <br/>
+    <div id="results-container"></div>
+
+    <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+
+    <script type='text/javascript'>
+        SimpleJekyllSearch({
+            searchInput: document.querySelector('.search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/CSI-5007/search.json',
+            searchResultTemplate: '<li><a href="http://localhost:4000{url}">{title}</a></li>'
+        })
+    </script>
+    <!-- End Search -->
+    <main class="page-content" aria-label="Content">
         <div class="wrapper">
             <div class="home"><!-- 
     <a href="/notes/algorithms-basics/">Algorithms Basics</a>
@@ -43,6 +59,10 @@
     <a href="/notes/brilliant-notes/">Brilliant Notes</a>
 
     <a href="/notes/class-code/">Class Code</a>
+
+    <a href="/notes/class_notes/june-18/june-18/">June 18</a>
+
+    <a href="/notes/class_notes/june-20/">June 20</a>
 
     <a href="/notes/class_notes/june_11/">June_11</a>
 
@@ -66,6 +86,10 @@
 <p><a href="/CSI-5007/notes/brilliant-notes/">Brilliant Notes</a></p>
 
 <p><a href="/CSI-5007/notes/class-code/">Class Code</a></p>
+
+<p><a href="/CSI-5007/notes/class_notes/june-18/june-18/">June 18</a></p>
+
+<p><a href="/CSI-5007/notes/class_notes/june-20/">June 20</a></p>
 
 <p><a href="/CSI-5007/notes/class_notes/june_11/">June_11</a></p>
 

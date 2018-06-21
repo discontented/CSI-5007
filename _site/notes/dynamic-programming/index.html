@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Dynamic Programming" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Elements of Dynamic Programming Optimal Substructure Finding the Optimal Substructure Running Time Subproblem Graph Memoized DP Algorithm Runtime Fibonacci Runtime Analysis Bottom-up DP Algorithm Pseudocode" />
-<meta property="og:description" content="Elements of Dynamic Programming Optimal Substructure Finding the Optimal Substructure Running Time Subproblem Graph Memoized DP Algorithm Runtime Fibonacci Runtime Analysis Bottom-up DP Algorithm Pseudocode" />
+<meta name="description" content="Why Dynamic Programming? Elements of Dynamic Programming Developing a Dynamic Program Recursion vs. a Dynamic Program Optimal Substructure Finding the Optimal Substructure Running Time Subproblem Graph “Bottom-Up” Memoized DP Algorithm Runtime Fibonacci Runtime Analysis Pseudocode" />
+<meta property="og:description" content="Why Dynamic Programming? Elements of Dynamic Programming Developing a Dynamic Program Recursion vs. a Dynamic Program Optimal Substructure Finding the Optimal Substructure Running Time Subproblem Graph “Bottom-Up” Memoized DP Algorithm Runtime Fibonacci Runtime Analysis Pseudocode" />
 <link rel="canonical" href="http://localhost:4000/CSI-5007/notes/dynamic-programming/" />
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/dynamic-programming/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-06-18T11:29:27-04:00" />
+<meta property="article:published_time" content="2018-06-21T14:09:29-04:00" />
 <script type="application/ld+json">
-{"description":"Elements of Dynamic Programming Optimal Substructure Finding the Optimal Substructure Running Time Subproblem Graph Memoized DP Algorithm Runtime Fibonacci Runtime Analysis Bottom-up DP Algorithm Pseudocode","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/dynamic-programming/","headline":"Dynamic Programming","dateModified":"2018-06-18T11:29:27-04:00","datePublished":"2018-06-18T11:29:27-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/dynamic-programming/"},"@context":"http://schema.org"}</script>
+{"description":"Why Dynamic Programming? Elements of Dynamic Programming Developing a Dynamic Program Recursion vs. a Dynamic Program Optimal Substructure Finding the Optimal Substructure Running Time Subproblem Graph “Bottom-Up” Memoized DP Algorithm Runtime Fibonacci Runtime Analysis Pseudocode","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/dynamic-programming/","headline":"Dynamic Programming","dateModified":"2018-06-21T14:09:29-04:00","datePublished":"2018-06-21T14:09:29-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/dynamic-programming/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -50,21 +50,40 @@
         <div class="trigger"><a class="page-link" href="/CSI-5007/about/">About</a></div>
       </nav></div>
 </header>
-<main class="page-content" aria-label="Content">
+<!-- Search -->
+    <input type="text" id="search-input" placeholder="search posts..">
+    <br/>
+    <div id="results-container"></div>
+
+    <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+
+    <script type='text/javascript'>
+        SimpleJekyllSearch({
+            searchInput: document.querySelector('.search-input'),
+            resultsContainer: document.getElementById('results-container'),
+            json: '/CSI-5007/search.json',
+            searchResultTemplate: '<li><a href="http://localhost:4000{url}">{title}</a></li>'
+        })
+    </script>
+    <!-- End Search -->
+    <main class="page-content" aria-label="Content">
         <div class="wrapper">
             <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Dynamic Programming</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-06-18T11:29:27-04:00" itemprop="datePublished">Jun 18, 2018
+      <time class="dt-published" datetime="2018-06-21T14:09:29-04:00" itemprop="datePublished">Jun 21, 2018
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul>
-  <li><a href="#elements-of-dynamic-programming">Elements of Dynamic Programming</a>
+  <li><a href="#why-dynamic-programming">Why Dynamic Programming?</a></li>
+  <li><a href="#elements-of-dynamic-programming">Elements of Dynamic Programming</a></li>
+  <li><a href="#developing-a-dynamic-program">Developing a Dynamic Program</a>
     <ul>
+      <li><a href="#recursion-vs-a-dynamic-program">Recursion vs. a Dynamic Program</a></li>
       <li><a href="#optimal-substructure">Optimal Substructure</a>
         <ul>
           <li><a href="#finding-the-optimal-substructure">Finding the Optimal Substructure</a></li>
@@ -75,6 +94,7 @@
   <li><a href="#running-time">Running Time</a>
     <ul>
       <li><a href="#subproblem-graph">Subproblem Graph</a></li>
+      <li><a href="#bottom-up">“Bottom-Up”</a></li>
     </ul>
   </li>
   <li><a href="#memoized-dp-algorithm">Memoized DP Algorithm</a>
@@ -83,13 +103,21 @@
       <li><a href="#fibonacci">Fibonacci</a>
         <ul>
           <li><a href="#runtime-analysis">Runtime Analysis</a></li>
-        </ul>
-      </li>
-      <li><a href="#bottom-up-dp-algorithm">Bottom-up DP Algorithm</a>
-        <ul>
           <li><a href="#pseudocode">Pseudocode</a></li>
         </ul>
       </li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="why-dynamic-programming">Why Dynamic Programming?</h1>
+<ul>
+  <li>Greedy algorithms make best local decision but typically not optimal.</li>
+  <li>Exhaustive algorithms produce optimal result but at the cost of efficiency.</li>
+  <li>Dynamic programming:
+    <ul>
+      <li>Guarantees correctness by systematically searching all possibilities.</li>
+      <li>Provides efficiency by storing results to avoid recomputing.</li>
     </ul>
   </li>
 </ul>
@@ -98,10 +126,32 @@
 <ul>
   <li>For dynamic programming to apply, an optimization problem must have:
     <ul>
-      <li>Optimal substructure</li>
+      <li><a href="#optimal-substructure">Optimal substructure</a></li>
       <li>Overlapping subproblems</li>
     </ul>
   </li>
+  <li>Recursion</li>
+  <li>Storing partial results</li>
+</ul>
+
+<h1 id="developing-a-dynamic-program">Developing a Dynamic Program</h1>
+<ol>
+  <li>Find a recursive definition to a problem.
+    <ul>
+      <li>The recursive algorithm must solve the same subproblems over and over again.
+        <ul>
+          <li>If it does, store the answer for each and return it to the next recursive call.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Show that the number of different parameter values taken on by your recurrence is bounded by a small polynomial.</li>
+  <li>Specify the order of evaluation for the recurrence so the partial results you need are always available when you need them.</li>
+</ol>
+
+<h2 id="recursion-vs-a-dynamic-program">Recursion vs. a Dynamic Program</h2>
+<ul>
+  <li>Dynamic programming uses recursion but they are not synonymous because in other recursive calls, storing values of subproblems are useless.</li>
 </ul>
 
 <h2 id="optimal-substructure">Optimal Substructure</h2>
@@ -143,6 +193,13 @@
   <li>An alternative way of analysis</li>
   <li>Each vertex corresponds to a subproblem.</li>
   <li>Choices are edges incident from that subproblem.</li>
+</ul>
+
+<h2 id="bottom-up">“Bottom-Up”</h2>
+<ul>
+  <li>Optimal solutions to subproblems are found first.</li>
+  <li>Involves making a choice among subproblems as to which we will use in solving the problem.</li>
+  <li>The cost of the problem is the cost of the subproblem plus the cost of the choice itself.</li>
 </ul>
 
 <h1 id="memoized-dp-algorithm">Memoized DP Algorithm</h1>
@@ -192,11 +249,6 @@ fib(n):
 </ul>
 
 <p>Runtime = $\Theta(n)$</p>
-
-<h2 id="bottom-up-dp-algorithm">Bottom-up DP Algorithm</h2>
-<ul>
-  <li>A recursive algorithm starts at the top and works its way down.</li>
-</ul>
 
 <h3 id="pseudocode">Pseudocode</h3>
 <ul>
