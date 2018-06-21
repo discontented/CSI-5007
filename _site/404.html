@@ -33,22 +33,12 @@
         <div class="trigger"><a class="page-link" href="/CSI-5007/about/">About</a></div>
       </nav></div>
 </header>
-<!-- Search -->
-    <input type="text" id="search-input" placeholder="search posts..">
-    <br/>
-    <div id="results-container"></div>
+<form id='search' action="search.html" method="get">
+        <label for="search-box">Search</label>
+        <input type="text" id="search-box" name="query">
+        <input type="submit" value="search">
+      </form>
 
-    <script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
-
-    <script type='text/javascript'>
-        SimpleJekyllSearch({
-            searchInput: document.querySelector('.search-input'),
-            resultsContainer: document.getElementById('results-container'),
-            json: '/CSI-5007/search.json',
-            searchResultTemplate: '<li><a href="http://localhost:4000{url}">{title}</a></li>'
-        })
-    </script>
-    <!-- End Search -->
     <main class="page-content" aria-label="Content">
         <div class="wrapper">
             <style type="text/css" media="screen">

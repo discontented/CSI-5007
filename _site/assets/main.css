@@ -200,3 +200,5 @@ table td { border: 1px solid #e8e8e8; }
 .post-content h2 { font-size: 28px; }
 
 code, .highlighter-rouge .highlight { background-color: #f6f8fa; }
+
+#search { float: right; margin-right: 5em; }
