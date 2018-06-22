@@ -17,6 +17,8 @@ permalink: /about/
 
 [Dijkstra's Algorithm](https://www.youtube.com/watch?v=GazC3A4OQTE)
 
+[Loops Analysis - Summations](http://www.cs.umd.edu/~meesh/351/mount/lectures/lect3-sums-and-loops.pdf)
+
 [Python Quick Reference](http://josh-corneille.com/programming-notes/python.html)
 
 

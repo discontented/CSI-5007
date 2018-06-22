@@ -5,6 +5,7 @@ mathjax: true
 - [Why Dynamic Programming?](#why-dynamic-programming)
 - [Elements of Dynamic Programming](#elements-of-dynamic-programming)
 - [Developing a Dynamic Program](#developing-a-dynamic-program)
+    - [Alternative Steps](#alternative-steps)
     - [Recursion vs. a Dynamic Program](#recursion-vs-a-dynamic-program)
     - [Optimal Substructure](#optimal-substructure)
         - [Finding the Optimal Substructure](#finding-the-optimal-substructure)
@@ -37,6 +38,12 @@ mathjax: true
         * If it does, store the answer for each and return it to the next recursive call.
 2. Show that the number of different parameter values taken on by your recurrence is bounded by a small polynomial.
 3. Specify the order of evaluation for the recurrence so the partial results you need are always available when you need them.
+
+## Alternative Steps
+1. Sort the data
+2. Solve for the simplest case ($n=0$ or $n=1$)
+3. Recognize patterns for small $n$ to see how they depend on a smaller $n$
+4. Find a recursive way to derive all values based on the values that come before.
 
 ## Recursion vs. a Dynamic Program
 * Dynamic programming uses recursion but they are not synonymous because in other recursive calls, storing values of subproblems are useless.

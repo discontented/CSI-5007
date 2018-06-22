@@ -17,6 +17,8 @@ mathjax: true
     - Heapfix
 - [ ] Chaining vs. Open Addressing
 - [ ] Adjacency Matrix Implementation
+- [ ] Dijkstra
+    - [ ] How past values and edges are tracked.
 
 # Greedy Algorithms
 ## Minimum Spanning Trees

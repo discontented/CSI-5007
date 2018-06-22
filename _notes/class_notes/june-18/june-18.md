@@ -12,6 +12,7 @@ Two families of methods: simplex methods or interior-point methods
 * Decide to always maximize
 To convert an equality into an inequality:
 $$ax_1+bx_2=5\equiv {ax_1+bx+2\le 5, ax_1+bx_2\ge 5}$$
+
 Then convert $ax_1+bx+2\ge 5$ to $-ax_1-bx_2\le -5$
 
 # P vs NP
@@ -51,7 +52,7 @@ Then convert $ax_1+bx+2\ge 5$ to $-ax_1-bx_2\le -5$
 
 $P\subset NP$
 * Proves "not polynomial" as that would read "polynomial is a subset of not polynomial"
-$P\subsetall NP$
+$P\subseteq NP$
 * To disprove find one problem that is P and prove that it is not in NP
 	* Proving that it is not in NP is not possible to show.
 
@@ -59,10 +60,10 @@ $P=NP$
 * Need to show that all problems in $P$ are in $NP$
 
 # The class Co-$NP$
-* Give me a problem, give me an instance, you can answer "No in polytime"
+* Given a problem, give me an instance, you can answer "No in polytime"
 
 # Problems in Co-$NP\cap NP$
-* $\all P$
+* $\forall P$
 
 Every problem instance with this type of certificate.
 ## Examples

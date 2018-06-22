@@ -10,6 +10,8 @@ mathjax: true
 - [Computational Problem](#computational-problem)
     - [Problem Statement](#problem-statement)
     - [Instance](#instance)
+- [Algorithm Analysis](#algorithm-analysis)
+    - [Big-O](#big-o)
 - [Vocab](#vocab)
 - [Greedy Algorithms](#greedy-algorithms)
 
@@ -49,6 +51,12 @@ mathjax: true
 
 - The input needed to compute the solution to a computational problem.
 
+# Algorithm Analysis
+## Big-O
+- $f(n)=O(g(n))$ means $c\bullet{g(n)}$ is an upper bound on $f(n)$
+    - There exists some constant $c$ such that $f(n)$ is always $\le c\bullet g(n)$, for large enough $(n)$ ($n\ge n_0$ for some constant $n_0$)
+- $f(n)
+
 # Vocab
 
 - Sorting **in place**
@@ -56,8 +64,6 @@ mathjax: true
 
 - Stable
     - A sort is **stable** if two elements with equivalent keys maintain their relative position after the sort.
-
-
 
 # Greedy Algorithms
 
