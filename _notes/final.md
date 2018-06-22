@@ -5,9 +5,6 @@ mathjax: true
 
 - [TODO](#todo)
 - [Runtime Computations](#runtime-computations)
-    - [Big-O](#big-o)
-    - [Big-$\Omega$](#big-omega)
-    - [Big-#\Theta$](#big-theta)
 - [Heap](#heap)
 - [Search](#search)
 - [DP](#dp)
@@ -28,16 +25,15 @@ mathjax: true
 - [ ] Dijkstra
     - [ ] How past values and edges are tracked.
 
-# Runtime Computations
-## Big-O
-## Big-$\Omega$
-## Big-#\Theta$
+# [Runtime Computations](algorithms-basics.md#algorithm-analysis)
+- Big-O
+- Big-$\Omega$
+- Big-$\Theta$
 # Heap
 # Search
 # DP
 # Graph Algorithms
 # P vs NP
-
 # Greedy Algorithms
 ## Minimum Spanning Trees
 - [Prim](graph-algorithms.md#prims-algorithm)
