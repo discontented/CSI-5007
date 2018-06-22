@@ -113,6 +113,7 @@ $h(k,i)=h'(k)+i mod m$
 * Multiple permutations may be the same cycle.
 	* $(0,1,2)\equiv (2,0,1)$
 	* These are only shifted by 1 position.
+
 ### Search Space
 * $n$ Permutations $=n!$
 
@@ -138,11 +139,11 @@ def visit_0(v,n)
 1. Empty array
 	1. Complement is every other array.
 
-|Call|Runtime|
-|---|---|
-|`[]`|1|
-|`[0],[1],...[n-1]`|$n$|
-|`[2]->[2,0],[2,1],...[2,n-1]`|$n-1$|
+| Call                          | Runtime |
+| ----------------------------- | ------- |
+| `[]`                          | 1       |
+| `[0],[1],...[n-1]`            | $n$     |
+| `[2]->[2,0],[2,1],...[2,n-1]` | $n-1$   |
 
 Runtime: $O(n!)$
 
@@ -163,6 +164,7 @@ compute the cost and compare to your current best.
 	* Assumption: You have current best.
 		* If you know your minimum best, then approx. the future best and avoid that branch.
 		* achieved by `if cost < best`
+
 ## Extension Bound
 * Calculates best possible extension bound.
 $\sum_{i=0}^{i=l-1}c[v_i, v_{i+1}$
