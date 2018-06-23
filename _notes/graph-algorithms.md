@@ -36,6 +36,8 @@ mathjax: true
 		- [Iterative](#iterative)
 		- [Recursive](#recursive)
 	- [Runtime](#runtime)
+- [Union-Find Data Structure](#union-find-data-structure)
+	- [Methods](#methods)
 - [Minimum Spanning Trees (MST)](#minimum-spanning-trees-mst)
 	- [Prim's Algorithm](#prims-algorithm)
 		- [Pseudocode](#pseudocode)
@@ -45,9 +47,13 @@ mathjax: true
 	- [Predecessor Graph](#predecessor-graph)
 	- [Relaxation](#relaxation)
 	- [Dijkstra's Algorithm](#dijkstras-algorithm)
+		- [Process](#process)
+		- [Runtime](#runtime)
 	- [Bellman-Ford](#bellman-ford)
+		- [Efficiency](#efficiency)
 		- [Algorithm](#algorithm)
 	- [Floyd-Warshall Algorithm](#floyd-warshall-algorithm)
+		- [Runtime](#runtime)
 
 # Basics
 
@@ -302,6 +308,25 @@ def depth_first_search_recursive(graph, start, visited=None):
 ## Runtime
 If using a adjacency list, $O(V+E)$
 
+# Union-Find Data Structure
+
+## Methods
+* `init(a)`
+	* Create the data structure of $n$ elements
+* `find(v)`
+	* Returns head of tree containing $v$
+* `union(u,v)`
+	* Attach the tree of $u$ to the tree of $v$
+
+* Checking if two vertices are part of seperate trees is simple.
+* This method is used in Kruskal's algorithm when creating and joining trees.
+```
+if find(v) == find(u)
+	v and u are part of the same tree
+elif find(v) != find(u)
+	v and u are part of different trees
+```
+
 # Minimum Spanning Trees (MST)
 * **Spanning Tree**
 	* An acyclic subset, or tree, $T$ of a graph that connects all vertices from a vertex $u$ to $v$
@@ -371,14 +396,32 @@ Relax(u,v,w)
 * Greedy
 * Does not work with negative weights
 
+### Process
+1. Select a root node $s$ that forms a tree $T$
+2. $s.d[]$ is the array of distances of every node to $s$
+3. While $T$ does not span $G$
+	1. Pick a node $v$ of minimum distance in $d$
+		1. $v = min\{s.d\}$
+	2. Add node $v$ to $T$
+	3. Update the distance vector $s.d$ of neighbors of $v$ if the distance can be lowered from its previous value.
+
+### Runtime
+$O(\lvert{V}\rvert^2)$
+
 ## Bellman-Ford
 * Works with edges with negative weights
 * Uses a boolean to check if a negative-weight cycle is reachable from the source.
 	* If so, there is no solution.
 	* If there is no cycle, the algorithm returns the shortest paths and their weights.
 
+### Efficiency
+$O(|V|^3)$
+
 ### Algorithm
 * Decreases estimates of $v.d$ on the weight of the shortest path from the source $s$ to each vertex $v\in V$ until the actual shortest-path is found.
 
 ## Floyd-Warshall Algorithm
 * Dynamic Programming
+
+### Runtime
+$O(|V|^3)$

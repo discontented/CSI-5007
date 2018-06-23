@@ -29,12 +29,19 @@ mathjax: true
 - Big-O
 - Big-$\Omega$
 - Big-$\Theta$
-# Heap
-# Search
-# DP
-# Graph Algorithms
+
+# [Heap](binary-heap.md)
+
+# [Search](searching-algorithms.md)
+
+# [DP](dynamic-programming.md)
+
+# [Graph Algorithms](graph-algorithms.md)
+
 # P vs NP
+
 # Greedy Algorithms
+
 ## Minimum Spanning Trees
 - [Prim](graph-algorithms.md#prims-algorithm)
 - [Kruskal](graph-algorithms.md#prims-algorithm)

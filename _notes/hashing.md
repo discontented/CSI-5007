@@ -11,7 +11,17 @@ mathjax: true
 	- [Process](#process)
 - [Collisions](#collisions)
 	- [Chaining](#chaining)
+	- [Open Addressing](#open-addressing)
+		- [Negatives of Open Addressing](#negatives-of-open-addressing)
+		- [Probing](#probing)
+			- [Linear Probing](#linear-probing)
+			- [Quadratic Probing](#quadratic-probing)
+			- [Double Hashing](#double-hashing)
 - [Load Factor](#load-factor)
+- [Good Hash](#good-hash)
+	- [Division Method](#division-method)
+		- [Values of $m$](#values-of-m)
+	- [Multiplication Method](#multiplication-method)
 - [Runtime](#runtime)
 - [Storage](#storage)
 
@@ -23,7 +33,7 @@ $U$|Universe of Keys
 $k$|Key
 $K$|Set of keys
 $T$|Table (Hash or Direct Address)
-$m$|Size of hash table
+$m$|Size of hash table (number of slots)
 
 # Direct Address Table
 * An array $T[0,...,m-1]$ where each slot corresponds to a key in the universe $U=\{0,1,...,m-1\}$
@@ -65,15 +75,65 @@ key $k$ (a string) -> hash function -> index integer -> pointer located at index
 * All elements assigned to the same slot are placed in the same linked list.
 	* If $h(k)\equiv h(j)$ then they would be placed in the same linked list with the head being whichever element was placed first.
 
+## Open Addressing
+* All elements are stored within the hash table itself.
+	* No linked lists via chaining.
+	* Each table entry either contains an element or `null`
+* Load factor $\alpha$ can never equal 1
+* Hash table is **probed** until an empty slot is found and the key is inserted.
+	* Essentially getting a position through a hash function and if that space is filled, fills next position and returns hash function with additional increment.
+
+### Negatives of Open Addressing
+* When reallocating, you must rehash every item because the hash functions depend on the size of the array, $m$
+
+### Probing
+#### Linear Probing
+$h(k,i)=h'(k)+i mod m$
+* $h'(k)$ is one of the hash functions.
+* Clustering occurs as it continually checks the next available slot.
+	* If a slot is filled it will choose the next.
+
+#### Quadratic Probing
+* No clustering
+
+#### Double Hashing
+* Use one that is a multiplication hash function and one that is division.
+	* $h''(k)$ is either multiplication or division
+	* $h'(k)$ is the other
+
 # Load Factor
+$$\alpha=\frac{n}{m}$$
 * Average number of elements stored in a chain.
 * Given a hash table $T$ with $m$ slots that stores $n$ elements, the load factor of $T$ is $\frac{n}{m}$
 
+# Good Hash
+* If the keys are random real numbers and uniformly distributed in the range $0\le k\lt 1$ then the hash function $h(k)=\lfloor{km}\rfloor$
+
+## Division Method
+* Map key $k$ into one of $m$ slots by taking the remainder of $k$ divided by $m$
+$$h(k)=k\mod{m}$$
+
+### Values of $m$
+* Shouldn't be a power of 2
+	* If $m=2^p$ then $h(k)$ is just the $p$ lowest-order bits of $k$
+* Avoid Powers of 10 if dealing with decimals
+* Pick a prime far from a power of 2
+
+## Multiplication Method
+
+$$h(k)=\lfloor{m(kA-\lfloor{kA}\rfloor)}\rfloor$$
+
+1. Multiply the key $k$ by a constant $A$ in the range $[0,1]$
+	1. Extract the fractional part of $kA$
+2. Multiply the fraction of $kA$ by $m$ and take the floor of the result.
+
+
+
 # Runtime
 * Average runtime for searching for an element is $O(1)$
-* Average case of hashing depends on how well the hash function distributes the set of keys to be stored among the $m$ slots.
-	* **Simple Uniform Hashing**
-		* Assumption is that any given element is equally likely to hash.
+* **Simple Uniform Hashing**
+	* Assumption is that any given element is equally likely to hash.
+* Any hash table with chaining $\Theta(1+\alpha)$
 
 # Storage
 * $\Theta(\lvert{K}\rvert)$
