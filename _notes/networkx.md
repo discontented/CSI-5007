@@ -1,3 +1,7 @@
+# Install
+`python -mpip install -U matplotlib`
+`$ easy_install networkx`
+
 # Import
 ```py
 import networkx as nx

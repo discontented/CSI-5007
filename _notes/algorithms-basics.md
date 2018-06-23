@@ -12,6 +12,9 @@ mathjax: true
     - [Instance](#instance)
 - [Algorithm Analysis](#algorithm-analysis)
     - [Big-O](#big-o)
+    - [Big-$\Omega$](#big-omega)
+    - [Big-$\Theta$](#big-theta)
+- [Complexity Classes](#complexity-classes)
 - [Vocab](#vocab)
 - [Greedy Algorithms](#greedy-algorithms)
 
@@ -55,9 +58,40 @@ mathjax: true
 # Algorithm Analysis
 
 ## Big-O
+<<<<<<< HEAD
 - $f(n)=O(g(n))$ means $c\bullet{g(n)}$ is an upper bound on $f(n)$
     - There exists some constant $c$ such that $f(n)$ is always $\le c\bullet g(n)$, for large enough $(n)$ ($n\ge n_0$ for some constant $n_0$)
 - $f(n)$
+=======
+$$f(n)=O(g(n))$$
+- $c\cdot{g(n)}$ is an upper bound on $f(n)$
+- There exists some constant $c$ such that $f(n) \le c\cdot g(n)$, for $n\ge n_0$ for some constant $n_0$
+
+## Big-$\Omega$
+$$f(n)=\Omega(g(n))$$
+- $c\cdot g(n)$ is a lower bound on $f(n)$
+- There exists some constant $c$ such that $f(n)\ge c\cdot g(n)$ for $n\ge n_0$
+
+## Big-$\Theta$
+$$f(n)=\Theta(g(n))$$
+- $c_1\cdot g(n)$ is an **upper bound** on $f(n)$
+- $c_2\cdot g(n)$ is a **lower bound** on $f(n)$
+- There exists some constant $c$ such that $f(n)\le c_1\cdot g(n)$ and $f(n)\ge c_2\cdot g(n)$
+
+# Complexity Classes
+
+Complexity Class|Function|Common Cases
+---|---|---
+Constant Functions|$f(n)=1$|Adding Constants<br>Printing
+Logarithmic Functions|$f(n)=log(n)$|Binary search
+Linear Functions|$f(n)|Looking at each item once in an $n$-element array
+Superlinear Functions|$f(n) = nlg(n)$|Quicksort<br>Mergesort
+Quadratic Functions|$f(n) = n^2$|Looking at all pairs of items in an $n$-element universe<br>Bubble Sort<br>Insertion Sort
+Cubic Functions|$f(n)=n^3$|Enumerate through 3-tuple or triplets of items in an $n$-element universe<br>Dynamic Programming
+Exponential Functions|$f(n) = c^n|Enumerating all subsets of $n$ items
+Factorial Functions|$f(n) = n!$|Generating all permutations of $n$ items
+
+>>>>>>> 67d11d1a3361ef318f9ba5da0545d85a17c2f706
 
 # Vocab
 
