@@ -4,6 +4,7 @@ mathjax: true
 ---
 
 - [Basics](#basics)
+	- [Graph Symbols](#graph-symbols)
 	- [Runtime Analysis](#runtime-analysis)
 	- [Principle of Optimality](#principle-of-optimality)
 - [Graph Representations](#graph-representations)
@@ -40,20 +41,26 @@ mathjax: true
 		- [Pseudocode](#pseudocode)
 	- [Kruskal's Algorithm](#kruskals-algorithm)
 		- [Pseudocode](#pseudocode)
-- [Dijkstra's Algorithm](#dijkstras-algorithm)
-- [Floyd-Warshall Algorithm](#floyd-warshall-algorithm)
+- [Shortest Path](#shortest-path)
+	- [Predecessor Graph](#predecessor-graph)
+	- [Relaxation](#relaxation)
+	- [Dijkstra's Algorithm](#dijkstras-algorithm)
+	- [Bellman-Ford](#bellman-ford)
+		- [Algorithm](#algorithm)
+	- [Floyd-Warshall Algorithm](#floyd-warshall-algorithm)
 
 # Basics
 
 * Graph $G=(V,E)$ contains $n$ vertices and $m$ edges
 	* Vertices are also called **nodes**
-* $(u,v)$ is an edge.
-	* Indicates there is an edge from vertex $u$ to $v$
-	* $(u,v)\ne (v,u)$ in a **directed graph** (di-graph)
+* **Directed Graph**
+	* AKA di-graph
+	* $(u,v)\ne (v,u)$
 * **Weighted graph**
 	* Each edge of a graph has an associated weight.
 	* Weight is given by a weight function $w:E\rightarrow \mathbb{R}$
 
+## Graph Symbols
 Symbol|Meaning
 ---|---
 $G$|Graph
@@ -62,6 +69,12 @@ $E$|Set of edges
 $u$ or $v$|Vertex/Node
 $(u,v)$|Edge
 $w(u,v)$|Weight of edge
+$s$|Source Vertex
+$v.\pi$|Predecessor
+$G_\pi =(V_\pi ,E_\pi)$|Predecessor Subgraph
+$p=\langle{v_0,v_1,...v_k}\rangle$| Path
+$c=\langle{v_i,v_{i+1},...,v_j}\rangle, v_i=v_j$| Cycle
+$G'=(V',E')$|Shortest-Paths Tree
 
 ## Runtime Analysis
 * The runtime of a graph algorithm for a given graph $G=(V,E)$ is measured in terms of the number of vertices ($\lvert V\rvert$) and number of edges ($\lvert E\rvert$)
@@ -215,8 +228,7 @@ $O(n + m)$
 
 ## Stack
 * Stores discovered but not processed vertices.
-* LIFO
-* 
+* LIFO 
 
 ## Predecessor Graph
 * Whenever a DFS discovers a vertex $v$ during a scan of an already discovered vertex $u$, it sets $v$'s predecessor attribute $v.\pi$ to $u$
@@ -334,9 +346,39 @@ MST-Kruskal(Graph, weight):
 	return A
 ```
 
-# Dijkstra's Algorithm
-* Finds shortest path.
-	* Does not work with negative weights
+# Shortest Path
+* Given a weighted, directed graph, find the shortest path from a given **source** vertex.
+	* $s\inV$
 
-# Floyd-Warshall Algorithm
-* Shortest path supporting negative weights.
+## Predecessor Graph
+* $v.\pi$ represents the predecessor vertex of $v$
+	* Its value is either another vertex or `null`
+	* Represented by `v.p` in code
+
+## Relaxation
+* $v.d$
+	* Upper bound on the weight of the shortest path from source $s$ to $v$
+	* Known as the **shortest-path estimate**
+
+```
+Relax(u,v,w)
+	if v.d > u.d + w(u,v)
+		v.d = u.d + w(u,v)
+		v.p = u
+```
+
+## Dijkstra's Algorithm
+* Greedy
+* Does not work with negative weights
+
+## Bellman-Ford
+* Works with edges with negative weights
+* Uses a boolean to check if a negative-weight cycle is reachable from the source.
+	* If so, there is no solution.
+	* If there is no cycle, the algorithm returns the shortest paths and their weights.
+
+### Algorithm
+* Decreases estimates of $v.d$ on the weight of the shortest path from the source $s$ to each vertex $v\in V$ until the actual shortest-path is found.
+
+## Floyd-Warshall Algorithm
+* Dynamic Programming
