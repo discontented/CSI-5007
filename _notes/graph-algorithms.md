@@ -67,6 +67,7 @@ mathjax: true
 	* Weight is given by a weight function $w:E\rightarrow \mathbb{R}$
 
 ## Graph Symbols
+
 Symbol|Meaning
 ---|---
 $G$|Graph
@@ -241,6 +242,7 @@ $O(n + m)$
 * The predecessor subgraph produced by a DFS forms a **predecessor forest** because the search may repeat from multiple source ($s$) vertices
 
 _Predecessor Subgraph Representation_
+
 $$
 G_{\pi}=(V,E_{\pi}), \text{where } E_{\pi}={(v.\pi,v):v\in V \text{and } v.\pi \neq NIL}
 $$

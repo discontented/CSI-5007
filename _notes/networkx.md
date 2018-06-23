@@ -1,5 +1,11 @@
+---
+layout: post
+mathjax: true
+---
+
 # Install
-`python -mpip install -U matplotlib`
+`$ python -mpip install -U matplotlib`
+
 `$ easy_install networkx`
 
 # Import
@@ -10,6 +16,11 @@ import networkx as nx
 # Create Graph
 ```py
 G = nx.Graph()
+```
+
+* Directed Graph
+```py
+DG = nx.DiGraph()
 ```
 
 # Add Nodes
