@@ -12,6 +12,11 @@ mathjax: true
 - [Collisions](#collisions)
 	- [Chaining](#chaining)
 	- [Open Addressing](#open-addressing)
+		- [Negatives of Open Addressing](#negatives-of-open-addressing)
+		- [Probing](#probing)
+			- [Linear Probing](#linear-probing)
+			- [Quadratic Probing](#quadratic-probing)
+			- [Double Hashing](#double-hashing)
 - [Load Factor](#load-factor)
 - [Good Hash](#good-hash)
 	- [Division Method](#division-method)
@@ -77,6 +82,24 @@ key $k$ (a string) -> hash function -> index integer -> pointer located at index
 * Load factor $\alpha$ can never equal 1
 * Hash table is **probed** until an empty slot is found and the key is inserted.
 	* Essentially getting a position through a hash function and if that space is filled, fills next position and returns hash function with additional increment.
+
+### Negatives of Open Addressing
+* When reallocating, you must rehash every item because the hash functions depend on the size of the array, $m$
+
+### Probing
+#### Linear Probing
+$h(k,i)=h'(k)+i mod m$
+* $h'(k)$ is one of the hash functions.
+* Clustering occurs as it continually checks the next available slot.
+	* If a slot is filled it will choose the next.
+
+#### Quadratic Probing
+* No clustering
+
+#### Double Hashing
+* Use one that is a multiplication hash function and one that is division.
+	* $h''(k)$ is either multiplication or division
+	* $h'(k)$ is the other
 
 # Load Factor
 $$\alpha=\frac{n}{m}$$

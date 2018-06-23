@@ -168,6 +168,5 @@ compute the cost and compare to your current best.
 ## Extension Bound
 * Calculates best possible extension bound.
 $\sum_{i=0}^{i=l-1}c[v_i, v_{i+1}$
-_markdown error
 
 
