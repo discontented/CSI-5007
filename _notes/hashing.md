@@ -12,7 +12,6 @@ mathjax: true
 - [Collisions](#collisions)
 	- [Chaining](#chaining)
 	- [Open Addressing](#open-addressing)
-		- [Open Addressing Hash Function](#open-addressing-hash-function)
 - [Load Factor](#load-factor)
 - [Good Hash](#good-hash)
 	- [Division Method](#division-method)
@@ -77,9 +76,7 @@ key $k$ (a string) -> hash function -> index integer -> pointer located at index
 	* Each table entry either contains an element or `null`
 * Load factor $\alpha$ can never equal 1
 * Hash table is **probed** until an empty slot is found and the key is inserted.
-
-### Open Addressing Hash Function
-$$h:U\times\{0,1,...,m-1\}\rightarrow\{0,1,...,m-1\}$$
+	* Essentially getting a position through a hash function and if that space is filled, fills next position and returns hash function with additional increment.
 
 # Load Factor
 $$\alpha=\frac{n}{m}$$
