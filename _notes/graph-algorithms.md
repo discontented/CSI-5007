@@ -330,6 +330,7 @@ elif find(v) != find(u)
 ```
 
 # Minimum Spanning Trees (MST)
+* Works on a connected, weighted, undirected graph
 * **Spanning Tree**
 	* An acyclic subset, or tree, $T$ of a graph that connects all vertices from a vertex $u$ to $v$
 * **Minimum Spanning Tree**
