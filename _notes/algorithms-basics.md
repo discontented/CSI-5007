@@ -51,11 +51,13 @@ mathjax: true
 
 - The input needed to compute the solution to a computational problem.
 
+
 # Algorithm Analysis
+
 ## Big-O
 - $f(n)=O(g(n))$ means $c\bullet{g(n)}$ is an upper bound on $f(n)$
     - There exists some constant $c$ such that $f(n)$ is always $\le c\bullet g(n)$, for large enough $(n)$ ($n\ge n_0$ for some constant $n_0$)
-- $f(n)
+- $f(n)$
 
 # Vocab
 
