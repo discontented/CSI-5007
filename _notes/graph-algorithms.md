@@ -375,7 +375,7 @@ MST-Kruskal(Graph, weight):
 
 # Shortest Path
 * Given a weighted, directed graph, find the shortest path from a given **source** vertex.
-	* $s\inV$
+	* $s\in V$
 
 ## Predecessor Graph
 * $v.\pi$ represents the predecessor vertex of $v$
