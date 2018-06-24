@@ -1,7 +1,5 @@
-import networkx as nx
+import graph
 
-def mst():
-    """Minimum Spanning Tree Test Class
-    Looks for a minimum spanning tree on weighted graph.
-    Generates a weighted undirected graph.
-    """
+G = graph.DiGraph(8, 0, 4)
+
+G.drawGraph()
