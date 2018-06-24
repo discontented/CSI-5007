@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Hashing" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Hash Function Actual Hash Function Collisions Chaining" />
-<meta property="og:description" content="Hash Function Actual Hash Function Collisions Chaining" />
+<meta name="description" content="Direct Address Table Hash Table Hash Function Notation Properties Process Collisions Chaining Open Addressing Negatives of Open Addressing Probing Linear Probing Quadratic Probing Double Hashing Load Factor Good Hash Division Method Values of $m$ Multiplication Method Runtime Storage" />
+<meta property="og:description" content="Direct Address Table Hash Table Hash Function Notation Properties Process Collisions Chaining Open Addressing Negatives of Open Addressing Probing Linear Probing Quadratic Probing Double Hashing Load Factor Good Hash Division Method Values of $m$ Multiplication Method Runtime Storage" />
 <link rel="canonical" href="http://localhost:4000/CSI-5007/notes/hashing/" />
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/hashing/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-06-22T11:51:51-04:00" />
+<meta property="article:published_time" content="2018-06-24T19:09:41-04:00" />
 <script type="application/ld+json">
-{"description":"Hash Function Actual Hash Function Collisions Chaining","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/hashing/","headline":"Hashing","dateModified":"2018-06-22T11:51:51-04:00","datePublished":"2018-06-22T11:51:51-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/hashing/"},"@context":"http://schema.org"}</script>
+{"description":"Direct Address Table Hash Table Hash Function Notation Properties Process Collisions Chaining Open Addressing Negatives of Open Addressing Probing Linear Probing Quadratic Probing Double Hashing Load Factor Good Hash Division Method Values of $m$ Multiplication Method Runtime Storage","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/hashing/","headline":"Hashing","dateModified":"2018-06-24T19:09:41-04:00","datePublished":"2018-06-24T19:09:41-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/hashing/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -63,74 +63,267 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Hashing</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-06-22T11:51:51-04:00" itemprop="datePublished">Jun 22, 2018
+      <time class="dt-published" datetime="2018-06-24T19:09:41-04:00" itemprop="datePublished">Jun 24, 2018
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul>
+  <li><a href="#direct-address-table">Direct Address Table</a></li>
+  <li><a href="#hash-table">Hash Table</a></li>
   <li><a href="#hash-function">Hash Function</a>
     <ul>
-      <li><a href="#actual-hash-function">Actual Hash Function</a></li>
-      <li><a href="#collisions">Collisions</a>
+      <li><a href="#notation">Notation</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#process">Process</a></li>
+    </ul>
+  </li>
+  <li><a href="#collisions">Collisions</a>
+    <ul>
+      <li><a href="#chaining">Chaining</a></li>
+      <li><a href="#open-addressing">Open Addressing</a>
         <ul>
-          <li><a href="#chaining">Chaining</a></li>
+          <li><a href="#negatives-of-open-addressing">Negatives of Open Addressing</a></li>
+          <li><a href="#probing">Probing</a>
+            <ul>
+              <li><a href="#linear-probing">Linear Probing</a></li>
+              <li><a href="#quadratic-probing">Quadratic Probing</a></li>
+              <li><a href="#double-hashing">Double Hashing</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
+    </ul>
+  </li>
+  <li><a href="#load-factor">Load Factor</a></li>
+  <li><a href="#good-hash">Good Hash</a>
+    <ul>
+      <li><a href="#division-method">Division Method</a>
+        <ul>
+          <li><a href="#values-of-m">Values of $m$</a></li>
+        </ul>
+      </li>
+      <li><a href="#multiplication-method">Multiplication Method</a></li>
+    </ul>
+  </li>
+  <li><a href="#runtime">Runtime</a></li>
+  <li><a href="#storage">Storage</a></li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$h$</td>
+      <td>Hash Function</td>
+    </tr>
+    <tr>
+      <td>$h(k)$</td>
+      <td>Hash Value (slot)</td>
+    </tr>
+    <tr>
+      <td>$U$</td>
+      <td>Universe of Keys</td>
+    </tr>
+    <tr>
+      <td>$k$</td>
+      <td>Key</td>
+    </tr>
+    <tr>
+      <td>$K$</td>
+      <td>Set of keys</td>
+    </tr>
+    <tr>
+      <td>$T$</td>
+      <td>Table (Hash or Direct Address)</td>
+    </tr>
+    <tr>
+      <td>$m$</td>
+      <td>Size of hash table (number of slots)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="direct-address-table">Direct Address Table</h1>
+<ul>
+  <li>An array $T[0,…,m-1]$ where each slot corresponds to a key in the universe $U={0,1,…,m-1}$</li>
+  <li>An element with key $k$ is stored in slot $k$</li>
+</ul>
+
+<h1 id="hash-table">Hash Table</h1>
+<ul>
+  <li>An element with key$k$ is stored in slot $h(k)$
+    <ul>
+      <li>$h(k)$ is the <a href="#hash-function">hash function</a></li>
+    </ul>
+  </li>
+  <li>Any data type can be inserted in a dynamic language.</li>
+  <li>No ordering
+    <ul>
+      <li>Slots in hash table are assigned by hash function, which varies by the input.</li>
     </ul>
   </li>
 </ul>
 
 <h1 id="hash-function">Hash Function</h1>
 <ul>
-  <li>A mathematical function that maps keys to integers.</li>
+  <li>A mathematical function that maps keys to integers.
+    <ul>
+      <li>Keys can be strings, objects, etc.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="notation">Notation</h2>
+<p><script type="math/tex">h: \{1, 2, ...,\lvert U\rvert\}\rightarrow\{0,...,m-1\}</script></p>
+
+<h2 id="properties">Properties</h2>
+
+<ul>
   <li>Return value of a hash function is the index of an array of pointers.
     <ul>
-      <li>The item associated with a key is referenced by the pointer at the index.
-        <ul>
-          <li>Thinking of it as a pointer makes it easier later for Chaining Resolution.</li>
-          <li>If it makes it easier, think of the value array as the items themselves, or objects.</li>
-        </ul>
-      </li>
-      <li>The process:
-        <ul>
-          <li>key (a string) -&gt; hash function -&gt; index integer -&gt; pointer located at index -&gt; object in memory the pointer pointed to</li>
-        </ul>
-      </li>
+      <li>The item associated with a key is referenced by the pointer at the index.</li>
     </ul>
   </li>
-  <li>$\alpha$
+  <li>Size of the hashtable is typically much less than $\lvert{U}\rvert$</li>
+  <li>Since the hash function will generate a large integer, which would require a large array to map the index accurately, the function must reduce the number to an integer between 0 and $m-1$</li>
+  <li>Use modulus to take the remainder of $h(S) mod\ m$ to assign and index.</li>
+  <li>The ideal table size of $m$ is a large prime not close to $2^{i-1}$</li>
+  <li>Must be deterministic
     <ul>
-      <li>The size of an alphabet which a string $S$ is written.</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">char(c)</code>
-    <ul>
-      <li>A function that maps each symbol of the alphabet, $a$, to a unique integer from 0 to $a-1$</li>
+      <li>An input $k$ must always produce the same output $h(k)$</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="actual-hash-function">Actual Hash Function</h2>
-<p>$H(S)=\sum_{i=0}^{|S|-1}\alpha^{|S|-(i+1)}\times char(s_i)$</p>
+<h2 id="process">Process</h2>
+<p>key $k$ (a string) -&gt; hash function -&gt; index integer -&gt; pointer located at index -&gt; object in memory the pointer pointed to</p>
 
-<ul>
-  <li>$m$ - Number of slots in the hash table.</li>
-  <li>Since the hash function will generate a large integer, which would require a large array to map the index accurately, the function must reduce the number to an integer between 0 and $m-1$
-    <ul>
-      <li>Use modulus to take the remainder of $H(S) mod m$ to assign and index.</li>
-      <li>The ideal table size of $m$ is a large prime not close to $2^{i}-1</li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="collisions">Collisions</h2>
+<h1 id="collisions">Collisions</h1>
 <ul>
   <li>Two distinct keys that hash to the same value.</li>
+  <li>By the pigeonhole principle, because $\lvert{U}\rvert &gt;m$, there must be at least two keys that have the same hash value.</li>
 </ul>
 
-<h3 id="chaining">Chaining</h3>
+<h2 id="chaining">Chaining</h2>
+<ul>
+  <li>All elements assigned to the same slot are placed in the same linked list.
+    <ul>
+      <li>If $h(k)\equiv h(j)$ then they would be placed in the same linked list with the head being whichever element was placed first.</li>
+    </ul>
+  </li>
+</ul>
 
+<h2 id="open-addressing">Open Addressing</h2>
+<ul>
+  <li>All elements are stored within the hash table itself.
+    <ul>
+      <li>No linked lists via chaining.</li>
+      <li>Each table entry either contains an element or <code class="highlighter-rouge">null</code></li>
+    </ul>
+  </li>
+  <li>Load factor $\alpha$ can never equal 1</li>
+  <li>Hash table is <strong>probed</strong> until an empty slot is found and the key is inserted.
+    <ul>
+      <li>Essentially getting a position through a hash function and if that space is filled, fills next position and returns hash function with additional increment.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="negatives-of-open-addressing">Negatives of Open Addressing</h3>
+<ul>
+  <li>When reallocating, you must rehash every item because the hash functions depend on the size of the array, $m$</li>
+</ul>
+
+<h3 id="probing">Probing</h3>
+<h4 id="linear-probing">Linear Probing</h4>
+<p>$h(k,i)=h’(k)+i mod m$</p>
+<ul>
+  <li>$h’(k)$ is one of the hash functions.</li>
+  <li>Clustering occurs as it continually checks the next available slot.
+    <ul>
+      <li>If a slot is filled it will choose the next.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="quadratic-probing">Quadratic Probing</h4>
+<ul>
+  <li>No clustering</li>
+</ul>
+
+<h4 id="double-hashing">Double Hashing</h4>
+<ul>
+  <li>Use one that is a multiplication hash function and one that is division.
+    <ul>
+      <li>$h’‘(k)$ is either multiplication or division</li>
+      <li>$h’(k)$ is the other</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="load-factor">Load Factor</h1>
+<p><script type="math/tex">\alpha=\frac{n}{m}</script></p>
+<ul>
+  <li>Average number of elements stored in a chain.</li>
+  <li>Given a hash table $T$ with $m$ slots that stores $n$ elements, the load factor of $T$ is $\frac{n}{m}$</li>
+</ul>
+
+<h1 id="good-hash">Good Hash</h1>
+<ul>
+  <li>If the keys are random real numbers and uniformly distributed in the range $0\le k\lt 1$ then the hash function $h(k)=\lfloor{km}\rfloor$</li>
+</ul>
+
+<h2 id="division-method">Division Method</h2>
+<ul>
+  <li>Map key $k$ into one of $m$ slots by taking the remainder of $k$ divided by $m$
+<script type="math/tex">h(k)=k\mod{m}</script></li>
+</ul>
+
+<h3 id="values-of-m">Values of $m$</h3>
+<ul>
+  <li>Shouldn’t be a power of 2
+    <ul>
+      <li>If $m=2^p$ then $h(k)$ is just the $p$ lowest-order bits of $k$</li>
+    </ul>
+  </li>
+  <li>Avoid Powers of 10 if dealing with decimals</li>
+  <li>Pick a prime far from a power of 2</li>
+</ul>
+
+<h2 id="multiplication-method">Multiplication Method</h2>
+
+<script type="math/tex; mode=display">h(k)=\lfloor{m(kA-\lfloor{kA}\rfloor)}\rfloor</script>
+
+<ol>
+  <li>Multiply the key $k$ by a constant $A$ in the range $[0,1]$
+    <ol>
+      <li>Extract the fractional part of $kA$</li>
+    </ol>
+  </li>
+  <li>Multiply the fraction of $kA$ by $m$ and take the floor of the result.</li>
+</ol>
+
+<h1 id="runtime">Runtime</h1>
+<ul>
+  <li>Average runtime for searching for an element is $O(1)$</li>
+  <li><strong>Simple Uniform Hashing</strong>
+    <ul>
+      <li>Assumption is that any given element is equally likely to hash.</li>
+    </ul>
+  </li>
+  <li>Any hash table with chaining $\Theta(1+\alpha)$</li>
+</ul>
+
+<h1 id="storage">Storage</h1>
+<ul>
+  <li>$\Theta(\lvert{K}\rvert)$</li>
+</ul>
 
   </div><a class="u-url" href="/CSI-5007/notes/hashing/" hidden></a>
 </article>

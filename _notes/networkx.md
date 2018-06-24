@@ -71,3 +71,9 @@ DiGraph.predecessors()
 ```py
 import matplotlib.pyplot as plt
 ```
+
+* Draw and display a graph
+```py
+nx.draw_shell(G, with_labels=True, font_weight='bold')
+plt.show()
+```

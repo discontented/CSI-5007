@@ -9,6 +9,7 @@ mathjax: true
 	- [Principle of Optimality](#principle-of-optimality)
 - [Graph Representations](#graph-representations)
 	- [Adjacency Matrix](#adjacency-matrix)
+		- [When to use Adjacency Matrix](#when-to-use-adjacency-matrix)
 	- [Incidence Matrix](#incidence-matrix)
 		- [Weighted Graph Representation](#weighted-graph-representation)
 	- [Adjacency List](#adjacency-list)
@@ -23,10 +24,10 @@ mathjax: true
 	- [Runtime](#runtime)
 - [Depth First Search (DFS)](#depth-first-search-dfs)
 - [Applications](#applications)
-	- [Properties](#properties)
+	- [Properties](#properties-1)
 	- [Stack](#stack)
 	- [Predecessor Graph](#predecessor-graph)
-	- [Steps](#steps)
+	- [Steps](#steps-1)
 	- [DFS Strategies](#dfs-strategies)
 		- [Pre-order](#pre-order)
 		- [In-order **INCOMPLETE**](#in-order-incomplete)
@@ -35,25 +36,30 @@ mathjax: true
 	- [Python Implementation](#python-implementation)
 		- [Iterative](#iterative)
 		- [Recursive](#recursive)
-	- [Runtime](#runtime)
+	- [Runtime](#runtime-1)
 - [Union-Find Data Structure](#union-find-data-structure)
 	- [Methods](#methods)
 - [Minimum Spanning Trees (MST)](#minimum-spanning-trees-mst)
 	- [Prim's Algorithm](#prims-algorithm)
-		- [Pseudocode](#pseudocode)
+		- [Pseudocode](#pseudocode-1)
 	- [Kruskal's Algorithm](#kruskals-algorithm)
-		- [Pseudocode](#pseudocode)
+		- [Pseudocode](#pseudocode-2)
 - [Shortest Path](#shortest-path)
-	- [Predecessor Graph](#predecessor-graph)
+	- [Properties](#properties-2)
+	- [Input](#input)
+	- [Shortest Path Problem](#shortest-path-problem)
+	- [Predecessor Graph](#predecessor-graph-1)
 	- [Relaxation](#relaxation)
 	- [Dijkstra's Algorithm](#dijkstras-algorithm)
 		- [Process](#process)
-		- [Runtime](#runtime)
+		- [Runtime](#runtime-2)
 	- [Bellman-Ford](#bellman-ford)
 		- [Efficiency](#efficiency)
 		- [Algorithm](#algorithm)
 	- [Floyd-Warshall Algorithm](#floyd-warshall-algorithm)
-		- [Runtime](#runtime)
+		- [Runtime](#runtime-3)
+	- [Topological Sort](#topological-sort)
+		- [Runtime](#runtime-4)
 
 # Basics
 
@@ -113,6 +119,21 @@ M[i,j]=
 \end{cases}
 $$
 
+$$
+M[i,j]=
+\begin{array}{} j\\
+i
+\begin{bmatrix}
+0 & 1\\
+1 & 0
+\end{bmatrix}
+\end{array}
+$$
+
+* $i$ - Source Vertex
+* $j$ - Destination Vertex
+
+### When to use Adjacency Matrix
 * Pros
 	* Rapid search for edges in graph
 	* Rapid update to edge insertion and deletion
@@ -334,7 +355,10 @@ elif find(v) != find(u)
 * **Spanning Tree**
 	* An acyclic subset, or tree, $T$ of a graph that connects all vertices from a vertex $u$ to $v$
 * **Minimum Spanning Tree**
-	* A spanning tree that has the least weight.
+	* **Unweighted Graph**
+		* Tree that minimizes the number of edges.
+	* **Weighted Graph**
+		* Tree that minimizes the weights of edges
 
 ## Prim's Algorithm
 * Starts from one vertex and grows the rest of the tree one edge at a time until all vertices are included.
@@ -378,6 +402,20 @@ MST-Kruskal(Graph, weight):
 * Given a weighted, directed graph, find the shortest path from a given **source** vertex.
 	* $s\in V$
 
+## Properties
+* Edges have weights.
+	* [Dijkstra's](#dijkstras-algorithm) does not work with negative weights.
+	* Edges can be directed or undirected.
+
+## Input
+* $G$ - Graph
+	* Made up of a set of vertices $V$ and set of edges $E$.
+* $s$ - Source vertex
+* $t$ - Destination vertex
+
+## Shortest Path Problem
+* Given two points, $s$ and $t$, what is the shortest path between them.
+
 ## Predecessor Graph
 * $v.\pi$ represents the predecessor vertex of $v$
 	* Its value is either another vertex or `null`
@@ -412,7 +450,8 @@ Relax(u,v,w)
 $O(\lvert{V}\rvert^2)$
 
 ## Bellman-Ford
-* Works with edges with negative weights
+* Works with edges with negative weights.
+* Graph is directed.
 * Uses a boolean to check if a negative-weight cycle is reachable from the source.
 	* If so, there is no solution.
 	* If there is no cycle, the algorithm returns the shortest paths and their weights.
@@ -425,6 +464,14 @@ $O(|V|^3)$
 
 ## Floyd-Warshall Algorithm
 * Dynamic Programming
+* Works with negative weights.
 
 ### Runtime
 $O(|V|^3)$
+
+## Topological Sort
+* For directed acyclic graphs (DAGs)
+* Ordering of all vertices such that for each edge $(u,v)\in E$, $u$ comes before $v$
+
+### Runtime
+$O(n)$
