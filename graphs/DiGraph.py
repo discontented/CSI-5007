@@ -18,8 +18,18 @@ except ImportError:
 class DiGraph:
     """Creates a directed graph that could optionally be weighted.
     
+    G.V - Set of vertices
+    G.E - Set of edges
+
     Returns:
         DiGraph -- A directed, weighted graph.
+    
+    Example
+    -------    
+    G = DiGraph() - Initializes an empty directed graph.
+    G = DiGraph(4, 1, 4) - Inializes a directed graph with 4 vertices, random edges, and weights from 0 to 4.
+    G.drawGraph() - Draws current graph object.
+
     """
 
     
