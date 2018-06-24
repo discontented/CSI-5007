@@ -1,6 +1,6 @@
-import graph
+from DiGraph import DiGraph
 
-G = graph.DiGraph(8, 0, 4)
+G = DiGraph(8, 0, 4)
 print(G.G.edges())
 
 u, v = [int(e) for e in input("Edge: ").split(",")]

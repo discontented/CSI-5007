@@ -1,8 +1,27 @@
-import networkx as nx
-import matplotlib.pyplot as plt
+# Python included libraries
+import sys
 import random
 
+# Installed libraries
+try:
+    import networkx as nx
+except ImportError:
+    sys.exit("""You need networkx!
+                run pip install networkx.""")
+
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    sys.exit("""You need matplotlib!
+                run pip install matplotlib""")
+
 class DiGraph:
+    """Creates a directed graph that could optionally be weighted.
+    
+    Returns:
+        DiGraph -- A directed, weighted graph.
+    """
+
     
     def __init__(self, num_V = None, weightL = None, weightH = None):
         """Initializes a weighted, directed graph.  Vertices are labelled sequentially from 1 to num_V.
@@ -15,7 +34,7 @@ class DiGraph:
         self.G = nx.DiGraph()
 
         if num_V is not None:
-            self.G.add_nodes_from(range(1, V + 1))
+            self.G.add_nodes_from(range(1, num_V + 1))
         
         self.randEdges()
         self.V = self.G.nodes()
