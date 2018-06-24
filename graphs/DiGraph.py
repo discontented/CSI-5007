@@ -3,20 +3,43 @@ import matplotlib.pyplot as plt
 import random
 
 class DiGraph:
-    def __init__(self, V = None, weightL = None, weightH = None):
+    
+    def __init__(self, num_V = None, weightL = None, weightH = None):
+        """Initializes a weighted, directed graph.  Vertices are labelled sequentially from 1 to num_V.
+        
+        Keyword Arguments:
+            num_V {int} -- Number of vertices. (default: {None})
+            weightL {int} -- Lowest weight.  Can be negative. (default: {None})
+            weightH {int} -- Highest weight. (default: {None})
+        """
         self.G = nx.DiGraph()
-        if V is not None:
+
+        if num_V is not None:
             self.G.add_nodes_from(range(1, V + 1))
+        
         self.randEdges()
+        self.V = self.G.nodes()
+        self.E = self.G.edges()
 
         if (weightL and weightH) is not None:
             self.addWeight(weightL, weightH)
 
     def addWeight(self, low, high):
+        """Adds random weight to edges between low and high
+        
+        Arguments:
+            low {int} -- Lowest weight.  Can be negative
+            high {int} -- Highest weight
+        """
+
         for (u, v, w) in self.G.edges(data=True):
-            w['weight'] = random.randint(low, high)
+            w['weight'] = random.randint(low, high + 1)
 
     def randEdges(self):
+        """Generates random edges of this DiGraph object.
+        Post-Condition: All vertices are connected by at least one directed edge.
+        """
+
         for v in self.G.nodes:
             eligible = [i for i in self.G.nodes if i != v]
             u = random.choice(eligible)
@@ -26,7 +49,8 @@ class DiGraph:
         self.connectDC()
 
     def connectDC(self):
-        # Connect disconnected components in a graph
+        """Connects two or more disconnected components within this DiGraph object.
+        """
         UG = self.G.to_undirected()
 
         subgraphs = []
@@ -56,3 +80,17 @@ class DiGraph:
         nx.draw_networkx_edge_labels(self.G, pos, edge_labels=weights)
         
         plt.show()
+
+    def w(self, u, v):
+        """Get weight of edge (u,v)
+        
+        Arguments:
+            u {int} -- Source vertex
+            v {int} -- Destination vertex
+        
+        Returns:
+            list -- Weight of (u,v)
+        """
+
+        weights = nx.get_edge_attributes(self.G, 'weight')
+        return weights[(u,v)]
