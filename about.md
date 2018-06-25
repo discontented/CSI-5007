@@ -11,6 +11,8 @@ permalink: /about/
 
 [CLRS MIT Course](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/index.htm)
 
+[CLRS Book Solutions](http://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html)
+
 [Big-O Cheatsheet](http://bigocheatsheet.com/)
 
 [Rob Edwards Playlist](https://www.youtube.com/playlist?list=PLpPXw4zFa0uKKhaSz87IowJnOTzh9tiBk)

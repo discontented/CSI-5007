@@ -143,7 +143,7 @@ def merge_sort(array):
 
 ## Runtime
 
-$\Theta(nlogn)$
+$\Theta(nlog(n))$
 
 ## Class Implementation
 
@@ -188,15 +188,15 @@ def heapsort(x):
 
 ## Runtime
 
-Recurrence: $T(n)=2T(\frac{n}{2}+n)$
+Recurrence: $T(n)=2T(\frac{n}{2})+n$
 
-Best Case: $O(nlogn)$
+Best Case: $O(nlog(n))$
 
 Worst Case: $O(n^2)$
 
 - Occurs when array is already sorted
 
-Average Case: $O(nlogn)$
+Average Case: $O(nlog(n))$
 
 ## Steps
 

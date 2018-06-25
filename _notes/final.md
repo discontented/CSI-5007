@@ -3,7 +3,6 @@ layout: post
 mathjax: true
 ---
 
-- [TODO](#todo)
 - [Runtime Computations](#runtime-computations)
 - [Solving a Recurrence](#solving-a-recurrence)
 - [Heap](#heap)
@@ -13,18 +12,10 @@ mathjax: true
     - [Minimum Spanning Trees](#minimum-spanning-trees)
 - [Shortest Path](#shortest-path)
 - [P vs NP](#p-vs-np)
+    - [Polynomial](#polynomial)
+    - [NP-Complete](#np-complete)
 - [Greedy Algorithms](#greedy-algorithms)
 - [Divide and Conquer](#divide-and-conquer)
-
-# TODO
-
-- [ ] Understand heapsort algorithms
-    - Heapify
-    - Heapfix
-- [ ] Chaining vs. Open Addressing
-- [ ] Adjacency Matrix Implementation
-- [ ] Dijkstra
-    - [ ] How past values and edges are tracked.
 
 # [Runtime Computations](algorithms-basics.md#algorithm-analysis)
 - Big-O
@@ -51,6 +42,17 @@ mathjax: true
 - [Dijkstra](graph-algorithms.md#dijkstras-algorithm)
 
 # P vs NP
+## Polynomial
+* Worst case running time of $O(n^k)$ for some constant $k$
+
+* **Tractable**
+    * Problems that are solvable in polynomial time.
+* **Intractable**
+    * Problems that require superpolynomial time.
+    * These problems are still solvable but not in $O(n^k)$ time.
+
+## NP-Complete
+* Status is unknown.
 
 # Greedy Algorithms
 - [Prim](graph-algorithms.md#prims-algorithm)

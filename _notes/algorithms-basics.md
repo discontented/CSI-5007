@@ -73,16 +73,16 @@ $$f(n)=\Theta(g(n))$$
 
 # Complexity Classes
 
-Complexity Class|Function|Common Cases
----|---|---
-Constant Functions|$f(n)=1$|Adding Constants<br>Printing
-Logarithmic Functions|$f(n)=log(n)$|Binary search
-Linear Functions|$f(n)|Looking at each item once in an $n$-element array
-Superlinear Functions|$f(n) = nlg(n)$|Quicksort<br>Mergesort
-Quadratic Functions|$f(n) = n^2$|Looking at all pairs of items in an $n$-element universe<br>Bubble Sort<br>Insertion Sort
-Cubic Functions|$f(n)=n^3$|Enumerate through 3-tuple or triplets of items in an $n$-element universe<br>Dynamic Programming
-Exponential Functions|$f(n) = c^n|Enumerating all subsets of $n$ items
-Factorial Functions|$f(n) = n!$|Generating all permutations of $n$ items
+| Complexity Class      | Function        | Common Cases                                                                                     |
+| --------------------- | --------------- | ------------------------------------------------------------------------------------------------ |
+| Constant Functions    | $f(n) = 1$      | Adding Constants<br>Printing                                                                     |
+| Logarithmic Functions | $f(n) = log(n)$ | Binary search                                                                                    |
+| Linear Functions      | $f(n) = n$      | Looking at each item once in an $n$-element array                                                |
+| Superlinear Functions | $f(n) = nlg(n)$ | Quicksort<br>Mergesort                                                                           |
+| Quadratic Functions   | $f(n) = n^2$    | Looking at all pairs of items in an $n$-element universe<br>Bubble Sort<br>Insertion Sort        |
+| Cubic Functions       | $f(n) = n^3$    | Enumerate through 3-tuple or triplets of items in an $n$-element universe<br>Dynamic Programming |
+| Exponential Functions | $f(n) = c^n$    | Enumerating all subsets of $n$ items                                                             |
+| Factorial Functions   | $f(n) = n!$     | Generating all permutations of $n$ items                                                         |
 
 
 # Vocab
