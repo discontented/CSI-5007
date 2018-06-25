@@ -468,6 +468,9 @@ source.distance = 0
 for i from 1 to |V| - 1:
     for (u, v) in E:
         relax(u, v)
+for (u, v) in E:
+    if v.distance > u.distance + weight(u, v):
+        print "A negative weight cycle exists"
 ```
 
 ### Efficiency
