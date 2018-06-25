@@ -14,16 +14,17 @@ mathjax: true
     - [Python Implementation](#python-implementation-1)
     - [Running Time](#running-time-1)
 - [Merge Sort](#merge-sort)
+    - [Steps](#steps-1)
+    - [Python Implementation](#python-implementation-2)
     - [Recurrence](#recurrence)
     - [Running Time](#running-time-2)
-    - [Python Implementation](#python-implementation-2)
 - [Heapsort](#heapsort)
     - [Runtime](#runtime)
     - [Class Implementation](#class-implementation)
         - [Python Implementation](#python-implementation-3)
 - [Quicksort](#quicksort)
     - [Runtime](#runtime-1)
-    - [Steps](#steps-1)
+    - [Steps](#steps-2)
     - [Pivot](#pivot)
     - [Partition Algorithm](#partition-algorithm)
     - [Python Implementation](#python-implementation-4)
@@ -41,6 +42,8 @@ mathjax: true
   - $a\cdot{i} \ge a\cdot{i+1}$ for all $1\le i<n$
 
 # Bubble Sort
+
+![bubble sort](https://ds055uzetaobb.cloudfront.net/image_optimizer/4f60337caedcc96ffeb08692e4f8d00f5cb3fd58.gif)
 
 Compares each pair of elements in an array and swaps them if they are out of order until the entire array is sorted.
 
@@ -68,6 +71,8 @@ def bubble_sort(a):
 
 # Insertion Sort
 
+![insertion sort](https://ds055uzetaobb.cloudfront.net/image_optimizer/5fc8daa9296837453ccbc8c7f9c2494bbd1fcdda.gif)
+
 - Sorts out of place
 - Builds a final sorted array one element at a time.
 - Finds the place the element belongs and places within the array.
@@ -82,9 +87,15 @@ Variable|Value
 `key`|Value of key, which will be base of comparison.
 `i`|Index of item to the left of `key` being compared.
 
-1. Start at second index of an array, which will be your `key` to compare to others.
+1. Establish your comparison key.
+    1. Start at second index (`j`) of an array.
+    2. Store the value at `j` as the `key`
+        1. `key = A[j]`
 2. Decrement through array to the left, or towards the initial index, and compare until all elements to the left have been compared.
-    1. If a `i` value, or value to the left, is greater than `key`
+    1. Set `i` to the value to the left of the key (`i = j - 1`)
+    2. If value to the left (`i`) is greater than the `key`, swap the positions.
+        1. `A[i]` is copied to the slot to the right `A[i + 1]`
+        2. `i` is decremented to a slot to the left.
 
 ## Invariant
 * The array to the left of the comparison index is sorted.
@@ -112,17 +123,17 @@ Worst Case: $\Theta(n^2)$
 
 # Merge Sort
 
-- Recursive
+![merge sort](https://ds055uzetaobb.cloudfront.net/image_optimizer/8c074d46d4c96077d11f9e8cab9ff5d95bdc3da0.gif)
+
 - Merges two pre-sorted arrays so that the resulting array is sorted.
 - Merges with an outside merge function.
 
-## Recurrence
-
-$T(n)=2T(\frac{n}{2}) + O(n)$
-
-## Running Time
-
-$\Theta(nlg(n))$
+## Steps
+1. If the list has only one element, return the list and terminate.
+2. Split the list into two halves
+    1. If odd, the first list will be the larger.
+3. Sort both lists using mergesort
+4. Merge the two sorted lists and return the result.
 
 ## Python Implementation
 
@@ -135,7 +146,19 @@ def merge_sort(array):
    return merge(array[0:m], merge_sort(array[m:]))
 ```
 
+## Recurrence
+
+$T(n)=2T(\frac{n}{2}) + O(n)$
+
+## Running Time
+
+$\Theta(nlg(n))$
+
+
+
 # Heapsort
+
+![heap sort](https://ds055uzetaobb.cloudfront.net/image_optimizer/c1fc9fb4a40d810259ea8291ffde0eef182e7d57.gif)
 
 - A comparison based algorithm
 - Sorts in place
@@ -180,6 +203,8 @@ def heapsort(x):
 ```
 
 # Quicksort
+
+![quick sort](https://ds055uzetaobb.cloudfront.net/image_optimizer/904290ba2b43687554b1d074d091367f370a0c08.gif)
 
 - Picks a pivot and then sorts to the left of the pivot and then right.
 - Comparison-based

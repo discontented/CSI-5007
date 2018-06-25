@@ -3,6 +3,7 @@ layout: post
 mathjax: true
 ---
 
+- [Algorithm](#algorithm)
 - [Algorithm Design Guidelines](#algorithm-design-guidelines)
     - [Properties of a Good Algorithm](#properties-of-a-good-algorithm)
 - [Correctness](#correctness)
@@ -16,7 +17,12 @@ mathjax: true
     - [Big-$\Theta$](#big-theta)
 - [Complexity Classes](#complexity-classes)
 - [Vocab](#vocab)
-- [Greedy Algorithms](#greedy-algorithms)
+
+# Algorithm
+
+• Any well-defined computational procedure that takes some value, or set of values, as input and produces an output.
+• Input -> Process -> Output
+
 
 # Algorithm Design Guidelines
 
@@ -92,9 +98,3 @@ $$f(n)=\Theta(g(n))$$
 
 - Stable
     - A sort is **stable** if two elements with equivalent keys maintain their relative position after the sort.
-
-# Greedy Algorithms
-
-- At a choice within an algorithm, the algorithm makes the best choice at the moment.
-
-> Greedy algorithms make the decision of what to do next by selecting the best local option from all available choices without regard to the global structure. -**Algorithm Design Manual**
