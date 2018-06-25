@@ -17,19 +17,16 @@ mathjax: true
     - [Recurrence](#recurrence)
     - [Running Time](#running-time-2)
     - [Python Implementation](#python-implementation-2)
-- [Selection Sort](#selection-sort)
-    - [Python Implementation](#python-implementation-3)
 - [Heapsort](#heapsort)
     - [Runtime](#runtime)
-    - [Book Implementation](#book-implementation)
     - [Class Implementation](#class-implementation)
-        - [Python Implementation](#python-implementation-4)
+        - [Python Implementation](#python-implementation-3)
 - [Quicksort](#quicksort)
     - [Runtime](#runtime-1)
     - [Steps](#steps-1)
     - [Pivot](#pivot)
     - [Partition Algorithm](#partition-algorithm)
-    - [Python Implementation](#python-implementation-5)
+    - [Python Implementation](#python-implementation-4)
 - [Bin/Bucket Sort](#binbucket-sort)
 
 # The Sorting Problem
@@ -77,6 +74,7 @@ def bubble_sort(a):
 - "Out of place" sorting as it is storing a key in a variable.
 
 ## Steps
+
 Variable|Value
 ---|---
 `A`|Array containing values to be sorted.
@@ -120,11 +118,11 @@ Worst Case: $\Theta(n^2)$
 
 ## Recurrence
 
-$T(n)=2T(n/2) + O(n)$
+$T(n)=2T(\frac{n}{2}) + O(n)$
 
 ## Running Time
 
-$\Theta(nlgn)$
+$\Theta(nlg(n))$
 
 ## Python Implementation
 
@@ -137,19 +135,6 @@ def merge_sort(array):
    return merge(array[0:m], merge_sort(array[m:]))
 ```
 
-# Selection Sort
-
-## Python Implementation
-
-```py
-abstractSort(array):
-	n, na = len(array), []
-	for i in range(n):
-		smallest = extraSmallestAndDelete(array)
-		na.append(smallest)
-	return na
-```
-
 # Heapsort
 
 - A comparison based algorithm
@@ -159,8 +144,6 @@ abstractSort(array):
 ## Runtime
 
 $\Theta(nlogn)$
-
-## Book Implementation
 
 ## Class Implementation
 

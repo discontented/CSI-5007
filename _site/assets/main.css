@@ -195,6 +195,9 @@ table td { border: 1px solid #e8e8e8; }
 .highlight .vi { color: #008080; }
 .highlight .il { color: #099; }
 
+@media print { #search, .search, .site-header, .site-footer, .post-meta, .post-content > ul:nth-child(1) { display: none; }
+  .highlighter-rouge .highlight { background-color: #e0e0e0; }
+  .post-content h1:not(:first-of-type) { page-break-before: always; } }
 .post-content h1 { font-size: 32px; border-bottom: 1px solid #eaecef; font-weight: 600; }
 
 .post-content h2 { font-size: 28px; }
