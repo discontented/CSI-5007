@@ -5,14 +5,15 @@ mathjax: true
 
 - [TODO](#todo)
 - [Runtime Computations](#runtime-computations)
+- [Solving a Recurrence](#solving-a-recurrence)
 - [Heap](#heap)
-- [Search](#search)
+- [How to Search](#how-to-search)
 - [DP](#dp)
 - [Graph Algorithms](#graph-algorithms)
-- [P vs NP](#p-vs-np)
-- [Greedy Algorithms](#greedy-algorithms)
     - [Minimum Spanning Trees](#minimum-spanning-trees)
 - [Shortest Path](#shortest-path)
+- [P vs NP](#p-vs-np)
+- [Greedy Algorithms](#greedy-algorithms)
 - [Divide and Conquer](#divide-and-conquer)
 
 # TODO
@@ -30,17 +31,15 @@ mathjax: true
 - Big-$\Omega$
 - Big-$\Theta$
 
+# Solving a Recurrence
+
 # [Heap](binary-heap.md)
 
-# [Search](searching-algorithms.md)
+# [How to Search](searching-algorithms.md)
 
 # [DP](dynamic-programming.md)
 
 # [Graph Algorithms](graph-algorithms.md)
-
-# P vs NP
-
-# Greedy Algorithms
 
 ## Minimum Spanning Trees
 - [Prim](graph-algorithms.md#prims-algorithm)
@@ -49,6 +48,13 @@ mathjax: true
 - [Bellman-Ford](graph-algorithms.md#bellman-ford)
 
 # Shortest Path
+- [Dijkstra](graph-algorithms.md#dijkstras-algorithm)
+
+# P vs NP
+
+# Greedy Algorithms
+- [Prim](graph-algorithms.md#prims-algorithm)
+- [Kruskal](graph-algorithms.md#prims-algorithm)
 - [Dijkstra](graph-algorithms.md#dijkstras-algorithm)
 
 # Divide and Conquer

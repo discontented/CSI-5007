@@ -9,25 +9,24 @@ mathjax: true
     - [Loop Invariant](#loop-invariant)
     - [Python Implementation](#python-implementation)
 - [Insertion Sort](#insertion-sort)
-    - [Running Time](#running-time)
-    - [Python Implementation](#python-implementation)
+    - [Steps](#steps)
+    - [Invariant](#invariant)
+    - [Python Implementation](#python-implementation-1)
+    - [Running Time](#running-time-1)
 - [Merge Sort](#merge-sort)
     - [Recurrence](#recurrence)
-    - [Running Time](#running-time)
-    - [Python Implementation](#python-implementation)
-- [Selection Sort](#selection-sort)
-    - [Python Implementation](#python-implementation)
+    - [Running Time](#running-time-2)
+    - [Python Implementation](#python-implementation-2)
 - [Heapsort](#heapsort)
     - [Runtime](#runtime)
-    - [Book Implementation](#book-implementation)
     - [Class Implementation](#class-implementation)
-        - [Python Implementation](#python-implementation)
+        - [Python Implementation](#python-implementation-3)
 - [Quicksort](#quicksort)
-    - [Runtime](#runtime)
-    - [Steps](#steps)
+    - [Runtime](#runtime-1)
+    - [Steps](#steps-1)
     - [Pivot](#pivot)
     - [Partition Algorithm](#partition-algorithm)
-    - [Python Implementation](#python-implementation)
+    - [Python Implementation](#python-implementation-4)
 - [Bin/Bucket Sort](#binbucket-sort)
 
 # The Sorting Problem
@@ -37,9 +36,9 @@ mathjax: true
 **Output**: A permutation of the sequence in increasing or decreasing order.
 
 - **Ascending**
-  - $a*i \le a*{i+1}$ for all $1\le i<n$
+  - $a\cdot{i} \le a\cdot{i+1}$ for all $1\le i<n$
 - **Descending**
-  - $a*i \ge a*{i+1}$ for all $1\le i<n$
+  - $a\cdot{i} \ge a\cdot{i+1}$ for all $1\le i<n$
 
 # Bubble Sort
 
@@ -69,9 +68,39 @@ def bubble_sort(a):
 
 # Insertion Sort
 
+- Sorts out of place
 - Builds a final sorted array one element at a time.
-- Iterates through an input array and removes one element per iteration
 - Finds the place the element belongs and places within the array.
+- "Out of place" sorting as it is storing a key in a variable.
+
+## Steps
+
+Variable|Value
+---|---
+`A`|Array containing values to be sorted.
+`j`|Key value index position.
+`key`|Value of key, which will be base of comparison.
+`i`|Index of item to the left of `key` being compared.
+
+1. Start at second index of an array, which will be your `key` to compare to others.
+2. Decrement through array to the left, or towards the initial index, and compare until all elements to the left have been compared.
+    1. If a `i` value, or value to the left, is greater than `key`
+
+## Invariant
+* The array to the left of the comparison index is sorted.
+
+## Python Implementation
+
+```py
+def insertSort(A):
+    for j in range(1, len(A)):
+        key = A[j]
+        i = j - 1
+        while i > -1 and A[i] > key:
+            A[i + 1] = A[i]
+            i = i - 1
+        A[i + 1] = key
+```
 
 ## Running Time
 
@@ -81,20 +110,6 @@ Best Case: $\Theta(n)$
 
 Worst Case: $\Theta(n^2)$
 
-## Python Implementation
-
-```py
-def insertion_sort(array):
-    for slot in range(1, len(array)):
-        value = array[slot]
-        test_slot = slot - 1
-        while test_slot > -1 and array[test_slot] > value:
-            array[test_slot + 1] = array[test_slot]
-            test_slot = test_slot - 1
-        array[test_slot + 1] = value
-    return array
-```
-
 # Merge Sort
 
 - Recursive
@@ -103,11 +118,11 @@ def insertion_sort(array):
 
 ## Recurrence
 
-$T(n)=2T(n/2) + O(n)$
+$T(n)=2T(\frac{n}{2}) + O(n)$
 
 ## Running Time
 
-$\Theta(nlgn)$
+$\Theta(nlg(n))$
 
 ## Python Implementation
 
@@ -120,19 +135,6 @@ def merge_sort(array):
    return merge(array[0:m], merge_sort(array[m:]))
 ```
 
-# Selection Sort
-
-## Python Implementation
-
-```py
-abstractSort(array):
-	n, na = len(array), []
-	for i in range(n):
-		smallest = extraSmallestAndDelete(array)
-		na.append(smallest)
-	return na
-```
-
 # Heapsort
 
 - A comparison based algorithm
@@ -142,8 +144,6 @@ abstractSort(array):
 ## Runtime
 
 $\Theta(nlogn)$
-
-## Book Implementation
 
 ## Class Implementation
 

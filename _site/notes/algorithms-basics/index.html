@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Algorithms Basics" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Algorithm Design Guidelines Properties of a Good Algorithm Correctness Incorrectness Computational Problem Problem Statement Instance Algorithm Analysis Big-O Vocab Greedy Algorithms" />
-<meta property="og:description" content="Algorithm Design Guidelines Properties of a Good Algorithm Correctness Incorrectness Computational Problem Problem Statement Instance Algorithm Analysis Big-O Vocab Greedy Algorithms" />
+<meta name="description" content="Algorithm Design Guidelines Properties of a Good Algorithm Correctness Incorrectness Computational Problem Problem Statement Instance Algorithm Analysis Big-O Big-$\Omega$ Big-$\Theta$ Complexity Classes Vocab Greedy Algorithms" />
+<meta property="og:description" content="Algorithm Design Guidelines Properties of a Good Algorithm Correctness Incorrectness Computational Problem Problem Statement Instance Algorithm Analysis Big-O Big-$\Omega$ Big-$\Theta$ Complexity Classes Vocab Greedy Algorithms" />
 <link rel="canonical" href="http://localhost:4000/CSI-5007/notes/algorithms-basics/" />
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/algorithms-basics/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-06-22T11:51:51-04:00" />
+<meta property="article:published_time" content="2018-06-24T20:49:15-04:00" />
 <script type="application/ld+json">
-{"description":"Algorithm Design Guidelines Properties of a Good Algorithm Correctness Incorrectness Computational Problem Problem Statement Instance Algorithm Analysis Big-O Vocab Greedy Algorithms","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/algorithms-basics/","headline":"Algorithms Basics","dateModified":"2018-06-22T11:51:51-04:00","datePublished":"2018-06-22T11:51:51-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/algorithms-basics/"},"@context":"http://schema.org"}</script>
+{"description":"Algorithm Design Guidelines Properties of a Good Algorithm Correctness Incorrectness Computational Problem Problem Statement Instance Algorithm Analysis Big-O Big-$\\Omega$ Big-$\\Theta$ Complexity Classes Vocab Greedy Algorithms","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/algorithms-basics/","headline":"Algorithms Basics","dateModified":"2018-06-24T20:49:15-04:00","datePublished":"2018-06-24T20:49:15-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/algorithms-basics/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -63,7 +63,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Algorithms Basics</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-06-22T11:51:51-04:00" itemprop="datePublished">Jun 22, 2018
+      <time class="dt-published" datetime="2018-06-24T20:49:15-04:00" itemprop="datePublished">Jun 24, 2018
       </time></p>
   </header>
 
@@ -88,8 +88,11 @@
   <li><a href="#algorithm-analysis">Algorithm Analysis</a>
     <ul>
       <li><a href="#big-o">Big-O</a></li>
+      <li><a href="#big-omega">Big-$\Omega$</a></li>
+      <li><a href="#big-theta">Big-$\Theta$</a></li>
     </ul>
   </li>
+  <li><a href="#complexity-classes">Complexity Classes</a></li>
   <li><a href="#vocab">Vocab</a></li>
   <li><a href="#greedy-algorithms">Greedy Algorithms</a></li>
 </ul>
@@ -155,14 +158,80 @@
 
 <h1 id="algorithm-analysis">Algorithm Analysis</h1>
 <h2 id="big-o">Big-O</h2>
+<p><script type="math/tex">f(n)=O(g(n))</script></p>
 <ul>
-  <li>$f(n)=O(g(n))$ means $c\bullet{g(n)}$ is an upper bound on $f(n)$
-    <ul>
-      <li>There exists some constant $c$ such that $f(n)$ is always $\le c\bullet g(n)$, for large enough $(n)$ ($n\ge n_0$ for some constant $n_0$)</li>
-    </ul>
-  </li>
-  <li>$f(n)</li>
+  <li>$c\cdot{g(n)}$ is an upper bound on $f(n)$</li>
+  <li>There exists some constant $c$ such that $f(n) \le c\cdot g(n)$, for $n\ge n_0$ for some constant $n_0$</li>
 </ul>
+
+<h2 id="big-omega">Big-$\Omega$</h2>
+<p><script type="math/tex">f(n)=\Omega(g(n))</script></p>
+<ul>
+  <li>$c\cdot g(n)$ is a lower bound on $f(n)$</li>
+  <li>There exists some constant $c$ such that $f(n)\ge c\cdot g(n)$ for $n\ge n_0$</li>
+</ul>
+
+<h2 id="big-theta">Big-$\Theta$</h2>
+<p><script type="math/tex">f(n)=\Theta(g(n))</script></p>
+<ul>
+  <li>$c_1\cdot g(n)$ is an <strong>upper bound</strong> on $f(n)$</li>
+  <li>$c_2\cdot g(n)$ is a <strong>lower bound</strong> on $f(n)$</li>
+  <li>There exists some constant $c$ such that $f(n)\le c_1\cdot g(n)$ and $f(n)\ge c_2\cdot g(n)$</li>
+</ul>
+
+<h1 id="complexity-classes">Complexity Classes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Complexity Class</th>
+      <th>Function</th>
+      <th>Common Cases</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Constant Functions</td>
+      <td>$f(n)=1$</td>
+      <td>Adding Constants<br />Printing</td>
+    </tr>
+    <tr>
+      <td>Logarithmic Functions</td>
+      <td>$f(n)=log(n)$</td>
+      <td>Binary search</td>
+    </tr>
+    <tr>
+      <td>Linear Functions</td>
+      <td>$f(n)</td>
+      <td>Looking at each item once in an $n$-element array</td>
+    </tr>
+    <tr>
+      <td>Superlinear Functions</td>
+      <td>$f(n) = nlg(n)$</td>
+      <td>Quicksort<br />Mergesort</td>
+    </tr>
+    <tr>
+      <td>Quadratic Functions</td>
+      <td>$f(n) = n^2$</td>
+      <td>Looking at all pairs of items in an $n$-element universe<br />Bubble Sort<br />Insertion Sort</td>
+    </tr>
+    <tr>
+      <td>Cubic Functions</td>
+      <td>$f(n)=n^3$</td>
+      <td>Enumerate through 3-tuple or triplets of items in an $n$-element universe<br />Dynamic Programming</td>
+    </tr>
+    <tr>
+      <td>Exponential Functions</td>
+      <td>$f(n) = c^n</td>
+      <td>Enumerating all subsets of $n$ items</td>
+    </tr>
+    <tr>
+      <td>Factorial Functions</td>
+      <td>$f(n) = n!$</td>
+      <td>Generating all permutations of $n$ items</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="vocab">Vocab</h1>
 
