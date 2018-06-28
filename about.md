@@ -1,15 +1,20 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Resources
+permalink: /resources/
 ---
 
-# Resources
+[Algorithm Design Cheat Sheet](https://sinon.org/algorithms//#data-structures)
+
 [Brilliant Sorting Algorithms](https://brilliant.org/wiki/sorting-algorithms/)
 
 [Khan Algorithm Course](https://www.khanacademy.org/computing/computer-science/algorithms)
 
 [CLRS MIT Course](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/index.htm)
+
+[CLRS Book Solutions](http://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html)
+
+[Algorithm Design Manual Solutions](http://www.algorist.com/algowiki/index.php/The_Algorithms_Design_Manual_(Second_Edition))
 
 [Big-O Cheatsheet](http://bigocheatsheet.com/)
 

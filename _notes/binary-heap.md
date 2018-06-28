@@ -3,13 +3,16 @@ layout: post
 mathjax: true
 ---
 
-- [Terms](#terms)
-- [Binary Trees](#binary-trees)
-  - [Full Binary Trees](#full-binary-trees)
-  - [Complete Binary Trees](#complete-binary-trees)
-  - [Binary Heap Data Structure](#binary-heap-data-structure)
-  - [`max-heap` property](#max-heap-property)
-  - [`min-heap` property](#min-heap-property)
+- [Review](#review)
+  - [Terms](#terms)
+  - [Binary Trees](#binary-trees)
+    - [Full Binary Trees](#full-binary-trees)
+    - [Complete Binary Trees](#complete-binary-trees)
+    - [Binary Heap Data Structure](#binary-heap-data-structure)
+    - [`max-heap` property](#max-heap-property)
+    - [`min-heap` property](#min-heap-property)
+
+# Review
 
 ## Terms
 **Height**
@@ -26,15 +29,14 @@ mathjax: true
 * At the deepest level, all the nodes are as far left as possible.
 * A complete binary tree of depth $n$ has a max number of leaves of depth $2^n$
 
-|Operation|What it does|
-|---|---|
-|$d$|depth|
-|$2^d$|Max Number of Leaves|
-|$2^{d+1}-1$|Max Number of Nodes
+| Operation   | What it does         |
+| ----------- | -------------------- |
+| $d$         | depth                |
+| $2^d$       | Max Number of Leaves |
+| $2^{d+1}-1$ | Max Number of Nodes  |
 
 ### Binary Heap Data Structure
-* Uses an array
-  * Book uses an array object `A`
+* Uses an array object.
   * Object has two attributes
     * `A.length`
       * Gives number of elements in the array.

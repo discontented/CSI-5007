@@ -22,7 +22,7 @@ mathjax: true
 	- [Steps](#steps)
 	- [Psuedocode](#psuedocode)
 	- [Runtime](#runtime)
-- [Depth First Search (DFS)](#depth-first-search-dfs)
+- [Depth First Search](#depth-first-search)
 - [Applications](#applications)
 	- [Properties](#properties-1)
 	- [Stack](#stack)
@@ -54,9 +54,11 @@ mathjax: true
 		- [Process](#process)
 		- [Runtime](#runtime-2)
 	- [Bellman-Ford](#bellman-ford)
+		- [Pseudocode](#pseudocode-3)
 		- [Efficiency](#efficiency)
 		- [Algorithm](#algorithm)
 	- [Floyd-Warshall Algorithm](#floyd-warshall-algorithm)
+	- [Pseudocode](#pseudocode-4)
 		- [Runtime](#runtime-3)
 	- [Topological Sort](#topological-sort)
 		- [Runtime](#runtime-4)
@@ -234,7 +236,7 @@ BFS(G, s)
 ## Runtime
 $O(n + m)$
 
-# Depth First Search (DFS)
+# Depth First Search
 ![dfs](https://ds055uzetaobb.cloudfront.net/image_optimizer/35a0e3d657f653ec7b3c6113ad4b55264cae5516.gif)
 
 # Applications
@@ -438,13 +440,14 @@ Relax(u,v,w)
 * Does not work with negative weights
 
 ### Process
-1. Select a root node $s$ that forms a tree $T$
+1. Create a tree with a root node $s$
+	1. $s\in G$
 2. $s.d[]$ is the array of distances of every node to $s$
 3. While $T$ does not span $G$
 	1. Pick a node $v$ of minimum distance in $d$
 		1. $v = min\{s.d\}$
 	2. Add node $v$ to $T$
-	3. Update the distance vector $s.d$ of neighbors of $v$ if the distance can be lowered from its previous value.
+	3. Update the distance vector $s.d$ of neighbors of $v$
 
 ### Runtime
 $O(\lvert{V}\rvert^2)$
@@ -456,6 +459,20 @@ $O(\lvert{V}\rvert^2)$
 	* If so, there is no solution.
 	* If there is no cycle, the algorithm returns the shortest paths and their weights.
 
+### Pseudocode
+```
+for v in V:
+    v.distance = infinity
+    v.p = None
+source.distance = 0
+for i from 1 to |V| - 1:
+    for (u, v) in E:
+        relax(u, v)
+for (u, v) in E:
+    if v.distance > u.distance + weight(u, v):
+        print "A negative weight cycle exists"
+```
+
 ### Efficiency
 $O(|V|^3)$
 
@@ -465,6 +482,23 @@ $O(|V|^3)$
 ## Floyd-Warshall Algorithm
 * Dynamic Programming
 * Works with negative weights.
+
+## Pseudocode
+```
+Create a |V| x |V| matrix, M, that will describe the distances between vertices
+For each cell (i, j) in M:
+    if i == j:
+        M[i][j] = 0
+    if (i, j) is an edge in E:
+        M[i][j] = weight(i, j)
+    else:
+        M[i][j] = infinity
+for k from 1 to |V|:
+    for i from 1 to |V|:
+        for j from 1 to |V|:
+            if M[i][j] > M[i][k] + M[k][j]:
+                M[i][j] = M[i][k] + M[k][j]
+```
 
 ### Runtime
 $O(|V|^3)$

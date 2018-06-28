@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.7.3" />
 <meta property="og:title" content="Final" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="TODO Runtime Computations Solving a Recurrence Heap How to Search DP Graph Algorithms Minimum Spanning Trees Shortest Path P vs NP Greedy Algorithms Divide and Conquer" />
-<meta property="og:description" content="TODO Runtime Computations Solving a Recurrence Heap How to Search DP Graph Algorithms Minimum Spanning Trees Shortest Path P vs NP Greedy Algorithms Divide and Conquer" />
+<meta name="description" content="Notation Example Runtime Computations Solving a Recurrence Sorting Heap How to Search DP Graph Algorithms Minimum Spanning Trees Shortest Path P vs NP Review on Problems Definitions Polynomial $NP$ Simple Explanation NP-Complete Co-NP Greedy Algorithms Divide and Conquer" />
+<meta property="og:description" content="Notation Example Runtime Computations Solving a Recurrence Sorting Heap How to Search DP Graph Algorithms Minimum Spanning Trees Shortest Path P vs NP Review on Problems Definitions Polynomial $NP$ Simple Explanation NP-Complete Co-NP Greedy Algorithms Divide and Conquer" />
 <link rel="canonical" href="http://localhost:4000/CSI-5007/notes/final/" />
 <meta property="og:url" content="http://localhost:4000/CSI-5007/notes/final/" />
 <meta property="og:site_name" content="Algorithms" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-06-24T20:49:15-04:00" />
+<meta property="article:published_time" content="2018-06-25T15:54:51-04:00" />
 <script type="application/ld+json">
-{"description":"TODO Runtime Computations Solving a Recurrence Heap How to Search DP Graph Algorithms Minimum Spanning Trees Shortest Path P vs NP Greedy Algorithms Divide and Conquer","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/final/","headline":"Final","dateModified":"2018-06-24T20:49:15-04:00","datePublished":"2018-06-24T20:49:15-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/final/"},"@context":"http://schema.org"}</script>
+{"description":"Notation Example Runtime Computations Solving a Recurrence Sorting Heap How to Search DP Graph Algorithms Minimum Spanning Trees Shortest Path P vs NP Review on Problems Definitions Polynomial $NP$ Simple Explanation NP-Complete Co-NP Greedy Algorithms Divide and Conquer","@type":"BlogPosting","url":"http://localhost:4000/CSI-5007/notes/final/","headline":"Final","dateModified":"2018-06-25T15:54:51-04:00","datePublished":"2018-06-25T15:54:51-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/CSI-5007/notes/final/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/CSI-5007/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/CSI-5007/feed.xml" title="Algorithms" /></head>
 
@@ -47,7 +47,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/CSI-5007/about/">About</a></div>
+        <div class="trigger"><a class="page-link" href="/CSI-5007/resources/">Resources</a></div>
       </nav></div>
 </header>
 <form id='search' action="/CSI-5007/search.html" method="get">
@@ -63,46 +63,69 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Final</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-06-24T20:49:15-04:00" itemprop="datePublished">Jun 24, 2018
+      <time class="dt-published" datetime="2018-06-25T15:54:51-04:00" itemprop="datePublished">Jun 25, 2018
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul>
-  <li><a href="#todo">TODO</a></li>
+  <li><a href="#notation">Notation</a>
+    <ul>
+      <li><a href="#example">Example</a></li>
+    </ul>
+  </li>
   <li><a href="#runtime-computations">Runtime Computations</a></li>
   <li><a href="#solving-a-recurrence">Solving a Recurrence</a></li>
+  <li><a href="#sorting">Sorting</a></li>
   <li><a href="#heap">Heap</a></li>
   <li><a href="#how-to-search">How to Search</a></li>
   <li><a href="#dp">DP</a></li>
   <li><a href="#graph-algorithms">Graph Algorithms</a>
     <ul>
       <li><a href="#minimum-spanning-trees">Minimum Spanning Trees</a></li>
+      <li><a href="#shortest-path">Shortest Path</a></li>
     </ul>
   </li>
-  <li><a href="#shortest-path">Shortest Path</a></li>
-  <li><a href="#p-vs-np">P vs NP</a></li>
+  <li><a href="#p-vs-np">P vs NP</a>
+    <ul>
+      <li><a href="#review-on-problems">Review on Problems</a></li>
+      <li><a href="#definitions">Definitions</a></li>
+      <li><a href="#polynomial">Polynomial</a></li>
+      <li><a href="#np">$NP$</a>
+        <ul>
+          <li><a href="#simple-explanation">Simple Explanation</a></li>
+        </ul>
+      </li>
+      <li><a href="#np-complete">NP-Complete</a></li>
+    </ul>
+  </li>
+  <li><a href="#co-np">Co-NP</a></li>
   <li><a href="#greedy-algorithms">Greedy Algorithms</a></li>
   <li><a href="#divide-and-conquer">Divide and Conquer</a></li>
 </ul>
 
-<h1 id="todo">TODO</h1>
+<h1 id="notation">Notation</h1>
 
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Understand heapsort algorithms
-    <ul>
-      <li>Heapify</li>
-      <li>Heapfix</li>
-    </ul>
-  </li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Chaining vs. Open Addressing</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Adjacency Matrix Implementation</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />Dijkstra
-    <ul class="task-list">
-      <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />How past values and edges are tracked.</li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$\subset$</td>
+      <td>Subset - All elements in $A$ are in $B$ but $B$ may have elements not in $A$</td>
+    </tr>
+    <tr>
+      <td>$\subseteq$</td>
+      <td>Proper Subset - All elements in $A$ are in $B$ and vice versa</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="example">Example</h2>
 
 <h1 id="runtime-computations"><a href="/CSI-5007/notes/algorithms-basics/#algorithm-analysis">Runtime Computations</a></h1>
 <ul>
@@ -113,6 +136,39 @@
 
 <h1 id="solving-a-recurrence">Solving a Recurrence</h1>
 
+<h1 id="sorting"><a href="/CSI-5007/notes/sorting-algorithms/">Sorting</a></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Complexity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bubble Sort</td>
+      <td>$O(n^2)$</td>
+    </tr>
+    <tr>
+      <td>Insertion Sort</td>
+      <td>$O(n^2)$</td>
+    </tr>
+    <tr>
+      <td>Merge Sort</td>
+      <td>$O(n\log{n})$</td>
+    </tr>
+    <tr>
+      <td>Heap Sort</td>
+      <td>$O(n\log{n})$</td>
+    </tr>
+    <tr>
+      <td>Quick Sort</td>
+      <td>$O(n\log{n})$</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="heap"><a href="/CSI-5007/notes/binary-heap/">Heap</a></h1>
 
 <h1 id="how-to-search"><a href="/CSI-5007/notes/searching-algorithms/">How to Search</a></h1>
@@ -120,6 +176,74 @@
 <h1 id="dp"><a href="/CSI-5007/notes/dynamic-programming/">DP</a></h1>
 
 <h1 id="graph-algorithms"><a href="/CSI-5007/notes/graph-algorithms/">Graph Algorithms</a></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Algorithm</th>
+      <th>Works On</th>
+      <th>Type</th>
+      <th>Implementation</th>
+      <th>Running Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BFS</td>
+      <td>Connected Graph</td>
+      <td>Connection</td>
+      <td>Queue</td>
+      <td>$O(\lvert{V}\rvert + \lvert{E}\rvert)$</td>
+    </tr>
+    <tr>
+      <td>DFS</td>
+      <td>Connected Graph</td>
+      <td>Connection</td>
+      <td>Stack</td>
+      <td>$O(\lvert{V}\rvert + \lvert{E}\rvert)$</td>
+    </tr>
+    <tr>
+      <td>Prim</td>
+      <td>Weighted, Undirected</td>
+      <td>MST</td>
+      <td>Greedy</td>
+      <td>$O(\lvert{V}\rvert^2)$</td>
+    </tr>
+    <tr>
+      <td>Kruskal</td>
+      <td>Weighted, Undirected</td>
+      <td>MST</td>
+      <td>Geedy</td>
+      <td>$O(E\log{V})$</td>
+    </tr>
+    <tr>
+      <td>Dijkstra</td>
+      <td>Directed/Undirected, Postive Weights</td>
+      <td>Shortest Path</td>
+      <td>Greedy</td>
+      <td>$O(\lvert{V}\rvert^2 + \lvert{E}\rvert)$</td>
+    </tr>
+    <tr>
+      <td>Bellman-Ford</td>
+      <td>Directed/Undirected, +/- Weights</td>
+      <td>Shortest Path</td>
+      <td> </td>
+      <td>$O(\lvert{V}\rvert^3)$</td>
+    </tr>
+    <tr>
+      <td>Floyd-Warshall</td>
+      <td>Directed/Undirected, +/- Weights</td>
+      <td>Shortest Path</td>
+      <td>DP</td>
+      <td>$O(\lvert{V}\rvert^3)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><a href="/CSI-5007/notes/graph-algorithms/#breadth-first-search">BFS</a></li>
+  <li><a href="/CSI-5007/notes/graph-algorithms/#depth-first-search">DFS</a></li>
+</ul>
 
 <h2 id="minimum-spanning-trees">Minimum Spanning Trees</h2>
 <ul>
@@ -129,12 +253,107 @@
   <li><a href="/CSI-5007/notes/graph-algorithms/#bellman-ford">Bellman-Ford</a></li>
 </ul>
 
-<h1 id="shortest-path">Shortest Path</h1>
+<h2 id="shortest-path">Shortest Path</h2>
 <ul>
   <li><a href="/CSI-5007/notes/graph-algorithms/#dijkstras-algorithm">Dijkstra</a></li>
+  <li><a href="/CSI-5007/notes/graph-algorithms/#bellman-ford">Bellman-Ford</a></li>
+  <li><a href="/CSI-5007/notes/graph-algorithms/#floyd-warshall-algorithm">Floyd-Warshall</a></li>
 </ul>
 
 <h1 id="p-vs-np">P vs NP</h1>
+
+<h2 id="review-on-problems">Review on Problems</h2>
+<ul>
+  <li>A computational problem has a specified input and possibly desired output.</li>
+  <li>An algorithm is the tool that <strong>solves</strong> computational problems.</li>
+  <li>Solving a problem is different than verifying an instance of a problem.
+    <ul>
+      <li>An instance is a specific input needed to compute the solution to a computational problem.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="definitions">Definitions</h2>
+
+<ul>
+  <li><strong>Tractable</strong>
+    <ul>
+      <li>Problems that are solvable in polynomial time.</li>
+    </ul>
+  </li>
+  <li><strong>Intractable</strong>
+    <ul>
+      <li>Problems that require superpolynomial time.</li>
+      <li>These problems are still solvable but not in $O(n^k)$ time.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="polynomial">Polynomial</h2>
+<ul>
+  <li>Algorithm is $O(n^k)$ where $k$ is some positive integer and $n$ is the number of bits of input.</li>
+  <li>A problem <code class="highlighter-rouge">P</code> is in class $P$ if there is an algorithm running in polytime to solve <code class="highlighter-rouge">P</code></li>
+  <li>All problems in $P$ are also in $NP$ because the problem could be solved in polynomial time without needing a certificate.
+    <ul>
+      <li>This means $P\subseteq{NP}$</li>
+      <li>$P\subset{NP}$ (or a proper subset) is still an open question.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="np">$NP$</h2>
+<ul>
+  <li>A problem <code class="highlighter-rouge">P</code>, that can be answered with either Yes or No, is in the class $NP$ if there is a method, given a problem instance and a certificate, to verify in polytime that the answer <strong>Yes</strong> is correct.
+    <ul>
+      <li><strong>Certificate</strong>
+        <ul>
+          <li>A solution to the given problem.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Consists of problems that are verifiable in polynomial time.
+    <ul>
+      <li><strong>Verifiability</strong>
+        <ul>
+          <li>Given a certificate(solution), can the problem be solved in polytime with the same solution as the certificate?
+            <ul>
+              <li>If it is verified that the certificate is correct in polytime, then the problem is verifiable in polytime.</li>
+              <li>If not true, it does not prove that the problem is not verifiable in polytime, as there could be a different certificate solvable in polytime.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="simple-explanation">Simple Explanation</h3>
+<ul>
+  <li>Not about solving a problem in polytime but verifying it in polytime.</li>
+  <li>If the problem is $\ge\Omega(n^k)$ (takes greater than $n^k$ time to solve) but can be verified in $n^k$ time, then it is part of $NP$
+    <ul>
+      <li>If the problem cannot be verified</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="np-complete">NP-Complete</h2>
+<ul>
+  <li>A problem <code class="highlighter-rouge">P</code> is in class $NP$-complete if it is in $NP$ and if all other problems in $NP$ can be reduced to $P$</li>
+  <li>Status is unknown.</li>
+  <li>No polytime algorithm has been discovered for an $NP$-Complete problem, nor proven that no polytime algorithm can exist for any one of them.
+    <ul>
+      <li>The $P\ne NP$ Question</li>
+    </ul>
+  </li>
+  <li>If any $NP$-complete problem can be solved in polytime, then every problem in $NP$ has a polytime solution ($P=NP$)</li>
+</ul>
+
+<h1 id="co-np">Co-NP</h1>
+<ul>
+  <li>A problem <code class="highlighter-rouge">P</code> that can be answered with either Yes or No is in the class co-$NP$ if there is a method, given a problem instance and a certificate, to verify in polytime that the answer <strong>No</strong> is correct.</li>
+</ul>
 
 <h1 id="greedy-algorithms">Greedy Algorithms</h1>
 <ul>
@@ -147,7 +366,6 @@
 
 <ul>
   <li><a href="/CSI-5007/notes/sorting-algorithms/#merge-sort">Merge Sort</a></li>
-  <li><a href="/CSI-5007/notes/sorting-algorithms/#quicksort">Quicksort</a></li>
   <li><a href="/CSI-5007/notes/searching-algorithms/#binary-search">Binary Search</a></li>
   <li><a href="/CSI-5007/notes/sorting-algorithms/#heapsort">Heapsort</a></li>
 </ul>

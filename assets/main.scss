@@ -3,20 +3,6 @@
 
 @import "minima";
 
-@media print {
-    #search, .search, .site-header, .site-footer, .post-meta, .post-content > ul:nth-child(1){
-        display: none;
-    }
-
-    .highlighter-rouge .highlight {
-        background-color: #e0e0e0;
-    }
-    
-    .post-content h1:not(:first-of-type) {
-        page-break-before: always;
-    }
-
-}
 
 .post-content h1 {
     font-size: 32px;
@@ -35,4 +21,21 @@ code, .highlighter-rouge .highlight {
 #search {
     float: right;
     margin-right: 5em;
+}
+
+
+@media print {
+
+    #search, .search, .site-header, .site-footer, .post-meta, .post-content > ul:nth-child(1){
+        display: none;
+    }
+
+    code, .highlighter-rouge .highlight{
+        background-color: #f2f2f2;
+    }
+    
+    .post-content h1:not(:first-of-type) {
+        page-break-before: always;
+    }
+
 }

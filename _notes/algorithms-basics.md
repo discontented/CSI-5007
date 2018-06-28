@@ -3,6 +3,7 @@ layout: post
 mathjax: true
 ---
 
+- [Algorithm](#algorithm)
 - [Algorithm Design Guidelines](#algorithm-design-guidelines)
     - [Properties of a Good Algorithm](#properties-of-a-good-algorithm)
 - [Correctness](#correctness)
@@ -16,7 +17,12 @@ mathjax: true
     - [Big-$\Theta$](#big-theta)
 - [Complexity Classes](#complexity-classes)
 - [Vocab](#vocab)
-- [Greedy Algorithms](#greedy-algorithms)
+
+# Algorithm
+
+• Any well-defined computational procedure that takes some value, or set of values, as input and produces an output.
+• Input -> Process -> Output
+
 
 # Algorithm Design Guidelines
 
@@ -80,16 +86,16 @@ $$f(n)=\Theta(g(n))$$
 
 # Complexity Classes
 
-Complexity Class|Function|Common Cases
----|---|---
-Constant Functions|$f(n)=1$|Adding Constants<br>Printing
-Logarithmic Functions|$f(n)=log(n)$|Binary search
-Linear Functions|$f(n)|Looking at each item once in an $n$-element array
-Superlinear Functions|$f(n) = nlg(n)$|Quicksort<br>Mergesort
-Quadratic Functions|$f(n) = n^2$|Looking at all pairs of items in an $n$-element universe<br>Bubble Sort<br>Insertion Sort
-Cubic Functions|$f(n)=n^3$|Enumerate through 3-tuple or triplets of items in an $n$-element universe<br>Dynamic Programming
-Exponential Functions|$f(n) = c^n|Enumerating all subsets of $n$ items
-Factorial Functions|$f(n) = n!$|Generating all permutations of $n$ items
+| Complexity Class      | Function        | Common Cases                                                                                     |
+| --------------------- | --------------- | ------------------------------------------------------------------------------------------------ |
+| Constant Functions    | $f(n) = 1$      | Adding Constants<br>Printing                                                                     |
+| Logarithmic Functions | $f(n) = log(n)$ | Binary search                                                                                    |
+| Linear Functions      | $f(n) = n$      | Looking at each item once in an $n$-element array                                                |
+| Superlinear Functions | $f(n) = nlg(n)$ | Quicksort<br>Mergesort                                                                           |
+| Quadratic Functions   | $f(n) = n^2$    | Looking at all pairs of items in an $n$-element universe<br>Bubble Sort<br>Insertion Sort        |
+| Cubic Functions       | $f(n) = n^3$    | Enumerate through 3-tuple or triplets of items in an $n$-element universe<br>Dynamic Programming |
+| Exponential Functions | $f(n) = c^n$    | Enumerating all subsets of $n$ items                                                             |
+| Factorial Functions   | $f(n) = n!$     | Generating all permutations of $n$ items                                                         |
 
 >>>>>>> 67d11d1a3361ef318f9ba5da0545d85a17c2f706
 
@@ -100,9 +106,3 @@ Factorial Functions|$f(n) = n!$|Generating all permutations of $n$ items
 
 - Stable
     - A sort is **stable** if two elements with equivalent keys maintain their relative position after the sort.
-
-# Greedy Algorithms
-
-- At a choice within an algorithm, the algorithm makes the best choice at the moment.
-
-> Greedy algorithms make the decision of what to do next by selecting the best local option from all available choices without regard to the global structure. -**Algorithm Design Manual**
