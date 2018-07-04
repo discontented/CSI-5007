@@ -64,11 +64,6 @@ mathjax: true
 # Algorithm Analysis
 
 ## Big-O
-<<<<<<< HEAD
-- $f(n)=O(g(n))$ means $c\bullet{g(n)}$ is an upper bound on $f(n)$
-    - There exists some constant $c$ such that $f(n)$ is always $\le c\bullet g(n)$, for large enough $(n)$ ($n\ge n_0$ for some constant $n_0$)
-- $f(n)$
-=======
 $$f(n)=O(g(n))$$
 - $c\cdot{g(n)}$ is an upper bound on $f(n)$
 - There exists some constant $c$ such that $f(n) \le c\cdot g(n)$, for $n\ge n_0$ for some constant $n_0$
@@ -97,7 +92,6 @@ $$f(n)=\Theta(g(n))$$
 | Exponential Functions | $f(n) = c^n$    | Enumerating all subsets of $n$ items                                                             |
 | Factorial Functions   | $f(n) = n!$     | Generating all permutations of $n$ items                                                         |
 
->>>>>>> 67d11d1a3361ef318f9ba5da0545d85a17c2f706
 
 # Vocab
 
